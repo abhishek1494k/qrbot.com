@@ -1,0 +1,110 @@
+*{
+    /* width:0;
+    padding:0;
+    margin:0; */
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#spinner {
+    display: none;
+}
+
+#nav{
+    color: white;
+    background-color: #0cc0df;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:flex-start;
+    padding: 10px 20px;
+}
+
+#nav h2{
+    border: 2px solid white;
+    padding: 5px;
+    margin: 0px 10px;
+}
+
+#container{
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    /* border:2px solid rgb(251, 5, 5); */
+}
+
+#container #image{
+    width:40%;
+    height:auto;
+    border:2px solid rgb(187, 187, 187);
+}
+
+#container #data{
+    width:60%;
+    height: auto;
+    /* padding: 10px; */
+    /* border:2px solid rgb(251, 5, 5); */
+}
+
+#generate-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 2px solid rgb(212, 212, 212); */
+    /* margin-top: 62px; */
+}
+
+#generate-form input{
+    border: 2px solid rgb(212, 212, 212);
+    padding: 5px;
+    margin: 5px;
+    width: 70%;
+    text-align: center;
+    color: rgb(137, 137, 137);
+    text-align: center;
+}
+#generate-form select{
+    border: 2px solid rgb(212, 212, 212);
+    padding: 6px;
+    margin: 5px;
+    width: 70%;
+    text-align: center;
+    color: rgb(137, 137, 137);
+    text-align: center;
+}
+#generate-form button{
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    width: 70%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: #0cc0df;
+}
+
+#save-link{
+    border-radius: 5px;
+    width: 50%;
+    padding: 5px;
+    margin: auto;
+    margin-top: 5px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: #0cc0df;
+}
+
+/* class="max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-20" */
+#generated{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+#generated #spinner{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
