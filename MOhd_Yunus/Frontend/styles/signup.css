@@ -1,0 +1,118 @@
+body{
+    margin: 0px;
+    background-image: url("https://images3.alphacoders.com/914/914159.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#main{
+    width: 60%;
+    background-color: white;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+#main img{
+    width: 10%;
+    border-radius: 5px;
+}
+#form{
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#left{
+    width:40% ;
+    
+}
+#left button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    align-items: center;
+    color: #242424;
+    font-family: sans-serif;
+    font-weight: 600;
+    border:1px solid rgb(204, 204, 204);
+
+}
+
+#left button:hover{
+    cursor: pointer;
+}
+
+#left button img{
+    width: 10%;
+}
+
+#right input{
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 70%;
+    border-radius: 10px;
+    font-family: sans-serif;
+    border:1px solid rgb(204, 204, 204);
+
+}
+#submit{
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+#submit:hover{
+    color:white;
+    background-color:#0cc0df;
+    cursor: pointer;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#line{
+    width: 1px;
+    height: auto;
+    background-color: #7e7979;
+}
+
+@media all and (min-width:1300px) and (max-width:2000px){
+    #main{
+        width: 40%;
+        background-color: white;
+        margin: auto;
+        margin-top: 100px;
+        border-radius: 20px;
+        text-align: center;
+        padding: 20px;
+    }
+}
+
+
+@media all and (min-width:900px) and (max-width:1300px){
+    #main{
+        width: 50%;
+        background-color: white;
+        margin: auto;
+        margin-top: 100px;
+        border-radius: 20px;
+        text-align: center;
+        padding: 20px;
+    }
+}
+
+@media all and (min-width:500px) and (max-width:970px){
+    #main{
+        width: 70%;
+        background-color: white;
+        margin: auto;
+        margin-top: 100px;
+        border-radius: 20px;
+        text-align: center;
+        padding: 20px;
+    }
+}

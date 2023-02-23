@@ -50,11 +50,12 @@ UserRouter.post("/signup",async(req,res)=>{
                     res.send({"msg":"Successfully Signed Up"})
                 }else{
                     console.log(err);
-                    res.send({"msg":"something wrong in hashing"})
+                    // res.send(err)
+                    res.send({"error":err})
                 }
             })
         }else{
-            res.send({"msg":"you have been already Signed Up"})
+            res.send({"msg":"You have been already Signed Up"})
         }
     } catch (error) {
         console.log(error);
