@@ -27,5 +27,5 @@ app.listen(process.env.port,async()=>{
     } catch (error) {
         console.log("db is not connected");
     }
-    console.log(`http://localhost:${process.env.port}`);
+    console.log(`http://localhost:${process.env.port}/`);
 });
