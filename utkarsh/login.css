@@ -1,8 +1,39 @@
-body{
+
+
+*{
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.back{
+
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.back::before{
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHUf4_hHqrfF4UCLZou-vlD-1OTmPMwUptgg&usqp=CAU");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
+    
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+
+
+
+
     
 
 }
