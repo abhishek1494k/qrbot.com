@@ -11,6 +11,7 @@ body{
     justify-content: space-around;
     border: 0px solid gray;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #0cc0df;
     
     
      
@@ -46,9 +47,7 @@ color: #858080;
     font-weight: 500;
 }
 
-#navbar p{
-    font-weight: 600;
-}
+
 
 #navbar p:hover{
     cursor: pointer;
@@ -69,6 +68,7 @@ color: #858080;
 #nav-left{
     display: flex;
     border: 0px solid red;
+    width: 60%;
 }
 
 #logo{
@@ -87,9 +87,15 @@ color: #858080;
     display: flex;
     justify-content: space-around;
     border: 0px solid blue;
-    width: 60%;
+    width: 80%;
     align-items: center;
+    
 
+}
+#menu p{
+    font-family: sans-serif;
+
+    font-weight:500;
 }
 
 #div1{
