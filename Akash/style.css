@@ -12,14 +12,14 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #E3F2FD;
+    background: #fff;
 }
 
 .wrapper{
     width: 420px;
     height: 270px;
     border-radius: 7px;
-    background-color: #0B85FF;
+    background-color: #0cc0df;
     padding: 30px 30px 35px;
     transition: height 0.2s ease;
 }
@@ -53,11 +53,11 @@ form img{
     display: none;
 }
 form .content i{
-    color: #0B85FF;
+    color: #0cc0df;
     font-size: 55px;
 }
 form .content p{
-    color: #0B85FF;
+    color: #0cc0df;
     font-size: 16px;
     margin-top: 15px;
 }
@@ -94,11 +94,20 @@ form .content p{
     outline: none;
     border: none;
     cursor: pointer;
-    color: #0B85FF;
+    color: #0cc0df;
     background: #fff;
     border-radius: 5px;
     width: calc(100% / 2 - 10px);
     font-size: 16px;
     font-weight: 500;
 
+}
+
+button:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #0cc0df;
+    border: 1px solid white;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }

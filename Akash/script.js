@@ -32,9 +32,14 @@ function fetchRequest(formData,file){
   copyBtn.addEventListener("click",()=>{
     let text = wrapper.querySelector("textarea").textContent;
     navigator.clipboard.writeText(text);
+    copyBtn.innerText="Copied"
   })
  form.addEventListener("click", ()=>fileInp.click());
- closeBtn.addEventListener("click", ()=>wrapper.classList.remove("active"));
+ closeBtn.addEventListener("click", ()=> {
+  wrapper.classList.remove("active")
+   window.location.reload();
+
+});
 
 
 //  #0cc0df;
