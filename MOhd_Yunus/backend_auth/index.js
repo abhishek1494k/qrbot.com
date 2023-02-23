@@ -11,9 +11,11 @@ const {fbRouter}=require("./auth/facebook")
 app.use(express.json());
 app.use(cors());
 app.use(UserRouter);
-app.use(gitRoute);
 app.use(googleRouter);
-app.use(fbRouter);
+
+app.use(gitRoute);
+
+// app.use(fbRouter);
 
 
 
