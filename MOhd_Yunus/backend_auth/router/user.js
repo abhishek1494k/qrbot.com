@@ -72,8 +72,9 @@ UserRouter.post("/login",async(req,res)=>{{
         if(passdata.length==1){
             bcrypt.compare(password, passdata[0].password, function(err, result) {
                 if(result){
-                    var token=jwt.sign({dataid:passdata[0]._id},process.env.token_secret,{expiresIn:90});
-                    var Refreshtoken=jwt.sign({dataid:passdata[0]._id},process.env.Refresh_token_secret,{expiresIn:300});
+                    console.log(passdata[0]._id);
+                    var token=jwt.sign({dataid:passdata[0]._id,email:passdata[0].email},process.env.token_secret,{expiresIn:"1d"});
+                    var Refreshtoken=jwt.sign({dataid:passdata[0]._id,email:passdata[0].email},process.env.Refresh_token_secret,{expiresIn:"7d"});
                     res.send({"msg":"Successfully logged in",token,Refreshtoken,name:passdata[0].name});
                 }else{
                     console.log(err);

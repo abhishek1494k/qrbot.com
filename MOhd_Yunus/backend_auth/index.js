@@ -8,13 +8,17 @@ const cors=require("cors");
 const {UserRouter}=require("./router/user");
 const {googleRouter}=require("./auth/google");
 const {fbRouter}=require("./auth/facebook")
+const {Qr_save_Router}=require("./router/qr_gen_save");
+const {adminRoute}=require("./router/admin.route");
+
+
 app.use(express.json());
 app.use(cors());
+app.use(adminRoute)
 app.use(UserRouter);
 app.use(googleRouter);
-
 app.use(gitRoute);
-
+app.use(Qr_save_Router);
 // app.use(fbRouter);
 
 
