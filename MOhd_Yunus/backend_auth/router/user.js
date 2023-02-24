@@ -16,7 +16,6 @@ UserRouter.get("/refresh",async(req,res)=>{
             let dataid=decoded.dataid;
             let new_token=jwt.sign({dataid},process.env.token_secret,{expiresIn:60});
             res.send({"msg":"referesh token generrated",new_token});
-        
         }
     }else{
         res.send({"msg":"login again"})
@@ -37,6 +36,7 @@ UserRouter.post("/logout",async(req,res)=>{
         res.send({"msg":"something went wrong"})
     }
 })
+
 UserRouter.post("/signup",async(req,res)=>{
     try {
         const {name,email,password}=req.body;
@@ -90,6 +90,7 @@ UserRouter.post("/login",async(req,res)=>{{
         res.send({"error":error})
     }
 }});
+
 UserRouter.get("/admin",authentication,async(req,res)=>{
     try {
         res.send("protected route")
