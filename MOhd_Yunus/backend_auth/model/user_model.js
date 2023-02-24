@@ -4,6 +4,8 @@ const UserSchema=mongoose.Schema({
     name:String,
     password:String,
     email:String,
+},{
+    versionKey:false
 });
 
 const UserModel=mongoose.model("user",UserSchema);
