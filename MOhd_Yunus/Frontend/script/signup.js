@@ -15,7 +15,7 @@ alert("Pleasse Fill all Credentials")
 });
 async function fetch_sign(obj){
     try {
-        let response=await fetch("http://localhost:6500/signup",{
+        let response=await fetch("http://localhost:5500/signup",{
             method:"POST",
             headers:{
                 "Content-Type":"Application/json"

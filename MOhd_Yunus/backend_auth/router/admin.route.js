@@ -10,14 +10,13 @@ adminRoute.get("/user/detail",async(req,res)=>{
         let data= await UserModel.aggregate([{
             $lookup:
               {
-                from: "QRModel" ,
+                from: "qrs" ,
                 localField: "email",
                 foreignField: "email",
-                as:"USerQrGeneratedList"
+                as:"list"
             }
          }])
-         console.log(data);
-         res.send("obj")
+         res.send(data)
     } catch (error) {
         console.log(error);
     }
