@@ -169,8 +169,16 @@
             
             gap: 10px;
         } */
+        
+        .box>div{
+            width: 100%;
+        }
         .box>div>div:nth-child(1){
-           background-color:  #fcb900;
+            width: 100%;
+           padding: 5%
+        }
+        .box>div>div:nth-child(1)>h3{
+            font-size: 100%;
         }
        
         #pills-tab{
@@ -473,7 +481,7 @@ let main3=document.getElementById("pills-default")
                 btn2.innerText="Block"
                 btn2.addEventListener("click",()=>{
                     blacklist(user)
-                    console.log("delete")
+                   // console.log("delete")
                 })    
 
                 div3.append(img)
@@ -668,57 +676,73 @@ let main3=document.getElementById("pills-default")
 
  
    async function Details(data){
-        let {id}=data
+        let list=data.list
         main3.innerHTML=""
         main2.innerHTML=""
         main1.innerHTML=""
-        for(let user of arr2){
-            if(user.userid==id){
-                console.log(user)
-                let M=document.createElement("div")
-            let DIV=document.createElement("div")
-                DIV.className="box"
-            let div2 =document.createElement("div")
+        
+                 let M=document.createElement("div")
+             let DIV=document.createElement("div")
+                 DIV.className="box"
+                DIV.style.width="800px"
+             let div2 =document.createElement("div")
            
-            let div3 =document.createElement("div")  
-                 div3.style="background-color: #fcb900"
+            // let div3 =document.createElement("div")  
+            //      div3.style="background-color: #fcb900"
             
                  let div4 =document.createElement("div")
+                 div4.style.display="flex"
+                 div4.style.flexDirection="column"
+                 div4.style.alignItems="start"
            
-            let img=document.createElement("img")
-                img.src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg";
+            // let img=document.createElement("img")
+            //     img.src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg";
+                let count=1
+           for(let dat of list){
+                let H31=document.createElement("h3")
+                let H32=document.createElement("h3")
+                let H33=document.createElement("h3")
+                H31.innerText=`${count}. email: ${dat.email}`
+                count++    
+                H33.innerText=`${count}. size: ${dat.size}`
+                count++
+                H32.innerText=`${count}. url: ${dat.url}`
+                count++
+                div4.append(H31,H33,H32)
                 
-           
-                let H3=document.createElement("h3")
-                H3.innerText=`${user.X}`    
-           
-                let btn1=document.createElement("button")
-                btn1.innerText="Details"
-                btn1.addEventListener("click",(e)=>{
-                  Details(user)
-                    //console.log(user)
-                })      
+           }
+            //     let btn1=document.createElement("button")
+            //     btn1.innerText="Details"
+            //     btn1.addEventListener("click",(e)=>{
+            //       Details(user)
+            //         //console.log(user)
+            //     })      
             
-                let btn2=document.createElement("button")
-                btn2.innerText="Block"
-                btn2.addEventListener("click",()=>{
-                    console.log("delete")
-                })    
+            //     let btn2=document.createElement("button")
+            //     btn2.innerText="Block"
+            //     btn2.addEventListener("click",()=>{
+            //         console.log("delete")
+            //     })    
 
-                div3.append(img)
-                 div4.append(H3,btn1,btn2)
-                 div2.append(div3,div4)
+                //div3.append(img)
+                // div4.append(H3)
+                 div2.append(div4)
                  DIV.append(div2)
                  M.append(DIV)
                  main1.append(M)
-                return
-            }
-        }
-        console.log(data)
+            //     return
+        
+        console.log(data.list)
     }
 
-    // function blacklist(data){
-
-    //     console.log(data)
-    // }
+    async function blacklist(data){
+        try{
+            let req=await fetch("http://localhost:5500/user/block",{
+                method:"POST",
+            body:JSON.stringify(data),
+            headers:{"Content-type":"application/json"}
+            })
+        }catch(err){}
+        console.log(data)
+    }
 </script>
