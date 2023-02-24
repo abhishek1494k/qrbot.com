@@ -17,7 +17,7 @@ form.addEventListener("submit",(e)=>{
 
 async function fetch_login(obj){
     try {
-        let response=await fetch("http://localhost:6500/login",{
+        let response=await fetch("http://localhost:5500/login",{
             method:"POST",
             headers:{
                 "Content-Type":"Application/json"
