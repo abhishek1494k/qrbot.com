@@ -11,7 +11,10 @@ const authentication=async(req,res,next)=>{
         }else{
             let decoded=jwt.verify(token,process.env.token_secret);
             if(decoded){
-                console.log(decoded)
+                console.log(decoded);
+                console.log(decoded.dataid);
+                req.body.userID=decoded.dataid
+                req.body.email=decoded.email
                 next()
             }
         }

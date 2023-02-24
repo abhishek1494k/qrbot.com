@@ -1,9 +1,9 @@
 const mongoose=require("mongoose");
 
 const qrSchema=mongoose.Schema({
-    text:String,
+    url:String,
     size:Number,
-    userID:String,
+    email:String,
 });
 
 const QRModel=mongoose.model("qr",qrSchema);

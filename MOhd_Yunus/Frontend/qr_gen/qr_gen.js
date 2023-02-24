@@ -7,11 +7,11 @@ const onGenerateSubmit = (e) => {
   clearUI();
   const url = document.getElementById("url").value;
   const size = document.getElementById("size").value;
-
   // Validate url
   if (url === "") {
     alert("Please enter a URL");
-  } else {
+  }
+   else {
     showSpinner();
     // Show spinner for 1 sec
     setTimeout(() => {
@@ -26,6 +26,13 @@ const onGenerateSubmit = (e) => {
       }, 50);
     }, 1000);
   }
+  if(size!==""&&url!==""){
+    let obj={
+      url,size
+    }
+    fetch_QR(obj);
+  }
+
 };
 
 // Generate QR code
@@ -72,3 +79,24 @@ const createSaveBtn = (saveUrl) => {
 
 hideSpinner();
 form.addEventListener("submit", onGenerateSubmit);
+
+
+const fetch_QR=async(obj)=>{
+try {
+  let response =await fetch("http://localhost:6500/qr/post",{
+    method:"POST",
+    headers:{
+      "Content-Type":"Application/json",
+      Authorization:JSON.parse(localStorage.getItem("token"))
+    },
+    body:JSON.stringify(obj)
+  });
+  if(response.ok){
+    let ans=await response.json();
+    console.log(ans);
+  }
+} catch (error) {
+  console.log(error);
+}
+}
+       
