@@ -2,11 +2,12 @@
     display: none;
 }
 #logout{
-    display: none;
-    
+    display: none; 
 }
 .log{
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     border: 0px solid red;
     width:10% ;
@@ -19,12 +20,13 @@
 
 #logout_btn{
     background-color: white;
-    padding: 5px 8px 5px 8px;
-    border-radius: 20px;
+    padding: 8px;
+    border-radius: 10px;
     font-size: 15px;
     border: 1px solid #0cc0df ;
     font-weight: 500;
 }
+
 #logout_btn:hover{
     cursor: pointer;
 color:  #0cc0df;
