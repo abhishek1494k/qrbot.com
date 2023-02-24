@@ -152,7 +152,22 @@
         .box>div>div{
             
             border-radius: 10px;
+            padding-bottom: 3%;
         }
+        .box>div>div>img{
+            width: 100%;
+        }
+        .box>div>div>button{
+             border: 0px;
+             border-radius: 10px;
+             background-color: #0cc0df;
+             color: white;
+             margin-left: 10px;
+        }
+        /* .box>div>div:nth-child(2){
+            
+            gap: 10px;
+        } */
         .box>div>div:nth-child(1){
            background-color:  #fcb900;
         }
@@ -338,18 +353,45 @@
 <script>
     let arr=[
         {
+            id: 1,
         img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
         name:"harsh"
     },
     {
+        id:2,
         img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
         name:"mayank"
     },
     {
+        id:3,
         img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
         name:"ravi"
     }
 
+    ]
+
+
+    let arr2=[
+    {
+            userid: 1,
+            X:"abc"
+    },
+    {
+        userid:2,
+        X:"def"
+    },
+    {
+        userid:3,
+        X:"ghi"
+    }
+    ]
+
+    let blackList=[
+    {
+            id: 1,
+        img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
+        name:"harsh"
+    }
     ]
 
     let users=document.getElementById("pills-profile-tab")
@@ -379,13 +421,13 @@ let main3=document.getElementById("pills-default")
 
 
 
-function Default(){
-    let div=`<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                <div><h1>Hello</h1></div>
-        </div>`
-    main1.innerHTML=div
-}
-Default()
+// function Default(){
+//     let div=`<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+//                 <div><h1>Hello</h1></div>
+//         </div>`
+//     main1.innerHTML=div
+// }
+// Default()
     function  renderUsers(){
 
        
@@ -395,27 +437,64 @@ Default()
 
         for(let user of arr){
             console.log(user)
+            let M=document.createElement("div")
             let DIV=document.createElement("div")
+                DIV.className="box"
+            let div2 =document.createElement("div")
+           
+            let div3 =document.createElement("div")  
+                 div3.style="background-color: #fcb900"
             
+                 let div4 =document.createElement("div")
+           
+            let img=document.createElement("img")
+                img.src=`${user.img}`;
+                
+           
+                let H3=document.createElement("h3")
+                H3.innerText=`${user.name}`    
+           
+                let btn1=document.createElement("button")
+                btn1.innerText="Details"
+                btn1.addEventListener("click",(e)=>{
+                  Details(user)
+                    //console.log(user)
+                })      
+            
+                let btn2=document.createElement("button")
+                btn2.innerText="Block"
+                btn2.addEventListener("click",()=>{
+                    blacklist(user)
+                    console.log("delete")
+                })    
 
-             DIV.innerHTML=`         
+                div3.append(img)
+                 div4.append(H3,btn1,btn2)
+                 div2.append(div3,div4)
+                 DIV.append(div2)
+                 M.append(DIV)
+            //  DIV.innerHTML=`         
                           
-                        <div class="box">
-                            <div>
-                                <div style="background-color: #fcb900">
-                                    <img width="100%" src=${user.img} alt="">
-                                </div>
-                                  <div>
-                                    <h3>${user.name}</h3>
-                                  </div>
-                            </div>
+            //             <div class="box">
+            //                 <div>
+            //                     <div style="background-color: #fcb900">
+            //                         <img width="100%" src=${user.img} alt="">
+            //                     </div>
+            //                       <div>
+            //                         <h3>${user.name}</h3><button id='userdet'>Details</button><button>Block</button><button>Delete</button>
+            //                       </div>
+            //                 </div>
                             
-                        </div>
+            //             </div>
                         
                         
                 
-                `
-                    main1.append(DIV)
+            //     `
+                main1.append(M)
+                // let btn=document.getElementById("userdet")
+                //       btn.addEventListener("click",()=>{
+                //           console.log("ok")
+                //        })
         }
     }
     function  renderUsers2(){
@@ -425,33 +504,64 @@ Default()
          
         for(let user of arr){
             console.log(user)
+            let M=document.createElement("div")
             let DIV=document.createElement("div")
+                DIV.className="box"
+            let div2 =document.createElement("div")
+           
+            let div3 =document.createElement("div")  
+                 div3.style="background-color: #fcb900"
+            
+                 let div4 =document.createElement("div")
+           
+            let img=document.createElement("img")
+                img.src=`${user.img}`;
+                
+           
+                let H3=document.createElement("h3")
+                H3.innerText=`${user.name}`    
+           
+                      
+            
+                let btn2=document.createElement("button")
+                btn2.innerText="Delete"
+                btn2.addEventListener("click",()=>{
+                    console.log("delete")
+                })    
+
+                div3.append(img)
+                 div4.append(H3,btn2)
+                 div2.append(div3,div4)
+                 DIV.append(div2)
+                 M.append(DIV)
+            // let DIV=document.createElement("div")
             
 
-             DIV.innerHTML=`         
+            //  DIV.innerHTML=`         
                           
-                        <div class="box">
-                            <div>
-                                <div style="background-color: #fcb900">
-                                    <img width="100%" src=${user.img} alt="">
-                                </div>
-                                  <div>
-                                    <h3>${user.name}</h3>
-                                  </div>
-                            </div>
+            //             <div class="box">
+            //                 <div>
+            //                     <div style="background-color: #fcb900">
+            //                         <img width="100%" src=${user.img} alt="">
+            //                     </div>
+            //                       <div>
+            //                         <h3>${user.name}</h3>
+            //                       </div>
+            //                 </div>
                             
-                        </div>
+            //             </div>
                         
                         
                 
-                `
-                    main2.append(DIV)
+            //     `
+                    main2.append(M)
         }
          
     }
 
 
     function  renderUsers3(){
+
          
         main3.innerHTML=""
         main2.innerHTML=""
@@ -459,20 +569,117 @@ Default()
 
         for(let user of arr){
             console.log(user)
+            let M=document.createElement("div")
             let DIV=document.createElement("div")
-             DIV.innerHTML=`       
-                       <div class="box" >
-                        <div>
-                            <div style="background-color: #00d084">
-                                <img width="100%" src=${user.img} alt="">
-                            </div>
-                              <div>
-                                <h3>${user.name}</h3>
-                              </div>
-                        </div>
+                DIV.className="box"
+            let div2 =document.createElement("div")
+           
+            let div3 =document.createElement("div")  
+                 div3.style="background-color: #fcb900"
+            
+                 let div4 =document.createElement("div")
+           
+            let img=document.createElement("img")
+                img.src=`${user.img}`;
+                
+           
+                let H3=document.createElement("h3")
+                H3.innerText=`${user.name}`    
+           
+                let btn1=document.createElement("button")
+                btn1.innerText="Details"
+                btn1.addEventListener("click",(e)=>{
+                    let x=e
+                    console.log(x)
+                })      
+            
+                let btn2=document.createElement("button")
+                btn2.innerText="Delete"
+                btn2.addEventListener("click",()=>{
+                    console.log("delete")
+                })    
+
+                div3.append(img)
+                 div4.append(H3,btn1,btn2)
+                 div2.append(div3,div4)
+                 DIV.append(div2)
+                 M.append(DIV)
+        //     let DIV=document.createElement("div")
+        //      DIV.innerHTML=`       
+        //                <div class="box" >
+        //                 <div>
+        //                     <div style="background-color: #00d084">
+        //                         <img width="100%" src=${user.img} alt="">
+        //                     </div>
+        //                       <div>
+        //                         <h3>${user.name}</h3>
+        //                       </div>
+        //                 </div>
                         
-        </div>`
-            main3.append(DIV)
+        // </div>`
+            main3.append(M)
         }
     }
+
+
+ 
+    function Details(data){
+        let {id}=data
+        main3.innerHTML=""
+        main2.innerHTML=""
+        main1.innerHTML=""
+        for(let user of arr2){
+            if(user.userid==id){
+                console.log(user)
+                let M=document.createElement("div")
+            let DIV=document.createElement("div")
+                DIV.className="box"
+            let div2 =document.createElement("div")
+           
+            let div3 =document.createElement("div")  
+                 div3.style="background-color: #fcb900"
+            
+                 let div4 =document.createElement("div")
+           
+            let img=document.createElement("img")
+                img.src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg";
+                
+           
+                let H3=document.createElement("h3")
+                H3.innerText=`${user.X}`    
+           
+                let btn1=document.createElement("button")
+                btn1.innerText="Details"
+                btn1.addEventListener("click",(e)=>{
+                  Details(user)
+                    //console.log(user)
+                })      
+            
+                let btn2=document.createElement("button")
+                btn2.innerText="Block"
+                btn2.addEventListener("click",()=>{
+                    console.log("delete")
+                })    
+
+                div3.append(img)
+                 div4.append(H3,btn1,btn2)
+                 div2.append(div3,div4)
+                 DIV.append(div2)
+                 M.append(DIV)
+                 main1.append(M)
+                return
+            }
+        }
+    //   let X=  arr2.includes(id)
+        // main3.innerHTML=""
+        // main2.innerHTML=""
+        // main1.innerHTML=""
+
+       // console.log(X)
+    }
+
+    // function blacklist(data){
+
+    //     console.log(data)
+    // }
 </script>
