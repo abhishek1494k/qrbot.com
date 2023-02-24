@@ -3,6 +3,33 @@
 }
 #logout{
     display: none;
+    
+}
+.log{
+    display: flex;
+    justify-content: space-between;
+    border: 0px solid red;
+    width:10% ;
+}
+#name{
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+#logout_btn{
+    background-color: white;
+    padding: 5px 8px 5px 8px;
+    border-radius: 20px;
+    font-size: 15px;
+    border: 1px solid #0cc0df ;
+    font-weight: 500;
+}
+#logout_btn:hover{
+    cursor: pointer;
+color:  #0cc0df;
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .active_log{
     display: block;
@@ -22,6 +49,7 @@ body{
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     background-color: #0cc0df;
 }
+
 #signin{
     background-color: white;
     padding: 5px 10px 5px 10px;
@@ -425,7 +453,7 @@ margin-bottom: 70px;
     font-size: 14px;
 }
 
-@media screen and (max-width:750px){
+@media screen and (max-width:900px){
 
     #navbar{
         flex-direction: column;
@@ -434,7 +462,7 @@ margin-bottom: 70px;
     #nav-left{
         flex-direction: column;
         width: 100%;
-        margin-left: 80%;
+        margin-left: 60%;
     }
 
     #menu{
@@ -442,9 +470,12 @@ margin-bottom: 70px;
     }
     #logo{
         flex-direction: column;
+        border: 0px solid red;
+       
     }
     #logo img{
-        width: 50%;
+        width: 40%;
+        padding-left: 10%;
     }
 
     #div1{
@@ -519,6 +550,16 @@ margin-bottom: 70px;
     #fbot div{
         flex-direction: column;
     }
+
+    .log{
+        flex-direction: column;
+        
+        width: 20%;
+        margin: auto;
+        text-align: center;
+    }
+
+    
 
 
 
