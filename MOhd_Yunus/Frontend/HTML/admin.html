@@ -351,24 +351,27 @@
 
 
 <script>
-    let arr=[
-        {
-            id: 1,
-        img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
-        name:"harsh"
-    },
-    {
-        id:2,
-        img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
-        name:"mayank"
-    },
-    {
-        id:3,
-        img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
-        name:"ravi"
-    }
 
-    ]
+
+   
+    // let arr=[
+    //     {
+    //         id: 1,
+    //     img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
+    //     name:"harsh"
+    // },
+    // {
+    //     id:2,
+    //     img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
+    //     name:"mayank"
+    // },
+    // {
+    //     id:3,
+    //     img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
+    //     name:"ravi"
+    // }
+
+    // ]
 
 
     let arr2=[
@@ -428,15 +431,19 @@ let main3=document.getElementById("pills-default")
 //     main1.innerHTML=div
 // }
 // Default()
-    function  renderUsers(){
-
-       
-        main3.innerHTML=""
+ async function  renderUsers(){
+    try{
+        let fetchdata=await fetch("http://localhost:5500/user/detail")
+        if(fetchdata.ok==true){
+            let arr=await fetchdata.json()
+               
+            main3.innerHTML=""
         main2.innerHTML=""
         main1.innerHTML=""
 
         for(let user of arr){
             console.log(user)
+            user.img="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg"
             let M=document.createElement("div")
             let DIV=document.createElement("div")
                 DIV.className="box"
@@ -473,29 +480,65 @@ let main3=document.getElementById("pills-default")
                  div2.append(div3,div4)
                  DIV.append(div2)
                  M.append(DIV)
-            //  DIV.innerHTML=`         
-                          
-            //             <div class="box">
-            //                 <div>
-            //                     <div style="background-color: #fcb900">
-            //                         <img width="100%" src=${user.img} alt="">
-            //                     </div>
-            //                       <div>
-            //                         <h3>${user.name}</h3><button id='userdet'>Details</button><button>Block</button><button>Delete</button>
-            //                       </div>
-            //                 </div>
-                            
-            //             </div>
-                        
-                        
-                
-            //     `
+        
                 main1.append(M)
-                // let btn=document.getElementById("userdet")
-                //       btn.addEventListener("click",()=>{
-                //           console.log("ok")
-                //        })
+          
+       }
+            console.log(arr)
         }
+      //  let D2=await data.json()
+        
+    }catch(err){
+        console.log(err)
+    }
+
+       
+        // main3.innerHTML=""
+        // main2.innerHTML=""
+        // main1.innerHTML=""
+
+        // for(let user of arr){
+        //     console.log(user)
+        //     let M=document.createElement("div")
+        //     let DIV=document.createElement("div")
+        //         DIV.className="box"
+        //     let div2 =document.createElement("div")
+           
+        //     let div3 =document.createElement("div")  
+        //          div3.style="background-color: #fcb900"
+            
+        //          let div4 =document.createElement("div")
+           
+        //     let img=document.createElement("img")
+        //         img.src=`${user.img}`;
+                
+           
+        //         let H3=document.createElement("h3")
+        //         H3.innerText=`${user.name}`    
+           
+        //         let btn1=document.createElement("button")
+        //         btn1.innerText="Details"
+        //         btn1.addEventListener("click",(e)=>{
+        //           Details(user)
+        //             //console.log(user)
+        //         })      
+            
+        //         let btn2=document.createElement("button")
+        //         btn2.innerText="Block"
+        //         btn2.addEventListener("click",()=>{
+        //             blacklist(user)
+        //             console.log("delete")
+        //         })    
+
+        //         div3.append(img)
+        //          div4.append(H3,btn1,btn2)
+        //          div2.append(div3,div4)
+        //          DIV.append(div2)
+        //          M.append(DIV)
+        
+        //         main1.append(M)
+          
+      //  }
     }
     function  renderUsers2(){
         main3.innerHTML=""
@@ -623,7 +666,7 @@ let main3=document.getElementById("pills-default")
 
 
  
-    function Details(data){
+   async function Details(data){
         let {id}=data
         main3.innerHTML=""
         main2.innerHTML=""
@@ -670,12 +713,7 @@ let main3=document.getElementById("pills-default")
                 return
             }
         }
-    //   let X=  arr2.includes(id)
-        // main3.innerHTML=""
-        // main2.innerHTML=""
-        // main1.innerHTML=""
-
-       // console.log(X)
+        console.log(data)
     }
 
     // function blacklist(data){
