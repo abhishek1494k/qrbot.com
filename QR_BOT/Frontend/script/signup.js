@@ -24,8 +24,13 @@ async function fetch_sign(obj){
         });
         if(response.ok){
             let ans=await response.json();
-            alert(ans.msg);
-            window.location.href="./login.html"
+            alert(ans.msg)
+            if(ans.msg==="You have been Blocked"){
+                window.location.href="../index.html"
+            }else{
+                window.location.href="./login.html"
+            }
+            
         }else{
             console.log("Something wrong");
         }
