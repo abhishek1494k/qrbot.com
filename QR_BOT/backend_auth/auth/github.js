@@ -59,7 +59,6 @@ gitRoute.get("/github/home",async(req,res)=>{
         const obj={
             name,email
         }
-        console.log(obj);
         res.status(200).redirect("http://127.0.0.1:5501/QR_BOT/Frontend/index.html")
     } catch (error) {
         console.log(error);
