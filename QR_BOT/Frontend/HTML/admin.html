@@ -362,7 +362,7 @@
 <script>
 
 
-   
+
     // let arr=[
     //     {
     //         id: 1,
@@ -383,28 +383,28 @@
     // ]
 
 
-    let arr2=[
-    {
-            userid: 1,
-            X:"abc"
-    },
-    {
-        userid:2,
-        X:"def"
-    },
-    {
-        userid:3,
-        X:"ghi"
-    }
-    ]
+    // let arr2=[
+    // {
+    //         userid: 1,
+    //         X:"abc"
+    // },
+    // {
+    //     userid:2,
+    //     X:"def"
+    // },
+    // {
+    //     userid:3,
+    //     X:"ghi"
+    // }
+    // ]
 
-    let blackList=[
-    {
-            id: 1,
-        img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
-        name:"harsh"
-    }
-    ]
+    // let blackList=[
+    // {
+    //         id: 1,
+    //     img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
+    //     name:"harsh"
+    // }
+    // ]
 
     let users=document.getElementById("pills-profile-tab")
     let blocked=document.getElementById("pills-contact-tab")
@@ -415,7 +415,7 @@
     })
 
     blocked.addEventListener("click",()=>{
-        renderUsers2()
+        blockedusers()
         console.log("yes")
     })
 
@@ -433,25 +433,26 @@ let main3=document.getElementById("pills-default")
 
 
 
-// function Default(){
-//     let div=`<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-//                 <div><h1>Hello</h1></div>
-//         </div>`
-//     main1.innerHTML=div
-// }
-// Default()
+ 
+
  async function  renderUsers(){
+    console.log("dfdsfdfbdfb")
     try{
         let fetchdata=await fetch("http://localhost:5500/user/detail")
+        let res=await fetch("http://localhost:5500/user/block/details")
         if(fetchdata.ok==true){
             let arr=await fetchdata.json()
-               
+              let arr2=await res.json() 
+              console.log(arr2)
             main3.innerHTML=""
         main2.innerHTML=""
         main1.innerHTML=""
 
         for(let user of arr){
             console.log(user)
+            if(arr2.includes(user.email)){
+                continue
+            }else{
             user.img="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg"
             let M=document.createElement("div")
             let DIV=document.createElement("div")
@@ -491,11 +492,12 @@ let main3=document.getElementById("pills-default")
                  M.append(DIV)
         
                 main1.append(M)
+            }
           
        }
-            console.log(arr)
+           
         }
-      //  let D2=await data.json()
+    
         
     }catch(err){
         console.log(err)
@@ -549,11 +551,18 @@ let main3=document.getElementById("pills-default")
           
       //  }
     }
-    function  renderUsers2(){
-        main3.innerHTML=""
-        main2.innerHTML=""
-        main1.innerHTML=""
-         
+  
+   async function  blockedusers(){
+    try{
+        let res=await fetch("http://localhost:5500/user/block/details")
+        if(res.ok==true){
+            let arr=await res.json()
+               console.log(arr)
+               main3.innerHTML=""
+           main2.innerHTML=""
+           main1.innerHTML=""
+
+            let count=1
         for(let user of arr){
             console.log(user)
             let M=document.createElement("div")
@@ -566,48 +575,36 @@ let main3=document.getElementById("pills-default")
             
                  let div4 =document.createElement("div")
            
-            let img=document.createElement("img")
-                img.src=`${user.img}`;
+            
                 
            
                 let H3=document.createElement("h3")
-                H3.innerText=`${user.name}`    
-           
+                H3.innerText=`${count}: ${user}`    
+                H3.style.fontSize="70%"
                       
             
-                let btn2=document.createElement("button")
+                 let btn2=document.createElement("button")
                 btn2.innerText="Delete"
                 btn2.addEventListener("click",()=>{
                     console.log("delete")
                 })    
 
-                div3.append(img)
+               // div3.append(img)
                  div4.append(H3,btn2)
-                 div2.append(div3,div4)
+                 div2.append(div4)
                  DIV.append(div2)
                  M.append(DIV)
-            // let DIV=document.createElement("div")
-            
-
-            //  DIV.innerHTML=`         
-                          
-            //             <div class="box">
-            //                 <div>
-            //                     <div style="background-color: #fcb900">
-            //                         <img width="100%" src=${user.img} alt="">
-            //                     </div>
-            //                       <div>
-            //                         <h3>${user.name}</h3>
-            //                       </div>
-            //                 </div>
-                            
-            //             </div>
-                        
-                        
-                
-            //     `
+         
                     main2.append(M)
+                    count++
         }
+
+        }
+    }catch(err){
+        console.log(err)
+    }
+      
+        
          
     }
 
@@ -656,19 +653,7 @@ let main3=document.getElementById("pills-default")
                  div2.append(div3,div4)
                  DIV.append(div2)
                  M.append(DIV)
-        //     let DIV=document.createElement("div")
-        //      DIV.innerHTML=`       
-        //                <div class="box" >
-        //                 <div>
-        //                     <div style="background-color: #00d084">
-        //                         <img width="100%" src=${user.img} alt="">
-        //                     </div>
-        //                       <div>
-        //                         <h3>${user.name}</h3>
-        //                       </div>
-        //                 </div>
-                        
-        // </div>`
+        
             main3.append(M)
         }
     }
@@ -742,7 +727,12 @@ let main3=document.getElementById("pills-default")
             body:JSON.stringify(data),
             headers:{"Content-type":"application/json"}
             })
-        }catch(err){}
+        }catch(err){
+            console.log(err)
+        }
         console.log(data)
     }
+
+
+    
 </script>
