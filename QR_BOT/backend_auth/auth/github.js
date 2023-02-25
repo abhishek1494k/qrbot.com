@@ -7,29 +7,21 @@ const app=express();
 
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-gitRoute.get("/",async(req,res)=>{
-    try {
-        res.send("Home_Page")
-    } catch (error) {
-        console.log(error);
-    }
-})
-
-// gitRoute.get("/login",async(req,res)=>{
+// gitRoute.get("/",async(req,res)=>{
 //     try {
-//         res.sendFile(__dirname+"/index.html")
+//         res.send("Home_Page")
 //     } catch (error) {
 //         console.log(error);
 //     }
 // })
 
-
-
-
-
-
-
-
+gitRoute.get("/login",async(req,res)=>{
+    try {
+        res.sendFile(__dirname+"/index.html")
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -70,7 +62,8 @@ gitRoute.get("/github/home",async(req,res)=>{
             name,email
         }
         console.log(obj);
-        res.send({"msg":"Signup Sucessful"})
+        // res.send({"msg":"Signup Sucessful"})
+        res.status(200).redirect("http://127.0.0.1:5501/QR_BOT/Frontend/index.html")
         // res.sendFile(__dirname+"/index.html")
     } catch (error) {
         console.log(error);
