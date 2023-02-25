@@ -14,12 +14,11 @@ const {adminRoute}=require("./router/admin.route");
 
 app.use(express.json());
 app.use(cors());
-
+app.use(gitRoute);
 
 
 app.use(UserRouter);
 app.use(googleRouter);
-app.use(gitRoute);
 app.use(Qr_save_Router);
 app.use(adminRoute)
 

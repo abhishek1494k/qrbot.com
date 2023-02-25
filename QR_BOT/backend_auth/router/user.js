@@ -40,8 +40,6 @@ UserRouter.post("/logout", async (req, res) => {
   }
 });
 
-
-
 UserRouter.post("/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
