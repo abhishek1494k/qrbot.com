@@ -26,13 +26,40 @@ adminRoute.get("/user/detail", async (req, res) => {
 
 adminRoute.post("/user/block", async (req, res) => {
   try {
+    let users=await UserModel.find()
+    
+    //console.log(X)
     let blacklistAcc = JSON.parse(
       fs.readFileSync("./blacklistuser.json", "utf-8")
     );
     blacklistAcc.push(req.body.list[0].email);
     fs.writeFileSync("./blacklistuser.json", JSON.stringify(blacklistAcc));
-    console.log(req.body.list[0].email);
-    res.send({ msg: `${req.body.list[0].email} has been blacklisted` });
+    // let Y=JSON.parse(
+    //     fs.readFileSync("./blacklistuser.json", "utf-8")
+    //   );
+
+    //   let X=users.map((el)=>{
+    //     return el.email
+    //   })
+//        let arr=[]
+//   for(let i=0;i<Y.length;i++){
+//       let flag=0
+//     for(let j=0;j<users.length;j++){
+//         if(Y[i]==users[j].email){
+//             users.splice(j,1)
+//             j--
+//             flag=1
+//         }
+//     }
+//     if(flag==0){
+//         arr.push(Y[i])
+//     }
+//   }
+//    arr.push(users)
+//     console.log(arr[0])
+   // console.log(Y)
+    
+    res.send({ msg: `${req.body.list[0].email} has been blacklisted`});
   } catch (err) {
     console.log(err);
     res.send("can't block");
