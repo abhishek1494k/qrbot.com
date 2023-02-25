@@ -90,9 +90,10 @@
         /* border: 1px solid red; 
         } */
         #pills-profile {
+            height: auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            
             /* border: 1px solid red; */
         }
 
@@ -127,7 +128,7 @@
 
         }
 
-        #big_image {
+        /* #big_image {
             margin-top: 150px;
             margin-bottom: 150px;
             display: flex;
@@ -136,14 +137,14 @@
             margin: auto;
             height: auto;
             max-width: 100%;
-        }
+        } */
 
-        .head {
+        /* .head {
             font-size: 40px;
             font-stretch: ultra-expanded;
-        }
+        } */
 
-        .logos {
+        /* .logos {
             text-align: center;
             display: flex;
             justify-content: space-evenly;
@@ -152,15 +153,15 @@
             margin-top: 100px;
             margin-bottom: 100px;
             max-width: 100%;
-        }
-
+        } */
+/* 
         .container-heading2 {
             margin-top: 100px;
         }
 
         .heading2 {
             text-align: center;
-        }
+        } */
 
         .box {
 
@@ -470,7 +471,7 @@
                 main1.innerHTML = ""
 
                 for (let user of arr) {
-                    console.log(user)
+                   // console.log(user)
                     if (arr2.includes(user.email)) {
                         continue;
                     } else {
@@ -478,6 +479,7 @@
                         let M = document.createElement("div")
                         let DIV = document.createElement("div")
                         DIV.className = "box"
+                        DIV.style.width="70%"
                         let div2 = document.createElement("div")
 
                         let div3 = document.createElement("div")
@@ -487,7 +489,7 @@
 
                         let img = document.createElement("img")
                         img.src = `${user.img}`;
-
+                        img.style.width="100%"
 
                         let H3 = document.createElement("h3")
                         H3.innerText = `${user.name}`
@@ -501,14 +503,26 @@
 
                         let btn2 = document.createElement("button")
                         btn2.innerText = "Block"
-                        btn2.addEventListener("click", () => {
-                            console.log(user)
+                        btn2.addEventListener("click", (e) => {
+                            e.preventDefault()
+                           // console.log(user)
                             blacklist(user)
                             // console.log("delete")
+                          //  deleteuser()
+                        })
+                        let btn3 = document.createElement("button")
+                        btn3.innerText = "delete"
+                        btn3.addEventListener("click", (e) => {
+                            e.preventDefault()
+                           // console.log(user)
+                            
+                            // console.log("delete")
+                            deleteuser(user)
                         })
 
+
                         div3.append(img)
-                        div4.append(H3, btn1, btn2)
+                        div4.append(H3, btn1, btn2,btn3)
                         div2.append(div3, div4)
                         DIV.append(div2)
                         M.append(DIV)
@@ -603,8 +617,10 @@
 
                     let btn2 = document.createElement("button")
                     btn2.innerText = "Delete"
-                    btn2.addEventListener("click", () => {
-                        console.log("delete")
+                    btn2.addEventListener("click", (event) => {
+                       event.preventDefault()
+                       remblockeduser(user)
+                       // console.log("delete")
                     })
 
                     // div3.append(img)
@@ -707,21 +723,7 @@
             div4.append(H31, H33, H32)
 
         }
-        //     let btn1=document.createElement("button")
-        //     btn1.innerText="Details"
-        //     btn1.addEventListener("click",(e)=>{
-        //       Details(user)
-        //         //console.log(user)
-        //     })      
-
-        //     let btn2=document.createElement("button")
-        //     btn2.innerText="Block"
-        //     btn2.addEventListener("click",()=>{
-        //         console.log("delete")
-        //     })    
-
-        //div3.append(img)
-        // div4.append(H3)
+       
         div2.append(div4)
         DIV.append(div2)
         M.append(DIV)
@@ -740,13 +742,128 @@
                     "Content-type": "application/json",
                     Authorization: JSON.parse(localStorage.getItem('token'))
                 }
+            }).then((res)=>res.json()).then((res)=>{
+                alert(res.msg)
+                
             })
+
+            let fetchdata = await fetch("http://localhost:5500/user/detail", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'apllication/json',
+                    Authorization: JSON.parse(localStorage.getItem("token"))
+                },
+            })
+              
+                   
+            if (fetchdata.ok == true) {
+                let arr = await fetchdata.json()
+                 
+                // console.log(arr2)
+                main3.innerHTML = ""
+                main2.innerHTML = ""
+                main1.innerHTML = ""
+
+                for (let user of arr) {
+                   // console.log(user)
+                     
+                      
+                        user.img = "https://w7.pngwing.com/pngs/910/606/png-transparent-head-the-dummy-avatar-man-tie-jacket-user-thumbnail.png"
+                        let M = document.createElement("div")
+                        let DIV = document.createElement("div")
+                        DIV.className = "box"
+                        DIV.style.width="70%"
+                        let div2 = document.createElement("div")
+
+                        let div3 = document.createElement("div")
+                        div3.style = "background-color: #0cc0df"
+
+                        let div4 = document.createElement("div")
+
+                        let img = document.createElement("img")
+                        img.src = `${user.img}`;
+                        img.style.width="100%"
+
+                        let H3 = document.createElement("h3")
+                        H3.innerText = `${user.name}`
+
+                        let btn1 = document.createElement("button")
+                        btn1.innerText = "Details"
+                        btn1.addEventListener("click", (e) => {
+                            Details(user)
+                            //console.log(user)
+                        })
+
+                        let btn2 = document.createElement("button")
+                        btn2.innerText = "Block"
+                        btn2.addEventListener("click", (e) => {
+                            e.preventDefault()
+                           // console.log(user)
+                            blacklist(user)
+                            // console.log("delete")
+                          //  deleteuser()
+                        })
+                        let btn3 = document.createElement("button")
+                        btn3.innerText = "delete"
+                        btn3.addEventListener("click", (e) => {
+                            e.preventDefault()
+                           // console.log(user)
+                            
+                            // console.log("delete")
+                            deleteuser(user)
+                        })
+
+
+                        div3.append(img)
+                        div4.append(H3, btn1, btn2,btn3)
+                        div2.append(div3, div4)
+                        DIV.append(div2)
+                        M.append(DIV)
+                        main1.append(M)
+                    }
+                }
+            
+       
+             
         } catch (err) {
             console.log(err)
         }
         console.log(data)
     }
 
+    async function  remblockeduser(data){
+              try{
+                console.log(data)
+                let res= await fetch("http://localhost:5500/user/unblock",{
+                    method:"POST",
+                    body:JSON.stringify({usermail:data}),
+                    headers:{
+                        "Content-type":"application/json",
+                        Authorization: JSON.parse(localStorage.getItem("token"))
+                    }
+                })
+                
+              }catch(err){
+                console.log(err)
+              }
+    }
 
+
+    async function deleteuser(data){
+     
+        try{
+            let res=await fetch("http://localhost:5500/user/delete",{
+                method:"DELETE",
+                body:JSON.stringify(data),
+                headers:{
+                    "Content-type":"application/json",
+                    Authorization: JSON.parse(localStorage.getItem("token"))
+                }
+            })
+        }catch(err){
+            console.log(err)
+        }
+
+    }
 
 </script>
