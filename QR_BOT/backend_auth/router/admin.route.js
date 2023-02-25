@@ -20,7 +20,7 @@ adminRoute.get("/user/detail",async(req,res)=>{
 });
 
 
-adminRoute.post("/user/block",(req,res)=>{
+adminRoute.post("/user/block",async (req,res)=>{
     try{
         let {email}=req.body
         let blacklistAcc = JSON.parse(fs.readFileSync("./blacklistuser.json", "utf-8"));
@@ -34,6 +34,16 @@ adminRoute.post("/user/block",(req,res)=>{
         console.log(err)
         res.send("can't block")
     }
+})
+adminRoute.get("/user/block/details",(req,res)=>{
+  try{
+    let detail=JSON.parse(fs.readFileSync("./blacklistuser.json","utf-8"))
+    console.log(detail)
+    res.send(detail)
+  }catch(err){
+    console.log(err)
+    res.send("can't find")
+  }
 })
 // adminRoute.delete("/user/delete",async (req,res)=>{
 //     let data=req.body
