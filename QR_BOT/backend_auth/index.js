@@ -15,12 +15,13 @@ const {adminRoute}=require("./router/admin.route");
 app.use(express.json());
 app.use(cors());
 
-app.use(adminRoute)
+
+
 app.use(UserRouter);
 app.use(googleRouter);
 app.use(gitRoute);
 app.use(Qr_save_Router);
-// app.use(fbRouter);
+app.use(adminRoute)
 
 app.listen(process.env.port,async()=>{
     try {

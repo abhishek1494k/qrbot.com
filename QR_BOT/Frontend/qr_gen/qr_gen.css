@@ -24,6 +24,11 @@
   margin: 0px 10px;
 }
 
+#nav a{
+  text-decoration: none;
+  color: white;
+}
+
 #container {
   width: 70%;
   margin: auto;

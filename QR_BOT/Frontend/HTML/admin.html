@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,121 +12,138 @@
 
 
     <style>
-        #functioning{
+        #functioning {
             display: flex;
-               gap: 2%;
-               height: 100%;
-               padding-top: 4%;
-               /* border: 1px solid blue; */
+            gap: 2%;
+            height: 100%;
+            padding-top: 4%;
+            /* border: 1px solid blue; */
         }
-        #pills-tab{
+
+        #pills-tab {
             display: flex;
             flex-direction: column;
             /* border: 1px solid red; */
             width: 14.5%;
-            
+
         }
-        .nav-item{
+
+        .nav-item {
             width: 100%;
             /* border: 1px solid blue; */
-             
+
         }
+
         /* #pills-home-tab{
             width: 100%;
             /* text-align: center; */
-           /* text-align: end;
+        /* text-align: end;
         } */
-        #pills-profile-tab{
+        #pills-profile-tab {
             width: 80%;
-            
-             margin-left: 4%;
-             /* color: black; */
-             text-align:left;
-             font-size: 20px;
-        }
-        #pills-profile-tab:hover{
-            background-color: rgb(226, 226, 226);
-        }
-        #pills-contact-tab{
-            width: 80%;
-            
-             margin-left: 4%;
-            text-align: center;
-            text-align:left;
+
+            margin-left: 4%;
+            /* color: black; */
+            text-align: left;
             font-size: 20px;
         }
-        #pills-contact-tab:hover{
+
+        #pills-profile-tab:hover {
             background-color: rgb(226, 226, 226);
         }
-        #pills-default-tab{
+
+        #pills-contact-tab {
             width: 80%;
-            
+
             margin-left: 4%;
             text-align: center;
-            text-align:left;
+            text-align: left;
             font-size: 20px;
         }
-        #pills-default-tab:hover{
+
+        #pills-contact-tab:hover {
             background-color: rgb(226, 226, 226);
         }
-        #pills-tabContent{
+
+        #pills-default-tab {
+            width: 80%;
+
+            margin-left: 4%;
+            text-align: center;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        #pills-default-tab:hover {
+            background-color: rgb(226, 226, 226);
+        }
+
+        #pills-tabContent {
             border: 1px solid grey;
             width: 80%;
             background-color: rgb(238, 237, 237);
         }
-         /* .container-heading1{
+
+        /* .container-heading1{
             /* margin-top: 100px;
             margin-bottom: 100px; */
-            /* border: 1px solid red; 
+        /* border: 1px solid red; 
         } */
-        #pills-profile{
+        #pills-profile {
             display: grid;
-            grid-template-columns: repeat(4,1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
             /* border: 1px solid red; */
         }
-        #pills-contact{
+
+        #pills-contact {
             display: grid;
-            grid-template-columns: repeat(4,1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
             /* border: 1px solid red; */
             /* sdfngkfdsjng,f */
         }
-        #pills-default{
+
+        #pills-default {
             display: grid;
-            grid-template-columns: repeat(4,1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
             /* border: 1px solid red; */
         }
-        .box{
+
+        .box {
             background-color: white;
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             margin: 5%;
         }
 
-         .box>div>div{
+        .box>div>div {
             text-align: center;
-         }
-        .heading1{
-            text-align: center;
-           
         }
-        #big_image{
+
+        .heading1 {
+            text-align: center;
+
+        }
+
+        #big_image {
             margin-top: 150px;
             margin-bottom: 150px;
             display: flex;
             justify-content: space-evenly;
             width: 800px;
             margin: auto;
-           height: auto;
-           max-width: 100%;
+            height: auto;
+            max-width: 100%;
         }
-        .head{
+
+        .head {
             font-size: 40px;
-            font-stretch:ultra-expanded;
+            font-stretch: ultra-expanded;
         }
-        .logos{
+
+        .logos {
             text-align: center;
             display: flex;
             justify-content: space-evenly;
@@ -135,56 +153,67 @@
             margin-bottom: 100px;
             max-width: 100%;
         }
-        .container-heading2{
+
+        .container-heading2 {
             margin-top: 100px;
         }
-        .heading2{
-            text-align: center;  
+
+        .heading2 {
+            text-align: center;
         }
-        .box{
-            
+
+        .box {
+
             display: flex;
             justify-content: space-evenly;
         }
-        .box>div{
+
+        .box>div {
             width: 100%;
-            
+
         }
-        .box>div>div{
-            
+
+        .box>div>div {
+
             border-radius: 10px;
             padding-bottom: 3%;
         }
-        .box>div>div>img{
+
+        .box>div>div>img {
             width: 100%;
         }
-        .box>div>div>button{
-             border: 0px;
-             border-radius: 10px;
-             background-color: #0cc0df;
-             color: white;
-             margin-left: 10px;
+
+        .box>div>div>button {
+            border: 0px;
+            border-radius: 10px;
+            background-color: #0cc0df;
+            color: white;
+            margin-left: 10px;
         }
+
         /* .box>div>div:nth-child(2){
             
             gap: 10px;
         } */
-        
-        .box>div{
+
+        .box>div {
             width: 100%;
         }
-        .box>div>div:nth-child(1){
+
+        .box>div>div:nth-child(1) {
             width: 100%;
-           padding: 5%
+            padding: 5%
         }
-        .box>div>div:nth-child(1)>h3{
+
+        .box>div>div:nth-child(1)>h3 {
             font-size: 100%;
         }
-       
-        #pills-tab{
+
+        #pills-tab {
             display: flex;
             align-items: center;
         }
+
         /* @media all and (min-width:100px) and (max-width:523px) {
             .logos{
                 flex-direction: column;
@@ -201,8 +230,8 @@
             grid-template-columns: repeat(4,1fr);
             
             /* border: 1px solid red; */
-       /* }*/
-      /*  #pills-contact{
+        /* }*/
+        /*  #pills-contact{
             
             grid-template-columns: repeat(4,1fr);
             
@@ -215,295 +244,282 @@
            
         }
         } */
-        @media all and(min-width:1100px) and (max-width:1300px){
-            #pills-profile{
-            
-            grid-template-columns: repeat(3,1fr);
-            
-            /* border: 1px solid red; */
+        @media all and(min-width:1100px) and (max-width:1300px) {
+            #pills-profile {
+
+                grid-template-columns: repeat(3, 1fr);
+
+                /* border: 1px solid red; */
+            }
+
+            #pills-contact {
+
+                grid-template-columns: repeat(3, 1fr);
+
+                /* border: 1px solid red; */
+            }
+
+            #pills-default {
+
+                grid-template-columns: repeat(3, 1fr);
+
+                /* border: 1px solid red; */
+            }
         }
-        #pills-contact{
-            
-            grid-template-columns: repeat(3,1fr);
-            
-            /* border: 1px solid red; */
+
+        @media all and (min-width:750px) and (max-width:1100px) {
+            #pills-profile {
+
+                grid-template-columns: repeat(2, 1fr);
+
+                /* border: 1px solid red; */
+            }
+
+            #pills-contact {
+
+                grid-template-columns: repeat(2, 1fr);
+
+                /* border: 1px solid red; */
+            }
+
+            #pills-default {
+
+                grid-template-columns: repeat(2, 1fr);
+
+
+            }
         }
-        #pills-default{
-             
-            grid-template-columns: repeat(3,1fr);
-             
-            /* border: 1px solid red; */
-        }
-        }
-        @media all and (min-width:750px) and (max-width:1100px){
-            #pills-profile{
-            
-            grid-template-columns: repeat(2,1fr);
-            
-            /* border: 1px solid red; */
-        }
-        #pills-contact{
-            
-            grid-template-columns: repeat(2,1fr);
-            
-            /* border: 1px solid red; */
-        }
-        #pills-default{
-             
-            grid-template-columns: repeat(2,1fr);
-             
-           
-        }
-        }
-        @media all and (min-width:10px) and (max-width:750px){
-            #pills-profile{
-            
-            grid-template-columns: repeat(1,1fr);
-            
-            /* border: 1px solid red; */
-        }
-        #pills-contact{
-            
-            grid-template-columns: repeat(1,1fr);
-            
-            /* border: 1px solid red; */
-        }
-        #pills-default{
-             
-            grid-template-columns: repeat(1,1fr);
-             
-           
-        }
+
+        @media all and (min-width:10px) and (max-width:750px) {
+            #pills-profile {
+
+                grid-template-columns: repeat(1, 1fr);
+
+                /* border: 1px solid red; */
+            }
+
+            #pills-contact {
+
+                grid-template-columns: repeat(1, 1fr);
+
+                /* border: 1px solid red; */
+            }
+
+            #pills-default {
+
+                grid-template-columns: repeat(1, 1fr);
+
+
+            }
         }
     </style>
 </head>
+
 <body>
-      <div id="dashcont">
-        <div class="leftdiv"><div><img width="15%" src="../Images/QR BOT 2.png" alt=""><h5>ADMIN PANEL</h5></div><div><input type="text" placeholder="&#9741;  Search anything ...."><h4 id="adminname">NAME</h4></div></div>
-           <div class="rightdiv">
+    <div id="dashcont">
+        <div class="leftdiv">
+            <div><img width="15%" src="../Images/QR BOT 2.png" alt="">
+                <h5>ADMIN PANEL</h5>
+            </div>
+            <div><input type="text" placeholder="&#9741;  Search anything ....">
+                <h4 id="adminname">NAME</h4>
+            </div>
+        </div>
+        <div class="rightdiv">
             <div id="functioning">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                 
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">&#128100; Users</button>
-                      <hr>
+                        <a href="../index.html" class="nav-link" id="pills-default-tab">&#127968; Home</a>
+                        <hr>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">&#128245; Blocked users</button>
-                       <hr>
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">&#128100; Users</button>
+                        <hr>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-default-tab" data-bs-toggle="pill" data-bs-target="#pills-default" type="button" role="tab" aria-controls="pills-default" aria-selected="false">&#128295; Settings</button>
-                         <hr> 
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">&#128245; Blocked</button>
+                        <hr>
                     </li>
-                      
-                    
-                  </ul>
-                  <div class="tab-content" id="pills-tabContent">
-                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                          <div>
-                        <div class="box">
-                            <div>
-                                <div style="background-color: #fcb900">
-                                    <img width="100%" src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg" alt="">
-                                </div>
-                                  <div>
-                                    <h3>How The Software House Approaches Email Development</h3>
-                                  </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">   <div>
-                       <div class="box" >
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-default-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-default" type="button" role="tab" aria-controls="pills-default"
+                            aria-selected="false">&#128295; Settings</button>
+                        <hr>
+                    </li>
+
+
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                        tabindex="0">
                         <div>
-                            <div style="background-color: #00d084">
-                                <img width="100%" src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1.svg" alt="">
-                            </div>
-                              <div>
-                                <h3>How Calendly Streamlines Emails Testing with Mailtrap</h3>
-                              </div>
-                        </div>
-                        
-                       </div> 
-                    </div></div>
-                    <div class="tab-pane fade" id="pills-default" role="tabpanel" aria-labelledby="pills-default-tab" tabindex="0"> 
-                         <div>
-                        <div class="box">
-                            <div>
-                                <div style="background-color:#8ed1fc">
-                                    <img width="100%" src="https://mailtrap.io/wp-content/uploads/2021/09/Featured-Image1-1.svg" alt="">
-                                </div>
+                            <div class="box">
                                 <div>
-                                    <h3>
-                                        How Kinsta's Developers, Design and OA's
-                                    </h3>
+                                    <div style="background-color: #fcb900">
+                                        <img width="100%"
+                                            src="https://w7.pngwing.com/pngs/910/606/png-transparent-head-the-dummy-avatar-man-tie-jacket-user-thumbnail.png"
+                                            alt="">
+                                    </div>
+                                    <div>
+                                        <h3>How The Software House Approaches Email Development</h3>
+                                    </div>
                                 </div>
                             </div>
-                          
                         </div>
-                      
-                          
                     </div>
-                </div> 
-                
-            </div>
-           
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                        tabindex="0">
+                        <div>
+                            <div class="box">
+                                <div>
+                                    <div style="background-color: #00d084">
+                                        <img width="100%"
+                                            src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1.svg"
+                                            alt="">
+                                    </div>
+                                    <div>
+                                        <h3>How Calendly Streamlines Emails Testing with Mailtrap</h3>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-default" role="tabpanel" aria-labelledby="pills-default-tab"
+                        tabindex="0">
+                        <div>
+                            <div class="box">
+                                <div>
+                                    <div style="background-color:#8ed1fc">
+                                        <img width="100%"
+                                            src="https://mailtrap.io/wp-content/uploads/2021/09/Featured-Image1-1.svg"
+                                            alt="">
+                                    </div>
+                                    <div>
+                                        <h3>
+                                            How Kinsta's Developers, Design and OA's
+                                        </h3>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
 
-           </div>
-        
-      </div>  
+        </div>
+
+    </div>
 </body>
+
 </html>
 
 
 
 <script>
-
-
-
-    // let arr=[
-    //     {
-    //         id: 1,
-    //     img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
-    //     name:"harsh"
-    // },
-    // {
-    //     id:2,
-    //     img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
-    //     name:"mayank"
-    // },
-    // {
-    //     id:3,
-    //     img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
-    //     name:"ravi"
-    // }
-
-    // ]
-
-
-    // let arr2=[
-    // {
-    //         userid: 1,
-    //         X:"abc"
-    // },
-    // {
-    //     userid:2,
-    //     X:"def"
-    // },
-    // {
-    //     userid:3,
-    //     X:"ghi"
-    // }
-    // ]
-
-    // let blackList=[
-    // {
-    //         id: 1,
-    //     img:"https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg",
-    //     name:"harsh"
-    // }
-    // ]
-
-    let users=document.getElementById("pills-profile-tab")
-    let blocked=document.getElementById("pills-contact-tab")
-    let others=document.getElementById("pills-default-tab")
-    users.addEventListener("click",()=>{
+    let users = document.getElementById("pills-profile-tab")
+    let blocked = document.getElementById("pills-contact-tab")
+    let others = document.getElementById("pills-default-tab")
+    users.addEventListener("click", () => {
         renderUsers()
         console.log("yes")
     })
 
-    blocked.addEventListener("click",()=>{
+    blocked.addEventListener("click", () => {
         blockedusers()
         console.log("yes")
     })
 
-    others.addEventListener("click",()=>{
-        renderUsers3()
-        console.log("yes")
-    })
+    let maincont = document.getElementById("pills-tabContent")
+    let main1 = document.getElementById("pills-profile")
+    let main2 = document.getElementById("pills-contact")
+    let main3 = document.getElementById("pills-default")
 
-    
+    async function renderUsers() {
 
-let maincont=document.getElementById("pills-tabContent")
-let main1=document.getElementById("pills-profile")
-let main2=document.getElementById("pills-contact")
-let main3=document.getElementById("pills-default")
+        try {
+            let fetchdata = await fetch("http://localhost:5500/user/detail", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'apllication/json',
+                    Authorization: JSON.parse(localStorage.getItem("token"))
+                },
+            })
+            let res = await fetch("http://localhost:5500/user/block/details", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'apllication/json',
+                    Authorization: JSON.parse(localStorage.getItem("token"))
+                },
+            })
+            if (fetchdata.ok == true) {
+                let arr = await fetchdata.json()
+                let arr2 = await res.json()
+                // console.log(arr2)
+                main3.innerHTML = ""
+                main2.innerHTML = ""
+                main1.innerHTML = ""
+
+                for (let user of arr) {
+                    console.log(user)
+                    if (arr2.includes(user.email)) {
+                        continue;
+                    } else {
+                        user.img = "https://w7.pngwing.com/pngs/910/606/png-transparent-head-the-dummy-avatar-man-tie-jacket-user-thumbnail.png"
+                        let M = document.createElement("div")
+                        let DIV = document.createElement("div")
+                        DIV.className = "box"
+                        let div2 = document.createElement("div")
+
+                        let div3 = document.createElement("div")
+                        div3.style = "background-color: #0cc0df"
+
+                        let div4 = document.createElement("div")
+
+                        let img = document.createElement("img")
+                        img.src = `${user.img}`;
 
 
+                        let H3 = document.createElement("h3")
+                        H3.innerText = `${user.name}`
 
- 
+                        let btn1 = document.createElement("button")
+                        btn1.innerText = "Details"
+                        btn1.addEventListener("click", (e) => {
+                            Details(user)
+                            //console.log(user)
+                        })
 
- async function  renderUsers(){
-    console.log("dfdsfdfbdfb")
-    try{
-        let fetchdata=await fetch("http://localhost:5500/user/detail")
-        let res=await fetch("http://localhost:5500/user/block/details")
-        if(fetchdata.ok==true){
-            let arr=await fetchdata.json()
-              let arr2=await res.json() 
-              console.log(arr2)
-            main3.innerHTML=""
-        main2.innerHTML=""
-        main1.innerHTML=""
+                        let btn2 = document.createElement("button")
+                        btn2.innerText = "Block"
+                        btn2.addEventListener("click", () => {
+                            console.log(user)
+                            blacklist(user)
+                            // console.log("delete")
+                        })
 
-        for(let user of arr){
-            console.log(user)
-            if(arr2.includes(user.email)){
-                continue
-            }else{
-            user.img="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg"
-            let M=document.createElement("div")
-            let DIV=document.createElement("div")
-                DIV.className="box"
-            let div2 =document.createElement("div")
-           
-            let div3 =document.createElement("div")  
-                 div3.style="background-color: #fcb900"
-            
-                 let div4 =document.createElement("div")
-           
-            let img=document.createElement("img")
-                img.src=`${user.img}`;
-                
-           
-                let H3=document.createElement("h3")
-                H3.innerText=`${user.name}`    
-           
-                let btn1=document.createElement("button")
-                btn1.innerText="Details"
-                btn1.addEventListener("click",(e)=>{
-                  Details(user)
-                    //console.log(user)
-                })      
-            
-                let btn2=document.createElement("button")
-                btn2.innerText="Block"
-                btn2.addEventListener("click",()=>{
-                    blacklist(user)
-                   // console.log("delete")
-                })    
-
-                div3.append(img)
-                 div4.append(H3,btn1,btn2)
-                 div2.append(div3,div4)
-                 DIV.append(div2)
-                 M.append(DIV)
-        
-                main1.append(M)
+                        div3.append(img)
+                        div4.append(H3, btn1, btn2)
+                        div2.append(div3, div4)
+                        DIV.append(div2)
+                        M.append(DIV)
+                        main1.append(M)
+                    }
+                }
             }
-          
-       }
-           
+        } catch (err) {
+            console.log(err)
         }
-    
-        
-    }catch(err){
-        console.log(err)
-    }
 
-       
         // main3.innerHTML=""
         // main2.innerHTML=""
         // main1.innerHTML=""
@@ -514,26 +530,26 @@ let main3=document.getElementById("pills-default")
         //     let DIV=document.createElement("div")
         //         DIV.className="box"
         //     let div2 =document.createElement("div")
-           
+
         //     let div3 =document.createElement("div")  
         //          div3.style="background-color: #fcb900"
-            
+
         //          let div4 =document.createElement("div")
-           
+
         //     let img=document.createElement("img")
         //         img.src=`${user.img}`;
-                
-           
+
+
         //         let H3=document.createElement("h3")
         //         H3.innerText=`${user.name}`    
-           
+
         //         let btn1=document.createElement("button")
         //         btn1.innerText="Details"
         //         btn1.addEventListener("click",(e)=>{
         //           Details(user)
         //             //console.log(user)
         //         })      
-            
+
         //         let btn2=document.createElement("button")
         //         btn2.innerText="Block"
         //         btn2.addEventListener("click",()=>{
@@ -546,193 +562,191 @@ let main3=document.getElementById("pills-default")
         //          div2.append(div3,div4)
         //          DIV.append(div2)
         //          M.append(DIV)
-        
+
         //         main1.append(M)
-          
-      //  }
+
+        //  }
     }
-  
-   async function  blockedusers(){
-    try{
-        let res=await fetch("http://localhost:5500/user/block/details")
-        if(res.ok==true){
-            let arr=await res.json()
-               console.log(arr)
-               main3.innerHTML=""
-           main2.innerHTML=""
-           main1.innerHTML=""
 
-            let count=1
-        for(let user of arr){
-            console.log(user)
-            let M=document.createElement("div")
-            let DIV=document.createElement("div")
-                DIV.className="box"
-            let div2 =document.createElement("div")
-           
-            let div3 =document.createElement("div")  
-                 div3.style="background-color: #fcb900"
-            
-                 let div4 =document.createElement("div")
-           
-            
-                
-           
-                let H3=document.createElement("h3")
-                H3.innerText=`${count}: ${user}`    
-                H3.style.fontSize="70%"
-                      
-            
-                 let btn2=document.createElement("button")
-                btn2.innerText="Delete"
-                btn2.addEventListener("click",()=>{
-                    console.log("delete")
-                })    
+    async function blockedusers() {
+        try {
+            let res = await fetch("http://localhost:5500/user/block/details", {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: JSON.parse(localStorage.getItem('token'))
+                }
+            })
+            if (res.ok == true) {
+                let arr = await res.json()
+                console.log(arr)
+                main3.innerHTML = ""
+                main2.innerHTML = ""
+                main1.innerHTML = ""
 
-               // div3.append(img)
-                 div4.append(H3,btn2)
-                 div2.append(div4)
-                 DIV.append(div2)
-                 M.append(DIV)
-         
+                let count = 1
+                for (let user of arr) {
+                    console.log(user)
+                    let M = document.createElement("div")
+                    let DIV = document.createElement("div")
+                    DIV.className = "box"
+                    let div2 = document.createElement("div")
+
+                    let div3 = document.createElement("div")
+                    div3.style = "background-color: #0cc0df"
+
+                    let div4 = document.createElement("div")
+                    let H3 = document.createElement("h3")
+                    H3.innerText = `${count}: ${user}`
+                    H3.style.fontSize = "70%"
+
+
+                    let btn2 = document.createElement("button")
+                    btn2.innerText = "Delete"
+                    btn2.addEventListener("click", () => {
+                        console.log("delete")
+                    })
+
+                    // div3.append(img)
+                    div4.append(H3, btn2)
+                    div2.append(div4)
+                    DIV.append(div2)
+                    M.append(DIV)
+
                     main2.append(M)
                     count++
-        }
+                }
 
-        }
-    }catch(err){
-        console.log(err)
-    }
-      
-        
-         
-    }
-
-
-    function  renderUsers3(){
-
-         
-        main3.innerHTML=""
-        main2.innerHTML=""
-        main1.innerHTML=""
-
-        for(let user of arr){
-            console.log(user)
-            let M=document.createElement("div")
-            let DIV=document.createElement("div")
-                DIV.className="box"
-            let div2 =document.createElement("div")
-           
-            let div3 =document.createElement("div")  
-                 div3.style="background-color: #fcb900"
-            
-                 let div4 =document.createElement("div")
-           
-            let img=document.createElement("img")
-                img.src=`${user.img}`;
-                
-           
-                let H3=document.createElement("h3")
-                H3.innerText=`${user.name}`    
-           
-                let btn1=document.createElement("button")
-                btn1.innerText="Details"
-                btn1.addEventListener("click",(e)=>{
-                    let x=e
-                    console.log(x)
-                })      
-            
-                let btn2=document.createElement("button")
-                btn2.innerText="Delete"
-                btn2.addEventListener("click",()=>{
-                    console.log("delete")
-                })    
-
-                div3.append(img)
-                 div4.append(H3,btn1,btn2)
-                 div2.append(div3,div4)
-                 DIV.append(div2)
-                 M.append(DIV)
-        
-            main3.append(M)
+            }
+        } catch (err) {
+            console.log(err)
         }
     }
+    // function renderUsers3() {
 
 
- 
-   async function Details(data){
-        let list=data.list
-        main3.innerHTML=""
-        main2.innerHTML=""
-        main1.innerHTML=""
-        
-                 let M=document.createElement("div")
-             let DIV=document.createElement("div")
-                 DIV.className="box"
-                DIV.style.width="800px"
-             let div2 =document.createElement("div")
-           
-            // let div3 =document.createElement("div")  
-            //      div3.style="background-color: #fcb900"
-            
-                 let div4 =document.createElement("div")
-                 div4.style.display="flex"
-                 div4.style.flexDirection="column"
-                 div4.style.alignItems="start"
-           
-            // let img=document.createElement("img")
-            //     img.src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg";
-                let count=1
-           for(let dat of list){
-                let H31=document.createElement("h3")
-                let H32=document.createElement("h3")
-                let H33=document.createElement("h3")
-                H31.innerText=`${count}. email: ${dat.email}`
-                count++    
-                H33.innerText=`${count}. size: ${dat.size}`
-                count++
-                H32.innerText=`${count}. url: ${dat.url}`
-                count++
-                div4.append(H31,H33,H32)
-                
-           }
-            //     let btn1=document.createElement("button")
-            //     btn1.innerText="Details"
-            //     btn1.addEventListener("click",(e)=>{
-            //       Details(user)
-            //         //console.log(user)
-            //     })      
-            
-            //     let btn2=document.createElement("button")
-            //     btn2.innerText="Block"
-            //     btn2.addEventListener("click",()=>{
-            //         console.log("delete")
-            //     })    
+    //     main3.innerHTML = ""
+    //     main2.innerHTML = ""
+    //     main1.innerHTML = ""
 
-                //div3.append(img)
-                // div4.append(H3)
-                 div2.append(div4)
-                 DIV.append(div2)
-                 M.append(DIV)
-                 main1.append(M)
-            //     return
-        
+    //     for (let user of arr) {
+    //         console.log(user)
+    //         let M = document.createElement("div")
+    //         let DIV = document.createElement("div")
+    //         DIV.className = "box"
+    //         let div2 = document.createElement("div")
+
+    //         let div3 = document.createElement("div")
+    //         div3.style = "background-color: #fcb900"
+
+    //         let div4 = document.createElement("div")
+
+    //         let img = document.createElement("img")
+    //         img.src = `${user.img}`;
+
+
+    //         let H3 = document.createElement("h3")
+    //         H3.innerText = `${user.name}`
+
+    //         let btn1 = document.createElement("button")
+    //         btn1.innerText = "Details"
+    //         btn1.addEventListener("click", (e) => {
+    //             let x = e
+    //             console.log(x)
+    //         })
+
+    //         let btn2 = document.createElement("button")
+    //         btn2.innerText = "Delete"
+    //         btn2.addEventListener("click", () => {
+    //             console.log("delete")
+    //         })
+
+    //         div3.append(img)
+    //         div4.append(H3, btn1, btn2)
+    //         div2.append(div3, div4)
+    //         DIV.append(div2)
+    //         M.append(DIV)
+
+    //         main3.append(M)
+    //     }
+    // }
+
+    async function Details(data) {
+        let list = data.list
+        main3.innerHTML = ""
+        main2.innerHTML = ""
+        main1.innerHTML = ""
+
+        let M = document.createElement("div")
+        let DIV = document.createElement("div")
+        DIV.className = "box"
+        DIV.style.width = "800px"
+        let div2 = document.createElement("div")
+
+        // let div3 =document.createElement("div")  
+        //      div3.style="background-color: #fcb900"
+
+        let div4 = document.createElement("div")
+        div4.style.display = "flex"
+        div4.style.flexDirection = "column"
+        div4.style.alignItems = "start"
+
+        // let img=document.createElement("img")
+        //     img.src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg";
+        let count = 1
+        for (let dat of list) {
+            let H31 = document.createElement("h3")
+            let H32 = document.createElement("h3")
+            let H33 = document.createElement("h3")
+            H31.innerText = `${count}. email: ${dat.email}`
+            count++
+            H33.innerText = `${count}. size: ${dat.size}`
+            count++
+            H32.innerText = `${count}. url: ${dat.url}`
+            count++
+            div4.append(H31, H33, H32)
+
+        }
+        //     let btn1=document.createElement("button")
+        //     btn1.innerText="Details"
+        //     btn1.addEventListener("click",(e)=>{
+        //       Details(user)
+        //         //console.log(user)
+        //     })      
+
+        //     let btn2=document.createElement("button")
+        //     btn2.innerText="Block"
+        //     btn2.addEventListener("click",()=>{
+        //         console.log("delete")
+        //     })    
+
+        //div3.append(img)
+        // div4.append(H3)
+        div2.append(div4)
+        DIV.append(div2)
+        M.append(DIV)
+        main1.append(M)
+        //     return
+
         console.log(data.list)
     }
 
-    async function blacklist(data){
-        try{
-            let req=await fetch("http://localhost:5500/user/block",{
-                method:"POST",
-            body:JSON.stringify(data),
-            headers:{"Content-type":"application/json"}
+    async function blacklist(data) {
+        try {
+            let req = await fetch("http://localhost:5500/user/block", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-type": "application/json",
+                    Authorization: JSON.parse(localStorage.getItem('token'))
+                }
             })
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
         console.log(data)
     }
 
 
-    
+
 </script>

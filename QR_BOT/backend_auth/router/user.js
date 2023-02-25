@@ -40,9 +40,15 @@ UserRouter.post("/logout", async (req, res) => {
   }
 });
 
+
+
 UserRouter.post("/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    let blockuser=JSON.parse(fs.readFileSync("./blacklistuser.json","utf-8"));
+    if(blockuser.includes(email)){
+      return res.send({msg:'You have been Blocked'})
+    }
     const signedata = await UserModel.find({ email });
     if (signedata.length == 0) {
       bcrypt.hash(password, 5, async (err, hash) => {
@@ -71,6 +77,10 @@ UserRouter.post("/login", async (req, res) => {
   {
     try {
       const { email, password } = req.body;
+      let blockuser=JSON.parse(fs.readFileSync("./blacklistuser.json","utf-8"));
+      if(blockuser.includes(email)){
+        return res.send({msg:'You have been Blocked'})
+      }
       let passdata = await UserModel.find({ email });
       if (passdata.length == 1) {
         bcrypt.compare(password, passdata[0].password, function (err, result) {

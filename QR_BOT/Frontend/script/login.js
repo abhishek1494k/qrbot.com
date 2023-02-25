@@ -30,7 +30,13 @@ async function fetch_login(obj){
             localStorage.setItem("token",JSON.stringify(result.token))
             localStorage.setItem("Refresh",JSON.stringify(result.Refreshtoken));
             console.log(result);
-            window.location.href="../index.html"
+            alert(result.msg)
+            if(result.name=="Admin"){
+                window.location.href="../HTML/admin.html"
+            }else{
+                window.location.href="../index.html"
+            }
+            
         }
     } catch (error) {
         console.log(error);

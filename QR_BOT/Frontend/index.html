@@ -44,7 +44,7 @@
             <h1>Free custom QR code generator.</h1>
             <p>Make a QR code for free that you can use in your branding, marketing, and more to easily direct customers
                 to your website.</p>
-            <a href="./qr_gen/qr_gen.html"><button>Create your QR code now</button></a>
+            <button id="qr_gen" >Create your QR code now</button>
             
         </div>
         <div id="d1r">
@@ -87,7 +87,7 @@
                 ever-growing collection of portrait, landscape, square, and vertical templates to create designs that
                 stand out on any channel, any device.</p>
             <!-- <button>Browse all templates</button> -->
-            <a href="./qr_ana/index.html"><button>QR Code Reader/Analyser</button></a>
+            <button id="qr_ana">QR Code Reader/Analyser</button>
         </div>
     </div>
     <div id="div4">
@@ -166,7 +166,7 @@
 
 <script>
     let name = JSON.parse(localStorage.getItem("name"));
-    if (name) {
+    if (name && name!=="Admin") {
         let nav_right = document.getElementById("nav-right");
         let logout = document.getElementById("logout")
         console.log(logout);
@@ -200,4 +200,29 @@
             console.log(error);
         }
     })
+
+let anaBtn=document.getElementById('qr_ana')
+let genBtn=document.getElementById('qr_gen')
+
+anaBtn.addEventListener('click',()=>{
+
+    let token = localStorage.getItem("token")
+    if(token){
+        window.location.href="./qr_ana/qr_ana.html"
+    } else{
+        alert("Login First")
+    }
+})
+
+genBtn.addEventListener('click',()=>{
+
+let token = localStorage.getItem("token")
+if(token){
+    window.location.href="./qr_gen/qr_gen.html"
+} else{
+    alert("Login First")
+}
+})
+
+
 </script>

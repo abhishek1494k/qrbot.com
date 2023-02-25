@@ -100,7 +100,6 @@ form #content p{
     width: calc(100% / 2 - 10px);
     font-size: 16px;
     font-weight: 500;
-
 }
 
 button:hover{
@@ -112,12 +111,9 @@ button:hover{
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-
-
-
 .content {
     position: absolute;
-    top: 17%;
+    top: 15%;
     left: 85%;
     transform: translate(-50%, -50%);
     height: 160px;
@@ -127,8 +123,8 @@ button:hover{
     line-height: 40px;
     color: #ffffff;
     
-  }
-  .content__container {
+}
+.content__container {
     font-weight: 600;
     overflow: hidden;
     height: 40px;
@@ -260,7 +256,12 @@ button:hover{
   }
   
   #nav h2 {
-    border: 4px solid white;
+    border: 6px solid white;
     padding: 5px;
     margin: 0px 10px;
+  }
+
+  #nav a{
+    text-decoration: none;
+    color:white;
   }
