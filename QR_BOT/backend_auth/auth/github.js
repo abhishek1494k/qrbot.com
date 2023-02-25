@@ -1,36 +1,27 @@
 const express=require("express");
 require('dotenv').config();
-
+const cookieParser = require('cookie-parser')
 const gitRoute=express.Router();
+const helmet = require("helmet");
+const  path=require("node:path");
+
 const app=express();
+app.use(cookieParser());
+app.use(helmet());
 
 
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-// gitRoute.get("/",async(req,res)=>{
+
+
+// gitRoute.get("/login",async(req,res)=>{
 //     try {
-//         res.send("Home_Page")
+//         res.sendFile(__dirname+"/index.html")
 //     } catch (error) {
 //         console.log(error);
 //     }
 // })
 
-gitRoute.get("/login",async(req,res)=>{
-    try {
-        res.sendFile(__dirname+"/index.html")
-    } catch (error) {
-        console.log(error);
-    }
-})
-
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-
-});
 
 
 gitRoute.get("/github/home",async(req,res)=>{
@@ -54,21 +45,29 @@ gitRoute.get("/github/home",async(req,res)=>{
                 Authorization:`Bearer ${access_token.access_token}`
             },
         }).then((ress)=>ress.json());
-        console.log(userDetails);
+        // console.log(userDetails);
         // console.log(userDetails.email);
         let email=userDetails.email;
         let name=userDetails.name
         const obj={
             name,email
         }
-        console.log(obj);
+        console.log("obj");
         // res.send({"msg":"Signup Sucessful"})
-        res.status(200).redirect("http://127.0.0.1:5501/QR_BOT/Frontend/index.html")
-        // res.sendFile(__dirname+"/index.html")
+        res.sendFile(path.join(__dirname+"../../../Frontend/index.html"))
     } catch (error) {
         console.log(error);
     }
 })
+// app.use(express.static(path.join(__dirname,"..", "Frontend")));
+
+gitRoute.get('/setcookie', (req, res) => {
+    console.log("cokkie");
+    // localStorage.setItem("info","informaitio")
+    res.cookie(`Cookie token name`,`encrypted cookie string Value`);
+   
+    // res.redirect("http://127.0.0.1:5500/tough-cheese-1567/QR_BOT/Frontend/index.html")
+});
 
 module.exports={
     gitRoute

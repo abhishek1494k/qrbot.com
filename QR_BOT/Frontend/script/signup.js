@@ -39,20 +39,3 @@ async function fetch_sign(obj){
     }
 };
 
-document.getElementById("github").addEventListener("click",async()=>{
-try {
-    let response=await fetch("https://github.com/login/oauth/authorize?client_id=0d77b585a4e836fdbab8",{
-        method:"GET",
-        headers : {
-            "Content-type" : "application/json",
-            Accept : "application/json"
-        },
-    });
-    if(response.ok){
-        let result=await response.json();
-        console.log(result);
-    }
-} catch (error) {
-    console.log(error);
-}
-})
