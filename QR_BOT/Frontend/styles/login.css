@@ -24,20 +24,23 @@ body{
 }
 
 .form input{
-
     margin-bottom: 20px;
     padding: 10px;
-
+    border-radius:5px;
 }
 
 #submit{
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    font-weight: 600;
+    border:none;
 }
 
 #submit:hover{
-
-    background-color: #8a8484;
+    background-color:#0cc0df;
     cursor: pointer;
+    color:white;
+    font-weight: 600;
+    border:none;
 }

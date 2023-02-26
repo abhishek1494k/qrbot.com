@@ -42,7 +42,7 @@ body{
     color: #242424;
     font-family: sans-serif;
     font-weight: 500;
-    border:1px solid rgb(204, 204, 204);
+    border:1px solid rgb(255, 255, 255);
 }
 
 #left button:hover{
@@ -59,7 +59,7 @@ body{
     width: 70%;
     border-radius: 10px;
     font-family: sans-serif;
-    border:1px solid rgb(204, 204, 204);
+    border:1px solid rgb(255, 255, 255);
 
 }
 #submit{
