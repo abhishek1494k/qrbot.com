@@ -177,7 +177,7 @@
     logout_btn.addEventListener("click", async () => {
         try {
             let token = JSON.parse(localStorage.getItem("token"));
-            let response = await fetch("http://localhost:5500/logout", {
+            let response = await fetch("https://gorgeous-knickers-deer.cyclic.app/logout", {
                 method: "POST",
                 headers: {
                     "Content-Type": "Applicatiion/json",

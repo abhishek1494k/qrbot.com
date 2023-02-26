@@ -6,6 +6,11 @@ const jwt = require("jsonwebtoken");
 const { Router } = require("express");
 const fs = require("fs");
 const nodemailer = require("nodemailer");
+
+UserRouter.get('/',(req,res)=>{
+  res.send('Home')
+})
+
 const { authentication } = require("../middleware/authenticate");
 
 UserRouter.get("/refresh", async (req, res) => {

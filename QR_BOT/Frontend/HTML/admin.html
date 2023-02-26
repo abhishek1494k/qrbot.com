@@ -448,14 +448,14 @@
     async function renderUsers() {
 
         try {
-            let fetchdata = await fetch("http://localhost:5500/user/detail", {
+            let fetchdata = await fetch("https://gorgeous-knickers-deer.cyclic.app/user/detail", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'apllication/json',
                     Authorization: JSON.parse(localStorage.getItem("token"))
                 },
             })
-            let res = await fetch("http://localhost:5500/user/block/details", {
+            let res = await fetch("https://gorgeous-knickers-deer.cyclic.app/user/block/details", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'apllication/json',
@@ -534,57 +534,11 @@
             console.log(err)
         }
 
-        // main3.innerHTML=""
-        // main2.innerHTML=""
-        // main1.innerHTML=""
-
-        // for(let user of arr){
-        //     console.log(user)
-        //     let M=document.createElement("div")
-        //     let DIV=document.createElement("div")
-        //         DIV.className="box"
-        //     let div2 =document.createElement("div")
-
-        //     let div3 =document.createElement("div")  
-        //          div3.style="background-color: #fcb900"
-
-        //          let div4 =document.createElement("div")
-
-        //     let img=document.createElement("img")
-        //         img.src=`${user.img}`;
-
-
-        //         let H3=document.createElement("h3")
-        //         H3.innerText=`${user.name}`    
-
-        //         let btn1=document.createElement("button")
-        //         btn1.innerText="Details"
-        //         btn1.addEventListener("click",(e)=>{
-        //           Details(user)
-        //             //console.log(user)
-        //         })      
-
-        //         let btn2=document.createElement("button")
-        //         btn2.innerText="Block"
-        //         btn2.addEventListener("click",()=>{
-        //             blacklist(user)
-        //             console.log("delete")
-        //         })    
-
-        //         div3.append(img)
-        //          div4.append(H3,btn1,btn2)
-        //          div2.append(div3,div4)
-        //          DIV.append(div2)
-        //          M.append(DIV)
-
-        //         main1.append(M)
-
-        //  }
     }
 
     async function blockedusers() {
         try {
-            let res = await fetch("http://localhost:5500/user/block/details", {
+            let res = await fetch("https://gorgeous-knickers-deer.cyclic.app/user/block/details", {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -638,54 +592,6 @@
             console.log(err)
         }
     }
-    // function renderUsers3() {
-
-
-    //     main3.innerHTML = ""
-    //     main2.innerHTML = ""
-    //     main1.innerHTML = ""
-
-    //     for (let user of arr) {
-    //         console.log(user)
-    //         let M = document.createElement("div")
-    //         let DIV = document.createElement("div")
-    //         DIV.className = "box"
-    //         let div2 = document.createElement("div")
-
-    //         let div3 = document.createElement("div")
-    //         div3.style = "background-color: #fcb900"
-
-    //         let div4 = document.createElement("div")
-
-    //         let img = document.createElement("img")
-    //         img.src = `${user.img}`;
-
-
-    //         let H3 = document.createElement("h3")
-    //         H3.innerText = `${user.name}`
-
-    //         let btn1 = document.createElement("button")
-    //         btn1.innerText = "Details"
-    //         btn1.addEventListener("click", (e) => {
-    //             let x = e
-    //             console.log(x)
-    //         })
-
-    //         let btn2 = document.createElement("button")
-    //         btn2.innerText = "Delete"
-    //         btn2.addEventListener("click", () => {
-    //             console.log("delete")
-    //         })
-
-    //         div3.append(img)
-    //         div4.append(H3, btn1, btn2)
-    //         div2.append(div3, div4)
-    //         DIV.append(div2)
-    //         M.append(DIV)
-
-    //         main3.append(M)
-    //     }
-    // }
 
     async function Details(data) {
         let list = data.list
@@ -735,7 +641,7 @@
 
     async function blacklist(data) {
         try {
-            let req = await fetch("http://localhost:5500/user/block", {
+            let req = await fetch("https://gorgeous-knickers-deer.cyclic.app/user/block", {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
@@ -758,7 +664,7 @@
     async function  remblockeduser(data){
               try{
                 console.log(data)
-                let res= await fetch("http://localhost:5500/user/unblock",{
+                let res= await fetch("https://gorgeous-knickers-deer.cyclic.app/user/unblock",{
                     method:"POST",
                     body:JSON.stringify({usermail:data}),
                     headers:{
@@ -776,7 +682,7 @@
     async function deleteuser(data){
      
         try{
-            let res=await fetch("http://localhost:5500/user/delete",{
+            let res=await fetch("https://gorgeous-knickers-deer.cyclic.app/user/delete",{
                 method:"DELETE",
                 body:JSON.stringify(data),
                 headers:{

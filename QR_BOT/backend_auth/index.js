@@ -15,7 +15,7 @@ const cookieParser = require('cookie-parser')
 app.use(express.json());
 app.use(cors());
 // app.use(gitRoute);
-app.use(UserRouter);
+app.use('/',UserRouter);
 app.use(googleRouter);
 app.use(Qr_save_Router);
 app.use(adminRoute)
