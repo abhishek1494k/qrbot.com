@@ -8,17 +8,18 @@ body{
 }
 
 #main{
-    width: 30%;    
-    background-color: white;
+    width: 30%; 
+    height: 60%;;   
+    background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
     margin: auto;
-    margin-top: 200px;
+    margin-top: 6%;
     border-radius: 20px;
     text-align: center;
     padding: 20px;
 }
 
 #main img{
-    width: 10%;
+    width: 15%;
     border-radius: 15px;
 }
 
