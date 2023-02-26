@@ -1,5 +1,5 @@
 body{
-    margin: 0px;
+    margin: 0;
     background-image: url("../Images/QRCODE.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -7,10 +7,11 @@ body{
 }
 
 #main{
-    width: 60%;
-    background-color: white;
+    margin-top:-20px;
+    width: 70%;
+    height:70%;
+    background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
     margin: auto;
-    margin-top: 100px;
     border-radius: 20px;
     text-align: center;
     padding: 20px;
@@ -18,16 +19,17 @@ body{
 
 #main img{
     width: 10%;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 #form{
-    margin-top: 50px;
+    border:2px solid transparent;
+    margin-top: 4%;
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 #left{
-    width:40% ;
+    width:45% ;
     
 }
 #left button{
@@ -39,9 +41,8 @@ body{
     align-items: center;
     color: #242424;
     font-family: sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     border:1px solid rgb(204, 204, 204);
-
 }
 
 #left button:hover{
@@ -63,7 +64,7 @@ body{
 }
 #submit{
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 #submit:hover{
@@ -75,7 +76,8 @@ rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 #line{
-    width: 1px;
+    margin-left:10px;
+    width: 1.5px;
     height: auto;
     background-color: #7e7979;
 }
