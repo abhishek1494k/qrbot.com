@@ -15,7 +15,7 @@ alert("Pleasse Fill all Credentials")
 });
 async function fetch_sign(obj){
     try {
-        let response=await fetch("https://gorgeous-knickers-deer.cyclic.app/signup",{
+        let response=await fetch("https://real-lime-greyhound-garb.cyclic.app/signup",{
             method:"POST",
             headers:{
                 "Content-Type":"Application/json"

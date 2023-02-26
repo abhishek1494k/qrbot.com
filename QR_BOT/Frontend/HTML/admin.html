@@ -358,14 +358,14 @@
     async function renderUsers() {
 
         try {
-            let fetchdata = await fetch("http://localhost:5500/user/detail", {
+            let fetchdata = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/detail", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'apllication/json',
                     Authorization: JSON.parse(localStorage.getItem("token"))
                 },
             })
-            let res = await fetch("http://localhost:5500/user/block/details", {
+            let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/block/details", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'apllication/json',
@@ -440,7 +440,7 @@
 
     async function blockedusers() {
         try {
-            let res = await fetch("http://localhost:5500/user/block/details", {
+            let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/block/details", {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -533,7 +533,7 @@
 
     async function blacklist(data) {
         try {
-            let req = await fetch("http://localhost:5500/user/block", {
+            let req = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/block", {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
@@ -552,7 +552,7 @@
     async function remblockeduser(data) {
         try {
             console.log(data)
-            let res = await fetch("http://localhost:5500/user/unblock", {
+            let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/unblock", {
                 method: "POST",
                 body: JSON.stringify({ usermail: data }),
                 headers: {
@@ -575,7 +575,7 @@
             data.list.push(data.email)
         }
         try {
-            let res = await fetch("http://localhost:5500/user/delete", {
+            let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/delete", {
                 method: "DELETE",
                 body: JSON.stringify(data),
                 headers: {

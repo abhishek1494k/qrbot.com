@@ -83,7 +83,7 @@ form.addEventListener("submit", onGenerateSubmit);
 
 const fetch_QR=async(obj)=>{
 try {
-  let response =await fetch("https://gorgeous-knickers-deer.cyclic.app/qr/post",{
+  let response =await fetch("https://real-lime-greyhound-garb.cyclic.app/qr/post",{
     method:"POST",
     headers:{
       "Content-Type":"Application/json",

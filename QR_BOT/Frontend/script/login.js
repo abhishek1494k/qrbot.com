@@ -17,7 +17,7 @@ form.addEventListener("submit",(e)=>{
 
 async function fetch_login(obj){
     try {
-        let response=await fetch("https://gorgeous-knickers-deer.cyclic.app/login",{
+        let response=await fetch("https://real-lime-greyhound-garb.cyclic.app/login",{
             method:"POST",
             headers:{
                 "Content-Type":"Application/json"
