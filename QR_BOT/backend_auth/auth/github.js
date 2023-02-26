@@ -22,8 +22,6 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 //     }
 // })
 
-
-
 gitRoute.get("/github/home",async(req,res)=>{
     try {
         const {code}=req.query;
@@ -61,13 +59,7 @@ gitRoute.get("/github/home",async(req,res)=>{
 })
 // app.use(express.static(path.join(__dirname,"..", "Frontend")));
 
-gitRoute.get('/setcookie', (req, res) => {
-    console.log("cokkie");
-    // localStorage.setItem("info","informaitio")
-    res.cookie(`Cookie token name`,`encrypted cookie string Value`);
-   
-    // res.redirect("http://127.0.0.1:5500/tough-cheese-1567/QR_BOT/Frontend/index.html")
-});
+
 
 module.exports={
     gitRoute
