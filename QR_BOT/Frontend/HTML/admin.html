@@ -15,7 +15,7 @@
         #functioning {
             display: flex;
             gap: 2%;
-            height: 100%;
+            height: auto;
             padding-top: 4%;
             /* border: 1px solid blue; */
         }
@@ -38,18 +38,19 @@
             width: 80%;
 
             margin-left: 4%;
-            /* color: black; */
+            color: black;
             text-align: left;
             font-size: 20px;
         }
 
         #pills-profile-tab:hover {
-            background-color: rgb(226, 226, 226);
+            background-color: #0cc0df;
+            color: white;
         }
 
         #pills-contact-tab {
             width: 80%;
-
+            color: black;
             margin-left: 4%;
             text-align: center;
             text-align: left;
@@ -57,12 +58,13 @@
         }
 
         #pills-contact-tab:hover {
-            background-color: rgb(226, 226, 226);
+            background-color: #0cc0df;
+            color: white;
         }
 
         #pills-default-tab {
             width: 80%;
-
+            color: black;
             margin-left: 4%;
             text-align: center;
             text-align: left;
@@ -70,7 +72,8 @@
         }
 
         #pills-default-tab:hover {
-            background-color: rgb(226, 226, 226);
+            background-color: #0cc0df;
+            color: white;
         }
 
         #pills-tabContent {
@@ -141,7 +144,7 @@
 
         .box>div>div>button {
             border: 0px;
-            border-radius: 10px;
+            /* border-radius: 10px; */
             background-color: #0cc0df;
             color: white;
             margin-left: 10px;
@@ -245,7 +248,7 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-default-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-default" type="button" role="tab" aria-controls="pills-default"
-                            aria-selected="false">&#128295; Settings</button>
+                            aria-selected="false">&#128295; Logout</button>
                         <hr>
                     </li>
 
@@ -259,7 +262,7 @@
                                 <div>
                                     <div style="background-color: #0cc0df">
                                         <img width="100%"
-                                            src="https://w7.pngwing.com/pngs/910/606/png-transparent-head-the-dummy-avatar-man-tie-jacket-user-thumbnail.png"
+                                            src="https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
                                             alt="">
                                     </div>
                                     <div>
@@ -330,11 +333,21 @@
     users.addEventListener("click", () => {
         renderUsers()
         console.log("yes")
+        users.style.backgroundColor="#0cc0df"
+        blocked.style.backgroundColor="white"
+        others.style.backgroundColor="white"
     })
 
     blocked.addEventListener("click", () => {
         blockedusers()
         console.log("yes")
+        users.style.backgroundColor="white"
+        blocked.style.backgroundColor="#0cc0df"
+        others.style.backgroundColor="white"
+    })
+
+    others.addEventListener("click",()=>{
+        
     })
 
     let maincont = document.getElementById("pills-tabContent")
@@ -372,7 +385,7 @@
                     if (arr2.includes(user.email)) {
                         continue;
                     } else {
-                        user.img = "https://w7.pngwing.com/pngs/910/606/png-transparent-head-the-dummy-avatar-man-tie-jacket-user-thumbnail.png"
+                        user.img = "https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
                         let M = document.createElement("div")
                         let DIV = document.createElement("div")
                         DIV.className = "box"
@@ -388,7 +401,7 @@
                         img.src = `${user.img}`;
                         img.style.width="100%"
 
-                        let H3 = document.createElement("h3")
+                        let H3 = document.createElement("h4")
                         H3.innerText = `${user.name}`
 
                         let btn1 = document.createElement("button")
@@ -408,7 +421,7 @@
                           //  deleteuser()
                         })
                         let btn3 = document.createElement("button")
-                        btn3.innerText = "delete"
+                        btn3.innerText = "Delete"
                         btn3.addEventListener("click", (e) => {
                             e.preventDefault()
                            // console.log(user)
