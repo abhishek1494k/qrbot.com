@@ -136,6 +136,11 @@
 
             border-radius: 10px;
             padding-bottom: 3%;
+             border: 2px solid #0cc0df;
+        }
+
+        .box>div>div>h3{
+          
         }
 
         .box>div>div>img {
@@ -147,7 +152,8 @@
             /* border-radius: 10px; */
             background-color: #0cc0df;
             color: white;
-            margin-left: 10px;
+            margin-left: 5%;
+            font-size: 60%;
         }
 
         .box>div {
@@ -404,7 +410,7 @@
 
                         let H3 = document.createElement("h4")
                         H3.innerText = `${user.name}`
-
+                         H3.style.fontSize="100%"
                         let btn1 = document.createElement("button")
                         btn1.innerText = "Details"
                         btn1.addEventListener("click", () => {
@@ -454,21 +460,41 @@
                 main2.innerHTML = ""
                 main1.innerHTML = ""
 
-                let count = 1
+                
                 for (let user of arr) {
                     console.log(user)
+                    let imag = "https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
+                       
+                  
+
                     let M = document.createElement("div")
                     let DIV = document.createElement("div")
                     DIV.className = "box"
+                      DIV.style.width = "70%"
                     let div2 = document.createElement("div")
 
                     let div3 = document.createElement("div")
                     div3.style = "background-color: #0cc0df"
+                  
+                    let img = document.createElement("img")
+                        img.src = imag
+                        img.style.width = "100%"
 
                     let div4 = document.createElement("div")
                     let H3 = document.createElement("h3")
-                    H3.innerText = `${count}: ${user}`
-                    H3.style.fontSize = "70%"
+                    H3.innerText = `Emai ID: ${user}`
+                    H3.style.fontSize = "60%"
+                    H3.style.marginTop="10px"
+                    // H3.style.fontSize="15px"
+
+                 
+
+
+
+
+
+
+
 
 
                     let btn2 = document.createElement("button")
@@ -477,9 +503,9 @@
                         remblockeduser(user)
                     })
 
-                    // div3.append(img)
-                    div4.append(H3, btn2)
-                    div2.append(div4)
+                     div3.append(img)
+                    div4.append(H3,btn2)
+                    div2.append(div3,div4)
                     DIV.append(div2)
                     M.append(DIV)
 
@@ -510,18 +536,20 @@
         div4.style.flexDirection = "column"
         div4.style.alignItems = "start"
 
-        let count = 1
+        let count=1
         for (let dat of list) {
             let H31 = document.createElement("h3")
             let H32 = document.createElement("h3")
             let H33 = document.createElement("h3")
-            H31.innerText = `${count}. email: ${dat.email}`
+            // H31.innerText = ` email: ${dat.email}`
+          // let HR=document.createElement("hr")
+           // H33.innerText = `  size: ${dat.size}`
+            
+            H32.innerText =  `${count}. Url: ${dat.url}, Size: ${dat.size}`
             count++
-            H33.innerText = `${count}. size: ${dat.size}`
-            count++
-            H32.innerText = `${count}. url: ${dat.url}`
-            count++
-            div4.append(H31, H33, H32)
+            
+            div4.append(H32)
+             
 
         }
         div2.append(div4)
