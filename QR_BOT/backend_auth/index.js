@@ -18,8 +18,8 @@ app.use(cors());
 
 app.use('/',UserRouter);
 app.use(googleRouter);
-app.use(Qr_save_Router);
-app.use(adminRoute)
+app.use('/qr',Qr_save_Router);
+app.use('/user',adminRoute)
 
 app.listen(process.env.port,async()=>{
     try {

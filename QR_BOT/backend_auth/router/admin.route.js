@@ -6,7 +6,7 @@ const fs = require("fs");
 const { adminAuthentication } = require("../middleware/adminAuthentication");
 adminRoute.use(adminAuthentication);
 
-adminRoute.get("/user/detail", async (req, res) => {
+adminRoute.get("/detail", async (req, res) => {
   try {
     let data = await UserModel.aggregate([
       {
@@ -24,26 +24,23 @@ adminRoute.get("/user/detail", async (req, res) => {
   }
 });
 
-adminRoute.post("/user/block", async (req, res) => {
+adminRoute.post("/block", async (req, res) => {
   try {
-    let users=await UserModel.find()
-    
-    //console.log(X)
+    // let users=await UserModel.find()
     let blacklistAcc = JSON.parse(
       fs.readFileSync("./blacklistuser.json", "utf-8")
     );
     blacklistAcc.push(req.body.list[0].email);
+    console.log(req.body.list[0].email)
     fs.writeFileSync("./blacklistuser.json", JSON.stringify(blacklistAcc));
     res.send({ msg: `${req.body.list[0].email} has been blacklisted`});
   } catch (err) {
     console.log(err);
-    res.send("can't block");
+    res.send({msg:'Cannot Blocked'});
   }
-
-
 });
 
-adminRoute.get("/user/block/details", (req, res) => {
+adminRoute.get("/block/details", (req, res) => {
   try {
     let detail = JSON.parse(fs.readFileSync("./blacklistuser.json", "utf-8"));
     console.log(detail);
@@ -54,7 +51,7 @@ adminRoute.get("/user/block/details", (req, res) => {
   }
 });
 
-adminRoute.post("/user/unblock",(req,res)=>{
+adminRoute.post("/unblock",(req,res)=>{
     let data=req.body;
     try{
         let blacklistAcc = JSON.parse(
@@ -64,7 +61,7 @@ adminRoute.post("/user/unblock",(req,res)=>{
           blacklistAcc.splice(X,1)
           fs.writeFileSync("./blacklistuser.json", JSON.stringify(blacklistAcc));
          console.log(blacklistAcc)
-         res.send({ msg: `${req.body.usermail} has been blacklisted` });
+         res.send({ msg: `${req.body.usermail} account has been Unblocked` });
     }catch(err){
         console.log(err)
         res.send("can't unblock")
@@ -72,20 +69,26 @@ adminRoute.post("/user/unblock",(req,res)=>{
     // console.log(data)
     // res.send("ok")
 })
-adminRoute.delete("/user/delete",async (req,res)=>{
-    let data=req.body
-    let email=data.list[0].email
+
+adminRoute.delete("/delete",async (req,res)=>{
+  var email;
+  // console.log(typeof(req.body.list[0]))
+  if( typeof(req.body.list[0]) == "string"){
+    email=req.body.list[0]
+    console.log("YES")
+  }else{
+    email=req.body.list[0].email;
+  }
+
     try{
-        let QR=await QRModel.findOneAndRemove({email})
-        let user=await UserModel.findOneAndRemove({email})
-        console.log(QR)
-        res.send({user,QR})
+        await QRModel.findOneAndRemove({email})
+        await UserModel.findOneAndRemove({email})
+        res.send({msg:`${email} has been Deleted`})
     }catch(err){
         console.log(err)
         res.send("can't blacklist")
     }
-     //console.log(data)
-    // res.send("ok")
+
 })
 module.exports = {
   adminRoute,
