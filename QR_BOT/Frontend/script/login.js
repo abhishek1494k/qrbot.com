@@ -17,7 +17,7 @@ form.addEventListener("submit",(e)=>{
 
 async function fetch_login(obj){
     try {
-        let response=await fetch("http://localhost:5500/login",{
+        let response=await fetch("https://gorgeous-knickers-deer.cyclic.app/login",{
             method:"POST",
             headers:{
                 "Content-Type":"Application/json"
@@ -36,7 +36,6 @@ async function fetch_login(obj){
             }else{
                 window.location.href="../index.html"
             }
-            
         }
     } catch (error) {
         console.log(error);
