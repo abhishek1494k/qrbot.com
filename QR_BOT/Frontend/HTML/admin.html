@@ -86,7 +86,7 @@
             height: auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            
+
             /* border: 1px solid red; */
         }
 
@@ -184,7 +184,7 @@
         }
 
         @media all and (min-width:750px) and (max-width:1100px) {
-            
+
             #pills-profile {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -358,14 +358,14 @@
     async function renderUsers() {
 
         try {
-            let fetchdata = await fetch("https://gorgeous-knickers-deer.cyclic.app/user/detail", {
+            let fetchdata = await fetch("http://localhost:5500/user/detail", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'apllication/json',
                     Authorization: JSON.parse(localStorage.getItem("token"))
                 },
             })
-            let res = await fetch("https://gorgeous-knickers-deer.cyclic.app/user/block/details", {
+            let res = await fetch("http://localhost:5500/user/block/details", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'apllication/json',
@@ -375,13 +375,14 @@
             if (fetchdata.ok == true) {
                 let arr = await fetchdata.json()
                 let arr2 = await res.json()
-                // console.log(arr2)
+                // console.log(arr, "DDDDDDDDDDDD")
+                // console.log(arr2, "DDDDDDDDDDD")
                 main3.innerHTML = ""
                 main2.innerHTML = ""
                 main1.innerHTML = ""
 
                 for (let user of arr) {
-                   // console.log(user)
+                    // console.log(user)
                     if (arr2.includes(user.email)) {
                         continue;
                     } else {
@@ -389,7 +390,7 @@
                         let M = document.createElement("div")
                         let DIV = document.createElement("div")
                         DIV.className = "box"
-                        DIV.style.width="70%"
+                        DIV.style.width = "70%"
                         let div2 = document.createElement("div")
 
                         let div3 = document.createElement("div")
@@ -399,40 +400,31 @@
 
                         let img = document.createElement("img")
                         img.src = `${user.img}`;
-                        img.style.width="100%"
+                        img.style.width = "100%"
 
                         let H3 = document.createElement("h4")
                         H3.innerText = `${user.name}`
 
                         let btn1 = document.createElement("button")
                         btn1.innerText = "Details"
-                        btn1.addEventListener("click", (e) => {
+                        btn1.addEventListener("click", () => {
                             Details(user)
-                            //console.log(user)
                         })
 
                         let btn2 = document.createElement("button")
                         btn2.innerText = "Block"
-                        btn2.addEventListener("click", (e) => {
-                            e.preventDefault()
-                           // console.log(user)
+                        btn2.addEventListener("click", () => {
                             blacklist(user)
-                            // console.log("delete")
-                          //  deleteuser()
+
                         })
                         let btn3 = document.createElement("button")
                         btn3.innerText = "Delete"
-                        btn3.addEventListener("click", (e) => {
-                            e.preventDefault()
-                           // console.log(user)
-                            
-                            // console.log("delete")
+                        btn3.addEventListener("click", () => {
                             deleteuser(user)
                         })
 
-
                         div3.append(img)
-                        div4.append(H3, btn1, btn2,btn3)
+                        div4.append(H3, btn1, btn2, btn3)
                         div2.append(div3, div4)
                         DIV.append(div2)
                         M.append(DIV)
@@ -448,7 +440,7 @@
 
     async function blockedusers() {
         try {
-            let res = await fetch("https://gorgeous-knickers-deer.cyclic.app/user/block/details", {
+            let res = await fetch("http://localhost:5500/user/block/details", {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -481,10 +473,8 @@
 
                     let btn2 = document.createElement("button")
                     btn2.innerText = "Delete"
-                    btn2.addEventListener("click", (event) => {
-                       event.preventDefault()
-                       remblockeduser(user)
-                       // console.log("delete")
+                    btn2.addEventListener("click", () => {
+                        remblockeduser(user)
                     })
 
                     // div3.append(img)
@@ -515,16 +505,11 @@
         DIV.style.width = "800px"
         let div2 = document.createElement("div")
 
-        // let div3 =document.createElement("div")  
-        //      div3.style="background-color: #fcb900"
-
         let div4 = document.createElement("div")
         div4.style.display = "flex"
         div4.style.flexDirection = "column"
         div4.style.alignItems = "start"
 
-        // let img=document.createElement("img")
-        //     img.src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1-2-1.svg";
         let count = 1
         for (let dat of list) {
             let H31 = document.createElement("h3")
@@ -539,73 +524,73 @@
             div4.append(H31, H33, H32)
 
         }
-       
         div2.append(div4)
         DIV.append(div2)
         M.append(DIV)
         main1.append(M)
-        //     return
-
         console.log(data.list)
     }
 
     async function blacklist(data) {
         try {
-            let req = await fetch("https://gorgeous-knickers-deer.cyclic.app/user/block", {
+            let req = await fetch("http://localhost:5500/user/block", {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
                     "Content-type": "application/json",
                     Authorization: JSON.parse(localStorage.getItem('token'))
                 }
-            }).then((res)=>res.json()).then((res)=>{
+            }).then((res) => res.json()).then((res) => {
                 alert(res.msg)
                 fun(res.RES)
             })
-
-        
-             
         } catch (err) {
             console.log(err)
         }
-        console.log(data)
     }
 
-    async function  remblockeduser(data){
-              try{
-                console.log(data)
-                let res= await fetch("https://gorgeous-knickers-deer.cyclic.app/user/unblock",{
-                    method:"POST",
-                    body:JSON.stringify({usermail:data}),
-                    headers:{
-                        "Content-type":"application/json",
-                        Authorization: JSON.parse(localStorage.getItem("token"))
-                    }
+    async function remblockeduser(data) {
+        try {
+            console.log(data)
+            let res = await fetch("http://localhost:5500/user/unblock", {
+                method: "POST",
+                body: JSON.stringify({ usermail: data }),
+                headers: {
+                    "Content-type": "application/json",
+                    Authorization: JSON.parse(localStorage.getItem("token"))
+                }
+            }).then((res) => res.json())
+                .then((res) => {
+                    alert(res.msg)
                 })
-                
-              }catch(err){
-                console.log(err)
-              }
+
+        } catch (err) {
+            console.log(err)
+        }
     }
 
-
-    async function deleteuser(data){
-     
-        try{
-            let res=await fetch("https://gorgeous-knickers-deer.cyclic.app/user/delete",{
-                method:"DELETE",
-                body:JSON.stringify(data),
-                headers:{
-                    "Content-type":"application/json",
+    async function deleteuser(data) {
+        // console.log(data)
+        if (data.list.length == 0) {
+            data.list.push(data.email)
+        }
+        try {
+            let res = await fetch("http://localhost:5500/user/delete", {
+                method: "DELETE",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-type": "application/json",
                     Authorization: JSON.parse(localStorage.getItem("token"))
                 }
             })
-        }catch(err){
+                .then((res) => res.json())
+                .then((res) => {
+                    alert(res.msg)
+                    window.location.reload();
+                })
+        } catch (err) {
             console.log(err)
         }
-
     }
 
-
- 
 </script>

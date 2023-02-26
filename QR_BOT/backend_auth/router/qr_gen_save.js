@@ -2,7 +2,7 @@ const Qr_save_Router=require("express").Router();
 const {authentication}=require("../middleware/authenticate");
 const {QRModel}=require("../model/qr.model");
 
-Qr_save_Router.post("/qr/post",authentication,async(req,res)=>{
+Qr_save_Router.post("/post",authentication,async(req,res)=>{
     try {
         let {url,size,email}=req.body;
         let data=new QRModel({url,size,email});
