@@ -28,6 +28,10 @@ Node.js,Express.js (Framework) <br>
     "passport-facebook": "^3.0.0",<br>
     "passport-google-oauth": "^2.0.0"
 
+<h2>To run QR Code Analyser</h2>
+<kbd>
+<p style=border:"thin" >Clone this Repository and Open Frontend/index.html on liveserver</p>
+</kbd>
   <h1>1.  Home Page  </h1><br><br>
   
 ![Home 1](https://user-images.githubusercontent.com/112754448/221420942-4551e750-966f-4529-942e-0a96c8c260b1.png)
