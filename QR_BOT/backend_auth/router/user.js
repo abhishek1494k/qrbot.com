@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 const { Router } = require("express");
 const fs = require("fs");
 const nodemailer = require("nodemailer");
+const {BlacklistuserModel}=require("../model/blockusermodel");
+
 
 UserRouter.get('/',(req,res)=>{
   res.send('Home')
@@ -33,6 +35,7 @@ UserRouter.get("/refresh", async (req, res) => {
 UserRouter.post("/logout", async (req, res) => {
   try {
     let token = req.headers.authorization;
+   
     let blacklistAcc = JSON.parse(fs.readFileSync("./blacklist.json", "utf-8"));
     console.log(blacklistAcc);
     blacklistAcc.push(token);
@@ -50,10 +53,14 @@ UserRouter.post("/logout", async (req, res) => {
 UserRouter.post("/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    let blockuser=JSON.parse(fs.readFileSync("./blacklistuser.json","utf-8"));
-    if(blockuser.includes(email)){
+    let blackuser=await BlacklistuserModel.find({block_email:email})
+    if(blackuser){
       return res.send({msg:'You have been Blocked'})
-    }
+    };
+    // let blockuser=JSON.parse(fs.readFileSync("./blacklistuser.json","utf-8"));
+    // if(blockuser.includes(email)){
+    //   return res.send({msg:'You have been Blocked'})
+    // }
     const signedata = await UserModel.find({ email });
     if (signedata.length == 0) {
       bcrypt.hash(password, 5, async (err, hash) => {
@@ -82,10 +89,15 @@ UserRouter.post("/login", async (req, res) => {
   {
     try {
       const { email, password } = req.body;
-      let blockuser=JSON.parse(fs.readFileSync("./blacklistuser.json","utf-8"));
-      if(blockuser.includes(email)){
+      console.log("object");
+      let blackuser=await BlacklistuserModel.find({block_email:email})
+      if(blackuser){
         return res.send({msg:'You have been Blocked'})
-      }
+      };
+      // let blockuser=JSON.parse(fs.readFileSync("./blacklistuser.json","utf-8"));
+      // if(blockuser.includes(email)){
+      //   return res.send({msg:'You have been Blocked'})
+      // }
       let passdata = await UserModel.find({ email });
       if (passdata.length == 1) {
         bcrypt.compare(password, passdata[0].password, function (err, result) {
@@ -151,11 +163,6 @@ UserRouter.post("/login", async (req, res) => {
   }
 });
 
-UserRouter.get("/admin", authentication, async (req, res) => {
-  try {
-    res.send("protected route");
-  } catch (error) {}
-});
 
 module.exports = {
   UserRouter,

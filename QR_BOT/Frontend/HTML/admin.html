@@ -344,7 +344,7 @@
 
     blocked.addEventListener("click", () => {
         blockedusers()
-        console.log("yes")
+        console.log("bocked yes")
         users.style.backgroundColor="white"
         blocked.style.backgroundColor="#0cc0df"
         others.style.backgroundColor="white"
@@ -378,13 +378,11 @@
             })
             if (fetchdata.ok == true) {
                 let arr = await fetchdata.json()
+                console.log(arr);
                 let arr2 = await res.json()
-                // console.log(arr, "DDDDDDDDDDDD")
-                // console.log(arr2, "DDDDDDDDDDD")
                 main3.innerHTML = ""
                 main2.innerHTML = ""
                 main1.innerHTML = ""
-
                 for (let user of arr) {
                     // console.log(user)
                     if (arr2.includes(user.email)) {
@@ -396,16 +394,12 @@
                         DIV.className = "box"
                         DIV.style.width = "70%"
                         let div2 = document.createElement("div")
-
                         let div3 = document.createElement("div")
                         div3.style = "background-color: #0cc0df"
-
                         let div4 = document.createElement("div")
-
                         let img = document.createElement("img")
                         img.src = `${user.img}`;
                         img.style.width = "100%"
-
                         let H3 = document.createElement("h4")
                         H3.innerText = `${user.name}`
                          H3.style.fontSize="100%"
@@ -414,19 +408,20 @@
                         btn1.addEventListener("click", () => {
                             Details(user)
                         })
-
                         let btn2 = document.createElement("button")
                         btn2.innerText = "Block"
                         btn2.addEventListener("click", () => {
-                            blacklist(user)
-
+                            let {email,name,passworrd,_id}=user;
+                            let obj={
+                                block_email:email,name,passworrd,id
+                            }
+                            blacklist(obj)
                         })
                         let btn3 = document.createElement("button")
                         btn3.innerText = "Delete"
                         btn3.addEventListener("click", () => {
                             deleteuser(user)
                         })
-
                         div3.append(img)
                         div4.append(H3, btn1, btn2, btn3)
                         div2.append(div3, div4)
@@ -439,9 +434,7 @@
         } catch (err) {
             console.log(err)
         }
-
     }
-
     async function blockedusers() {
         try {
             let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/block/details", {
@@ -457,14 +450,9 @@
                 main3.innerHTML = ""
                 main2.innerHTML = ""
                 main1.innerHTML = ""
-
-                
                 for (let user of arr) {
                     console.log(user)
                     let imag = "https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
-                       
-                  
-
                     let M = document.createElement("div")
                     let DIV = document.createElement("div")
                     DIV.className = "box"
@@ -480,25 +468,14 @@
 
                     let div4 = document.createElement("div")
                     let H3 = document.createElement("h3")
-                    H3.innerText = `Emai ID: ${user}`
+                    H3.innerText = `Emai ID: ${user.block_email}`
                     H3.style.fontSize = "60%"
                     H3.style.marginTop="10px"
                     // H3.style.fontSize="15px"
-
-                 
-
-
-
-
-
-
-
-
-
                     let btn2 = document.createElement("button")
                     btn2.innerText = "Delete"
                     btn2.addEventListener("click", () => {
-                        remblockeduser(user)
+                        remblockeduser(user.block_email)
                     })
 
                      div3.append(img)
@@ -510,7 +487,6 @@
                     main2.append(M)
                     count++
                 }
-
             }
         } catch (err) {
             console.log(err)
@@ -566,10 +542,12 @@
                     "Content-type": "application/json",
                     Authorization: JSON.parse(localStorage.getItem('token'))
                 }
-            }).then((res) => res.json()).then((res) => {
-                alert(res.msg)
-                fun(res.RES)
-            })
+            });
+            console.log(req);
+            if(req.ok){
+                let res=await req.json();
+                console.log(res);
+            }
         } catch (err) {
             console.log(err)
         }

@@ -8,7 +8,7 @@ const adminAuthentication=(req,res,next)=>{
         var decoded=jwt.verify(token,process.env.token_secret);
         if(decoded && decoded.email=='admin@gmail.com'){
             req.body.userID=decoded.dataid;
-            req.body.email=decoded.email;
+            // req.body.email=decoded.email;
             next()
         }else{
             res.send({"msg":"you are not admin"});
