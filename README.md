@@ -10,7 +10,7 @@ Backend Link: https:https://real-lime-greyhound-garb.cyclic.app/ <br> <br>
 </div>
 
 <h2>Techstack : </h2>
-HTML,CSS,Javascript (Frontend) <br>
+HTML,CSS,Bootstrap,Javascript (Frontend) <br>
 Font awesome (Library) <br>
 MongoDB (Database) <br>
     
