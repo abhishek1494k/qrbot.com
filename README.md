@@ -1,6 +1,10 @@
 <div align="center" > 
 <h2>QR Scanner and Analyser<h2>
 <img width="30%" src="https://github.com/abhishek1494k/tough-cheese-1567/blob/demo/Images/QR%20BOT.png?raw=true"><br><br>
+
+Frontend Link QR Code: 
+
+<img width="30%" src="https://user-images.githubusercontent.com/112754448/221485971-48d43e07-9a4f-4e48-b2ed-0552e9e7624a.png"><br>
 Frontend Link:https:https://www-qrbot-com.netlify.app/ <br> <br>
 Backend Link: https:https://real-lime-greyhound-garb.cyclic.app/ <br> <br>
 </div>
