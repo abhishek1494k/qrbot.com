@@ -15,7 +15,7 @@ Font awesome (Library) <br>
 MongoDB (Database) <br>
     
 Node.js,Express.js (Framework) <br>
-<h2>Version of npm packages used:</h2> <br>
+<h2>Version of npm packages used:</h2>
     "bcrypt": "^5.1.0", <br>
     "cors": "^2.8.5", <br>
     "dotenv": "^16.0.3", <br>
