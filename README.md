@@ -13,6 +13,7 @@ Backend Link: https:https://real-lime-greyhound-garb.cyclic.app/ <br> <br>
 HTML,CSS,Javascript (Frontend) <br>
 Font awesome (Library) <br>
 MongoDB (Database) <br>
+    
 Node.js,Express.js (Framework) <br>
 <h2>Version of npm packages used:</h2> <br>
     "bcrypt": "^5.1.0", <br>
@@ -36,6 +37,7 @@ Node.js,Express.js (Framework) <br>
 <kbd>
 <p style=border:"thin" >Clone this Repository and Open Frontend/index.html on liveserver</p>
 </kbd>
+   
   <h1>1.  Home Page  </h1><br><br>
   
 ![Home 1](https://user-images.githubusercontent.com/112754448/221420942-4551e750-966f-4529-942e-0a96c8c260b1.png)
