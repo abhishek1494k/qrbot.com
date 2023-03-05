@@ -5,8 +5,8 @@
 Frontend Link QR Code: 
 
 <img width="30%" src="https://user-images.githubusercontent.com/112754448/221485971-48d43e07-9a4f-4e48-b2ed-0552e9e7624a.png"><br>
-Frontend Link:https:https://www-qrbot-com.netlify.app/ <br> <br>
-Backend Link: https:https://real-lime-greyhound-garb.cyclic.app/ <br> <br>
+Frontend Link: https://www-qrbot-com.netlify.app/ <br> <br>
+Backend Link: https://real-lime-greyhound-garb.cyclic.app/ <br> <br>
 </div>
 
 <h2>Techstack : </h2>
