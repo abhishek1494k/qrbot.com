@@ -1,17 +1,17 @@
 body{
     margin: 0;
-    background-image: url("../Images/QRCODE.png");
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/954/5/66/code-programmers-programming-doom-game-wallpaper-preview.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 #main{
-    margin-top:-20px;
-    width: 70%;
-    height:70%;
-    background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
     margin: auto;
+    margin-top:10px;
+    width: 50%;
+    height:50%;
+    background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
     border-radius: 20px;
     text-align: center;
     padding: 20px;
@@ -82,20 +82,7 @@ rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     background-color: #7e7979;
 }
 
-@media all and (min-width:1300px) and (max-width:2000px){
-    #main{
-        width: 40%;
-        background-color: white;
-        margin: auto;
-        margin-top: 100px;
-        border-radius: 20px;
-        text-align: center;
-        padding: 20px;
-    }
-}
-
-
-@media all and (min-width:900px) and (max-width:1300px){
+ /* @media all and (min-width:1000px) and (max-width:1300px){
     #main{
         width: 50%;
         background-color: white;
@@ -105,16 +92,17 @@ rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
         text-align: center;
         padding: 20px;
     }
-}
+} */
 
-@media all and (min-width:500px) and (max-width:970px){
+@media all and (min-width:300px) and (max-width:500px){
     #main{
-        width: 70%;
-        background-color: white;
         margin: auto;
-        margin-top: 100px;
+        margin-top:10px;
+        width: 70%;
+        height:70%;
+        background: linear-gradient(to bottom,#0cc0df, #0cc0df, #ffffff);
         border-radius: 20px;
         text-align: center;
-        padding: 20px;
+        /* padding: 20px; */
     }
 }

@@ -1,4 +1,5 @@
-let baseURL = "https://real-lime-greyhound-garb.cyclic.app/";
+// let baseURL = "https://real-lime-greyhound-garb.cyclic.app/";
+let baseURL = "http://localhost:5500/";
 
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
@@ -7,7 +8,7 @@ form.addEventListener("submit", (e) => {
   let name = document.getElementById("name").value;
   let password = document.getElementById("pass").value;
   if (email == "" || name == "" || password == "") {
-    alert("Pleasse Fill all Credentials");
+    alert("Please Fill all Credentials");
   } else {
     let obj = {
       email,
@@ -27,18 +28,19 @@ async function fetch_sign(obj) {
       },
       body: JSON.stringify(obj),
     });
+
     if (response.ok) {
       let ans = await response.json();
-      alert(ans.msg);
-      if (ans.msg === "You have been Blocked") {
-        window.location.href = "../index.html";
-      } else {
+      swal("", "Registered", "success").then(function () {
         window.location.href = "./login.html";
-      }
+      });
     } else {
-      console.log("Something wrong");
+      swal("", "Error", "warning");
     }
   } catch (error) {
     console.log(error);
+    swal("", "Error", "warning").then(function () {
+      window.location.href = "./login.html";
+    });
   }
 }
