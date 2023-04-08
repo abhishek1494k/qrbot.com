@@ -3,7 +3,7 @@ const UserRouter = express.Router();
 
 const { UserModel } = require("../model/user_model");
 const { BlacklistuserModel } = require("../model/blockusermodel");
-const { authentication } = require("../middleware/authenticate");
+// const { authentication } = require("../middleware/authenticate");
 
 const fs = require("fs");
 const bcrypt = require("bcrypt");
@@ -129,7 +129,6 @@ UserRouter.post("/login", async (req, res) => {
 UserRouter.post("/logout", async (req, res) => {
   let token = req.headers.authorization; 
   try {
-
     let blacklistAcc = JSON.parse(fs.readFileSync("./blacklist.json", "utf-8"));
     blacklistAcc.push(token);
     fs.writeFileSync("./blacklist.json", JSON.stringify(blacklistAcc));
