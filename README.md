@@ -51,9 +51,10 @@ Node.js,Express.js (Framework) <br>
     DELETE USER:    user/delete
     QR DETAILS:     qr/post
     
-  <h1>1.  Home Page  </h1><br><br>
+  <h1>1.  Home Page  </h1>
+  <br><br>
   
-![Home 1](https://user-images.githubusercontent.com/112754448/221420942-4551e750-966f-4529-942e-0a96c8c260b1.png)
+  ![Home 1](https://user-images.githubusercontent.com/112754448/221420942-4551e750-966f-4529-942e-0a96c8c260b1.png)
 
   ![home 2](https://user-images.githubusercontent.com/112754448/221420995-e95c2a1f-638c-4b36-935d-369d8a4d8428.png)
 
@@ -85,12 +86,11 @@ Node.js,Express.js (Framework) <br>
   
   <h1>6. Admin  </h1>
   <br><br>
+<!--   ![Admin](https://user-images.githubusercontent.com/112754448/221474100-8f7e94f2-9d4e-4c96-8d5b-55fe74f2e091.png) -->
   
-  ![Admin](https://user-images.githubusercontent.com/112754448/221474100-8f7e94f2-9d4e-4c96-8d5b-55fe74f2e091.png)
+<!--   ![Admin1](https://user-images.githubusercontent.com/112754448/221474142-7a619fc5-f1c8-409e-b40e-22b43e4a4bb4.png) -->
   
-  ![Admin1](https://user-images.githubusercontent.com/112754448/221474142-7a619fc5-f1c8-409e-b40e-22b43e4a4bb4.png)
-  
-  ![Admin 2](https://user-images.githubusercontent.com/112754448/221474338-86357ec2-0269-43d8-80be-d08867d60837.png)
+<!--   ![Admin 2](https://user-images.githubusercontent.com/112754448/221474338-86357ec2-0269-43d8-80be-d08867d60837.png) -->
 
 
 
