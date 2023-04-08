@@ -1,6 +1,6 @@
 <div align="center" > 
 <h2>QR Scanner and Analyser<h2>
-<img width="20%" src="https://github.com/abhishek1494k/tough-cheese-1567/blob/demo/Images/QR%20BOT.png?raw=true"><br><br>
+<img width="20%" src="https://github.com/abhishek1494k/QRBOT.com/blob/main/Images/QR%20BOT.png?raw=true"><br><br>
 
 Scan for Deployed Link: 
 
