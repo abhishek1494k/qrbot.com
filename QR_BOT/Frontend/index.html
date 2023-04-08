@@ -167,9 +167,10 @@
 
 </html>
 <script>
-    
+
     // ------------->>>>> Loggedin Person Name <<<<<----------------
     let name = JSON.parse(localStorage.getItem("name"));
+    
     if (name && name !== "Admin") {
         let nav_right = document.getElementById("nav-right");
         let logout = document.getElementById("logout")
@@ -183,7 +184,7 @@
     logout_btn.addEventListener("click", async () => {
         try {
             let token = JSON.parse(localStorage.getItem("token"));
-            let response = await fetch("https://real-lime-greyhound-garb.cyclic.app/logout", {
+            let response = await fetch("http://localhost:5500/logout", {
                 method: "POST",
                 headers: {
                     "Content-Type": "Applicatiion/json",
@@ -194,10 +195,12 @@
                 let ans = await response.json();
                 localStorage.setItem("name", null);
                 localStorage.setItem("token", null);
+                localStorage.clear();
                 let nav_right = document.getElementById("nav-right");
                 let logout = document.getElementById("logout")
                 nav_right.style.display = "flex";
                 logout.style.display = "none";
+                swal("", "Logged Out", "success")
             }
         } catch (error) {
             console.log(error);
@@ -215,7 +218,6 @@
             swal("", "Login First", "warning");
         }
     }
-
     function checkLogin2() {
         let token = localStorage.getItem("token")
         if (token) {
@@ -226,4 +228,5 @@
             swal("", "Login First", "warning");
         }
     }
+
 </script>

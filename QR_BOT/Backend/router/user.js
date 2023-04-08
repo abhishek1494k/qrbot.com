@@ -3,7 +3,6 @@ const UserRouter = express.Router();
 
 const { UserModel } = require("../model/user_model");
 const { BlacklistuserModel } = require("../model/blockusermodel");
-// const { authentication } = require("../middleware/authenticate");
 
 const fs = require("fs");
 const bcrypt = require("bcrypt");
@@ -21,7 +20,7 @@ UserRouter.post("/signup", async (req, res) => {
     // Find in Blocked Emails
     const { name, email, password } = req.body;
     let blockuser = await BlacklistuserModel.find({ block_email: email });
-    if (blockuser) {
+    if (blockuser.length>0) {
       return res.send({ msg: "You have been Blocked" });
     }
     // Find in User Database
@@ -58,7 +57,6 @@ UserRouter.post("/login", async (req, res) => {
     try {
       // Find in Blocked Email
       let blockuser = await BlacklistuserModel.find({ block_email: email });
-      console.log(blockuser)
       if (blockuser.length >0) {
         return res.send({ msg: "You have been Blocked" });
       }
@@ -98,13 +96,10 @@ UserRouter.post("/login", async (req, res) => {
                 seconds
               } using Email : ${email}`,
             };
-
             transporter
               .sendMail(mailOptions)
               .then((info) => {
-                console.log(passdata[0].name, token, Refreshtoken)
-                console.log('Mail sent')
-                res.send({ msg: "Login Successful",name:passdata[0].name, token:token, Refreshtoken:Refreshtoken });
+                res.send({ msg: "Login Successful",name:passdata[0].name,token:token});
               })
               .catch((e) => {
                 res.send(e);

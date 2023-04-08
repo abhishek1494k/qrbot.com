@@ -31,8 +31,7 @@ async function fetch_login(obj) {
       let result = await response.json();
       localStorage.setItem("name", JSON.stringify(result.name));
       localStorage.setItem("token", JSON.stringify(result.token));
-
-      swal("", "Login Successful", "success").then(function () {
+      swal("", `${result.msg}`, "success").then(function () {
         if (result.name == "Admin") {
           window.location.href = "../HTML/admin.html";
         } else {
