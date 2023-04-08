@@ -31,7 +31,7 @@ async function fetch_sign(obj) {
 
     if (response.ok) {
       let ans = await response.json();
-      swal("", "Registered", "success").then(function () {
+      swal("", `${ans.msg}`, "success").then(function () {
         window.location.href = "./login.html";
       });
     } else {

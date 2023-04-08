@@ -1,17 +1,15 @@
 const express=require("express");
 const app=express();
+app.use(express.json());
 
 require('dotenv').config();
 const cors=require("cors");
-const passport=require("passport");
-const cookieParser = require('cookie-parser')
-
-app.use(express.json());
 app.use(cors());
 
-// const {gitRoute}=require("./auth/github")
-
 const {UserRouter}=require("./router/user");
+// const passport=require("passport");
+// const cookieParser = require('cookie-parser')
+// const {gitRoute}=require("./auth/github")
 // const {googleRouter}=require("./auth/google");
 // const {fbRouter}=require("./auth/facebook");
 // const {Qr_save_Router}=require("./router/qr_gen_save");
