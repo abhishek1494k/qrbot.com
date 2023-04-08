@@ -44,7 +44,7 @@ UserRouter.post("/signup", async (req, res) => {
   }
 });
 
-// ------------->>>>> Login User <<<<<----------------
+// ------------->>>>> User Login <<<<<----------------
 UserRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
   let date_ob = new Date();
@@ -70,11 +70,6 @@ UserRouter.post("/login", async (req, res) => {
               { dataid: passdata[0]._id, email: passdata[0].email },
               process.env.token_secret,
               { expiresIn: "1d" }
-            );
-            var Refreshtoken = jwt.sign(
-              { dataid: passdata[0]._id, email: passdata[0].email },
-              process.env.Refresh_token_secret,
-              { expiresIn: "7d" }
             );
             // NODE MAILER-------------------------------------------------------------------------
             const transporter = nodemailer.createTransport({
@@ -130,38 +125,19 @@ UserRouter.post("/login", async (req, res) => {
   }
 });
 
-// UserRouter.post("/logout", async (req, res) => {
-//   try {
-//     let token = req.headers.authorization;
+// ------------->>>>> User logout <<<<<----------------
+UserRouter.post("/logout", async (req, res) => {
+  let token = req.headers.authorization; 
+  try {
 
-//     let blacklistAcc = JSON.parse(fs.readFileSync("./blacklist.json", "utf-8"));
-//     console.log(blacklistAcc);
-//     blacklistAcc.push(token);
-//     console.log(blacklistAcc);
-//     fs.writeFileSync("./blacklist.json", JSON.stringify(blacklistAcc));
-//     res.send({ msg: "logout successfull" });
-//   } catch (error) {
-//     console.log(error);
-//     res.send({ msg: "something went wrong" });
-//   }
-// });
-
-// UserRouter.get("/refresh", async (req, res) => {
-//   let token = req.headers.authorization;
-//   if (token) {
-//     let decoded = jwt.verify(token, process.env.Refresh_token_secret);
-//     if (decoded) {
-//       console.log(decoded);
-//       let dataid = decoded.dataid;
-//       let new_token = jwt.sign({ dataid }, process.env.token_secret, {
-//         expiresIn: 60,
-//       });
-//       res.send({ msg: "referesh token generrated", new_token });
-//     }
-//   } else {
-//     res.send({ msg: "login again" });
-//   }
-// });
+    let blacklistAcc = JSON.parse(fs.readFileSync("./blacklist.json", "utf-8"));
+    blacklistAcc.push(token);
+    fs.writeFileSync("./blacklist.json", JSON.stringify(blacklistAcc));
+    res.send({ msg: "logout successfull" });
+  } catch (error) {
+    res.send({ msg: "something went wrong" });
+  }
+});
 
 module.exports = {
   UserRouter,

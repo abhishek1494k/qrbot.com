@@ -31,7 +31,6 @@ async function fetch_login(obj) {
       let result = await response.json();
       localStorage.setItem("name", JSON.stringify(result.name));
       localStorage.setItem("token", JSON.stringify(result.token));
-      localStorage.setItem("Refresh", JSON.stringify(result.Refreshtoken));
 
       swal("", "Login Successful", "success").then(function () {
         if (result.name == "Admin") {
