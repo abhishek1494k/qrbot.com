@@ -10,29 +10,30 @@
     <script src="https://kit.fontawesome.com/d68d319f71.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/5a8be6b3e6.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
+
 <body>
 
     <div id="navbar">
-
         <div id="nav-left">
             <div id="logo">
                 <img width="20%" src="./Images/QR BOT 2.png" alt="">
                 <h2>QR Bot</h2>
             </div>
             <div id="menu">
-                <p>Create <i class="fa-solid fa-chevron-down"></i></p>
+                <!-- <p>Create <i class="fa-solid fa-chevron-down"></i></p>
                 <p>Quick Actions <i class="fa-solid fa-chevron-down"></i></p>
                 <p>Template <i class="fa-solid fa-chevron-down"></i></p>
                 <p>Mobile App <i class="fa-solid fa-chevron-down"></i></p>
-                <p>Learn <i class="fa-solid fa-chevron-down"></i></p>
+                <p>Learn <i class="fa-solid fa-chevron-down"></i></p> -->
             </div>
         </div>
         <div id="nav-right">
             <a href="./HTML/login.html"><button id="signin">Log In</button></a>
             <a href="./HTML/signup.html"><button id="signup">Sign Up</button></a>
         </div>
-        <div id="logout" class="log" >
+        <div id="logout" class="log">
             <p id="name"></p>
             <button id="logout_btn">Logout</button>
         </div>
@@ -43,8 +44,8 @@
             <h1>Free custom QR code generator.</h1>
             <p>Make a QR code for free that you can use in your branding, marketing, and more to easily direct customers
                 to your website.</p>
-            <button id="qr_gen" >Create your QR code now</button>
-            
+            <button onclick="checkLogin1()">Create your QR code now</button>
+
         </div>
         <div id="d1r">
             <img src="https://www.adobe.com/express/feature/image/media_13c362c345413a83bd3f502ac755647b7fb48a45f.png?width=2000&format=webply&optimize=medium"
@@ -86,12 +87,13 @@
                 ever-growing collection of portrait, landscape, square, and vertical templates to create designs that
                 stand out on any channel, any device.</p>
             <!-- <button>Browse all templates</button> -->
-            <button id="qr_ana">QR Code Analyser</button>
+            <button onclick="checkLogin2()">QR Code Analyser</button>
         </div>
     </div>
     <div id="div4">
         <h2>Ready to use the free QR code maker?</h2>
-        <button>Create your QR code now</button>
+        <br>
+        <button onclick="checkLogin1()">Create your QR code now</button>
     </div>
 
     <div id="div5">
@@ -161,18 +163,21 @@
         </div>
     </div>
 </body>
-</html>
 
+</html>
 <script>
+    
+    // ------------->>>>> Loggedin Person Name <<<<<----------------
     let name = JSON.parse(localStorage.getItem("name"));
-    if (name && name!=="Admin") {
+    if (name && name !== "Admin") {
         let nav_right = document.getElementById("nav-right");
         let logout = document.getElementById("logout")
-        console.log(logout);
         document.getElementById("name").innerText = name;
         nav_right.style.display = "none";
         logout.style.display = "flex";
     }
+
+    // ------------->>>>> Logout Functionality <<<<<----------------
     let logout_btn = document.getElementById("logout_btn");
     logout_btn.addEventListener("click", async () => {
         try {
@@ -186,12 +191,10 @@
             });
             if (response.ok) {
                 let ans = await response.json();
-                console.log(ans);
                 localStorage.setItem("name", null);
                 localStorage.setItem("token", null);
                 let nav_right = document.getElementById("nav-right");
                 let logout = document.getElementById("logout")
-                console.log(logout);
                 nav_right.style.display = "flex";
                 logout.style.display = "none";
             }
@@ -200,28 +203,26 @@
         }
     })
 
-let anaBtn=document.getElementById('qr_ana')
-let genBtn=document.getElementById('qr_gen')
-
-anaBtn.addEventListener('click',()=>{
-
-    let token = localStorage.getItem("token")
-    if(token){
-        window.location.href="./qr_ana/qr_ana.html"
-    } else{
-        alert("Login First")
+    // ------------->>>>> Check Login first <<<<<----------------
+    function checkLogin1() {
+        let token = localStorage.getItem("token")
+        if (token) {
+            swal("", "Welcome", "success").then(function () {
+                window.location.href = "./qr_gen/qr_gen.html";
+            });
+        } else {
+            swal("", "Login First", "warning");
+        }
     }
-})
 
-genBtn.addEventListener('click',()=>{
-
-let token = localStorage.getItem("token")
-if(token){
-    window.location.href="./qr_gen/qr_gen.html"
-} else{
-    alert("Login First")
-}
-})
-
-
+    function checkLogin2() {
+        let token = localStorage.getItem("token")
+        if (token) {
+            swal("", "Welcome", "success").then(function () {
+                window.location.href = "./qr_ana/qr_ana.html";
+            });
+        } else {
+            swal("", "Login First", "warning");
+        }
+    }
 </script>
