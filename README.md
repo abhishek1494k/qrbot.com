@@ -83,11 +83,7 @@ npx nodemon index.js
 javascript
 GET  /api/
 
-  #### Email Verification
-javascript
-POST  /api/user/emailVerify
-
-  #### User Signup
+   #### User Signup
 javascript
 POST  /api/signup
 
@@ -106,9 +102,13 @@ POST /api/qr/post
    ####  Admin Operations
  javascript
  GET /api/user/detail/
+ 
  POST /api/user/block/
+ 
  GET /api/user/block/details/
+ 
  POST /api/user/unblock/
+ 
  DELETE /api/user/delete
  
   
