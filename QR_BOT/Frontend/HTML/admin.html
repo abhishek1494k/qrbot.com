@@ -23,19 +23,19 @@
       <li>
         <a href="#" class="active">
           <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
+          <span id="dashboard" class="links_name">Dashboard</span>
         </a>
       </li>
       <li>
         <a href="#">
           <i class='bx bx-box'></i>
-          <span class="links_name">User Details</span>
+          <span id="details" class="links_name">User Details</span>
         </a>
       </li>
       <li>
         <a href="#">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Blocked Users</span>
+          <span id="blocked" class="links_name">Blocked Users</span>
         </a>
       </li>
       <!-- <li>
@@ -110,7 +110,8 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Users</div>
-            <div class="number">40,876</div>
+            <!-- total -->
+            <div id="total" class="number"></div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
               <span class="text">Up from yesterday</span>
@@ -122,7 +123,8 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic">QR Generated</div>
-            <div class="number">38,876</div>
+            <!--qr -->
+            <div id="qr" class="number"></div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
               <span class="text">Up from yesterday</span>
@@ -144,7 +146,8 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic">User blocked</div>
-            <div class="number">11</div>
+            <!-- count -->
+            <div id="count" class="number"></div>
             <div class="indicator">
               <i class='bx bx-down-arrow-alt down'></i>
               <span class="text">Down From Today</span>
@@ -158,47 +161,21 @@
 
         <div class="recent-sales box">
           <div class="title">Users Details</div>
+          <!-- --------------------- -->
           <div class="sales-details">
-            <ul class="details">
-              <li class="topic">Name</li>
-              <li><a href="#">Alex Doe</a></li>
-              <li><a href="#">David Mart</a></li>
-              <li><a href="#">Roe Parter</a></li>
-              <li><a href="#">Diana Penty</a></li>
-              <li><a href="#">Martin Paw</a></li>
-              <li><a href="#">Doe Alex</a></li>
-              <li><a href="#">Aiana Lexa</a></li>
-              <li><a href="#">Rexel Mags</a></li>
-              <li><a href="#">Tiana Loths</a></li>
+            <ul id="name" class="details">
             </ul>
-            <ul class="details">
-              <li class="topic">Email</li>
-              <li><a href="#">Delivered</a></li>
-              <li><a href="#">Pending</a></li>
-              <li><a href="#">Returned</a></li>
-              <li><a href="#">Delivered</a></li>
-              <li><a href="#">Pending</a></li>
-              <li><a href="#">Returned</a></li>
-              <li><a href="#">Delivered</a></li>
-              <li><a href="#">Pending</a></li>
-              <li><a href="#">Delivered</a></li>
+            <ul id="email" class="details">
+              <!-- <li class="topic">Email</li> -->
             </ul>
-            <ul class="details">
-              <li class="topic">Status</li>
-              <li><a href="#">$204.98</a></li>
-              <li><a href="#">$24.55</a></li>
-              <li><a href="#">$25.88</a></li>
-              <li><a href="#">$170.66</a></li>
-              <li><a href="#">$56.56</a></li>
-              <li><a href="#">$44.95</a></li>
-              <li><a href="#">$67.33</a></li>
-              <li><a href="#">$23.53</a></li>
-              <li><a href="#">$46.52</a></li>
+            <ul id="status" class="details">
+              <!-- <li class="topic">Status</li> -->
             </ul>
           </div>
-          <div class="button">
+          <!-- --------------------- -->
+          <!-- <div class="button">
             <a href="#">See All</a>
-          </div>
+          </div> -->
         </div>
 
         <div class="top-sales box">

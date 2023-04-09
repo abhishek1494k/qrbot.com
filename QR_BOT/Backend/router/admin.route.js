@@ -5,10 +5,15 @@ const { UserModel } = require("../model/user_model");
 const { QRModel } = require("../model/qr.model");
 
 // -------------->>>>> All Users <<<<<---------------
-adminRoute.get("/allUsers", async (req, res) => {
+adminRoute.get("/allData", async (req, res) => {
   try {
     let data = await UserModel.find();
-    res.send({ msg: "All Data", data: data });
+    let qr = await QRModel.find();
+    let count=0;
+    data.forEach((e)=>{
+      e.status===false?count++:count+=0;
+    })
+    res.send({ msg: "All Data", data: data,qr:qr,count:count });
   } catch (error) {
     console.log(error);
     res.send({ msg: "Error in Fetching Details" });
@@ -66,12 +71,14 @@ adminRoute.post("/blockUser/:id", async (req, res) => {
 
 // ------------>>>>> Unblock User <<<<<--------------
 adminRoute.post("/unblockUser/:id", async (req, res) => {
+
   let id = req.params.id;
+  console.log(id)
   try {
     await UserModel.findByIdAndUpdate(id, { status: true });
     res.send({ msg: "User is Unblocked Now" });
   } catch (err) {
-    res.send({ msg: "Error in Blocking" });
+    res.send({ msg: "Error in UnBlocking" });
   }
 });
 
