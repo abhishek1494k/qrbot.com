@@ -82,7 +82,7 @@ form.addEventListener("submit", onGenerateSubmit);
 const fetch_QR = async (obj) => {
   try {
     let response = await fetch(
-      "https://real-lime-greyhound-garb.cyclic.app/qr/post",
+      "http://localhost:5500/qr/post",
       {
         method: "POST",
         headers: {

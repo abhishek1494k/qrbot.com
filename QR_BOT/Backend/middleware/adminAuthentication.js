@@ -3,18 +3,17 @@ require('dotenv').config();
 
 const adminAuthentication=(req,res,next)=>{
     var token=req.headers.authorization;
-
     try{
         var decoded=jwt.verify(token,process.env.token_secret);
-        if(decoded && decoded.email=='admin@gmail.com'){
-            req.body.userID=decoded.dataid;
-            // req.body.email=decoded.email;
+        if(decoded && decoded.email==='admin@gmail.com'){
+            req.body.userID=decoded.userID;
             next()
         }else{
-            res.send({"msg":"you are not admin"});
+            res.send({"msg":"You are not admin"});
         }
     }catch(e){
         console.log('ERROR at 16 MW',e);
+        res.send({"msg":"You are not admin"});
     }
 
 };

@@ -4,6 +4,7 @@ const qrSchema=mongoose.Schema({
     url:String,
     size:Number,
     email:String,
+    userID:String
 },{
     versionKey:false
 });
