@@ -8,15 +8,11 @@ app.use(cors());
 
 const {UserRouter}=require("./router/user");
 const { qrRouter } = require("./router/qr_gen_save");
-
-// const {adminRoute}=require("./router/admin.route");
-// app.use(gitRoute);
-// app.use(googleRouter);
-
-// app.use('/user',adminRoute)
+const {adminRoute}=require("./router/admin.route");
 
 app.use('/',UserRouter);
 app.use('/qr',qrRouter);
+app.use('/admin',adminRoute)
 
 // ---------->>>>> Connection <<<<<------------//
 const {connection}=require("./configuration/db");

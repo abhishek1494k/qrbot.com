@@ -2,7 +2,6 @@ const express = require("express");
 const UserRouter = express.Router();
 
 const { UserModel } = require("../model/user_model");
-const { BlacklistuserModel } = require("../model/blockusermodel");
 
 const fs = require("fs");
 const bcrypt = require("bcrypt");
