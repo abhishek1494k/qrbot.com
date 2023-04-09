@@ -83,32 +83,42 @@ npx nodemon index.js
 GET  /api/
 ```
    #### User Signup
-javascript
+```javascript
 POST  /api/signup
-
+```
   #### User Signin
-javascript
+```javascript
 POST  /api/login
-
+```
   #### User Logout
-javascript
+```javascript
 POST  /api/logout
-
+```
    #### QR 
-javascript
+```javascript
 POST /api/qr/post
+```
 
    ####  Admin Operations
- javascript
+ ```javascript
  GET /api/user/detail/
+ ```
  
+ ```javascript
  POST /api/user/block/
+ ```
  
+ ```javascript
  GET /api/user/block/details/
+ ```
  
+ ```javascript
  POST /api/user/unblock/
+ ```
  
+ ```javascript
  DELETE /api/user/delete
+ ```
  
   
 
