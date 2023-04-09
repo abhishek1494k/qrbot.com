@@ -31,29 +31,30 @@ QR Bot is a web application built using Nodejs, Expressjs, Mongoose, and MongoDB
 ## Run Locally
 ### Clone this Project
 
-
+```
 https://github.com/abhishek1494k/QRBOT.com
-
+```
 
 ### Install npm Packages
 
-javascript
+```javascript
 npm i --global
-
+```
 
 ### Go to Backend Folder
-javascript
+```javascript
 cd backend
-
+```
 
 ### Run Server
-javascript
+```javascript
 npx nodemon index.js
+```
 
 ### Runs the project in the development mode
-
+```
 [http://localhost:5500]
-
+```
 
 ### Environment Variables Required
 `mongoURL`
@@ -74,15 +75,13 @@ npx nodemon index.js
 <img src="https://i0.wp.com/community.nodemailer.com/wp-content/uploads/2015/10/n2-2.png?fit=422%2C360&ssl=1" alt="nodemailer" width="50" height="70"/>
 <img src="https://user-images.githubusercontent.com/13700/35731649-652807e8-080e-11e8-88fd-1b2f6d553b2d.png" alt="nodemon.png" width="50" height="50"/>
 <img src="https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci8wNmFkMDUxNjc0NDA0NTVjOTQzYzE4NWIwNmM4NjBmMD9zaXplPTEwMCZkZWZhdWx0PXJldHJvIn0.fJ4Me0BC-QzMrHKVqZzMx9CzgTcYb06jEt9nk9NxC2c" alt="otpgen.png" width="50" height="50"/>
-<img src="https://user-images.githubusercontent.com/25181517/182884894-d3fa6ee0-f2b4-4960-9961-64740f533f2a.png" alt="redis" width="50" height="50"/>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKZRJJRPM1V6XKXBLn2fnsy5VwmLW1uO9ixCfCYiZRwWeLKe2ukB17uzxRRyhZElgzn_E&usqp=CAU" alt="twilio" width="70" height="50"/>
 </p>
    
 ## API Endpoints
    #### Home
-javascript
+```javascript
 GET  /api/
-
+```
    #### User Signup
 javascript
 POST  /api/signup
@@ -126,18 +125,14 @@ POST /api/qr/post
     {"url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJO1Bmu2stkBmmOJXmyHN5G7UHmeA4xr5z0whR9JZF&s",
      "size":"150 x 150"
     "email":"abhisek@gmail.com"}
+  
 
+
+ <div align = "center">
  
-    
-   
-
-  
-  
 | `Project Highlights` |
 | :------------------: | 
 
- <div align = "center">
-  
  <img src="https://user-images.githubusercontent.com/112754448/221420942-4551e750-966f-4529-942e-0a96c8c260b1.png" width="600" height="250" />
  <img src="https://user-images.githubusercontent.com/112754448/221421124-5499cac6-4088-49ea-a22f-aae4da046310.png" width="600" height="250"/>
  <img src="https://user-images.githubusercontent.com/112754448/221421133-44a7c58b-e803-4107-ae76-8806e14a022d.png" width="600" height="250"/>
