@@ -1,28 +1,32 @@
-require('dotenv').config();
-const fs=require("fs");
-const jwt=require("jsonwebtoken")
+const express=require('express')
+const app=express();
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-const authentication=async(req,res,next)=>{
-    let token=req.headers.authorization;
-    if(token){
-        let block=JSON.parse(fs.readFileSync("./blacklist.json","utf-8"));
-        if(block.includes(token)){
-            res.send({"msg":"Token blacklisted"})
-        }else{
-            let decoded=jwt.verify(token,process.env.token_secret);
-            if(decoded){
-                console.log(decoded);
-                console.log(decoded.dataid);
-                req.body.userID=decoded.dataid
-                req.body.email=decoded.email
-                next()
-            }
+const authenticate = async (req, res, next) => {
+    const token = req.headers?.authorization;
+    console.log("From Middleware:",token);
+    if (!token) {
+      return res.send({ msg: "Enter Token First" });
+    } else {
+      try {
+        const decoded = jwt.verify(token, process.env.token_secret);
+        if (decoded) {
+          const userID = decoded.userID;
+          const email = decoded.email;
+          console.log('Middleware Console',userID,email)
+          req.body.userID = userID;
+          req.body.email = email;
+          next();
+        } else {
+          res.send({ msg: "Wrong Token" });
         }
-    }else{
-        res.send({"msg":"login again"})
+      } catch (e) {
+        res.send({ msg: "Token Expired" });
+      }
     }
-};
-module.exports={
-    authentication,
-
-};
+  };
+  
+  module.exports = {
+    authenticate
+  };

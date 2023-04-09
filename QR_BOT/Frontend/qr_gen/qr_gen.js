@@ -10,8 +10,7 @@ const onGenerateSubmit = (e) => {
   // Validate url
   if (url === "") {
     alert("Please enter a URL");
-  }
-   else {
+  } else {
     showSpinner();
     // Show spinner for 1 sec
     setTimeout(() => {
@@ -26,13 +25,13 @@ const onGenerateSubmit = (e) => {
       }, 50);
     }, 1000);
   }
-  if(size!==""&&url!==""){
-    let obj={
-      url,size
-    }
+  if (size !== "" && url !== "") {
+    let obj = {
+      url,
+      size,
+    };
     fetch_QR(obj);
   }
-
 };
 
 // Generate QR code
@@ -73,30 +72,31 @@ const createSaveBtn = (saveUrl) => {
   //   "bg-[#0cc0df] hover:bg-[#055664]-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5";
   link.href = saveUrl;
   link.download = "qrcode";
-  link.innerHTML = `<i class="fa-solid fa-file-arrow-down"></i> Save Image`
+  link.innerHTML = `<i class="fa-solid fa-file-arrow-down"></i> Save Image`;
   document.getElementById("generated").appendChild(link);
 };
 
 hideSpinner();
 form.addEventListener("submit", onGenerateSubmit);
 
-
-const fetch_QR=async(obj)=>{
-try {
-  let response =await fetch("https://real-lime-greyhound-garb.cyclic.app/qr/post",{
-    method:"POST",
-    headers:{
-      "Content-Type":"Application/json",
-      Authorization:JSON.parse(localStorage.getItem("token"))
-    },
-    body:JSON.stringify(obj)
-  });
-  if(response.ok){
-    let ans=await response.json();
-    console.log(ans);
+const fetch_QR = async (obj) => {
+  try {
+    let response = await fetch(
+      "http://localhost:5500/qr/post",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json",
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+        body: JSON.stringify(obj),
+      }
+    );
+    if (response.ok) {
+      let ans = await response.json();
+      console.log(ans);
+    }
+  } catch (error) {
+    console.log(error);
   }
-} catch (error) {
-  console.log(error);
-}
-}
-       
+};

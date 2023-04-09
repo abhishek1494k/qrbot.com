@@ -20,7 +20,7 @@ UserRouter.post("/signup", async (req, res) => {
     // Find in Blocked Emails
     const { name, email, password } = req.body;
     let blockuser = await BlacklistuserModel.find({ block_email: email });
-    if (blockuser.length>0) {
+    if (blockuser.length > 0) {
       return res.send({ msg: "You have been Blocked" });
     }
     // Find in User Database
@@ -57,7 +57,7 @@ UserRouter.post("/login", async (req, res) => {
     try {
       // Find in Blocked Email
       let blockuser = await BlacklistuserModel.find({ block_email: email });
-      if (blockuser.length >0) {
+      if (blockuser.length > 0) {
         return res.send({ msg: "You have been Blocked" });
       }
       let passdata = await UserModel.find({ email });
@@ -65,7 +65,7 @@ UserRouter.post("/login", async (req, res) => {
         bcrypt.compare(password, passdata[0].password, function (err, result) {
           if (result) {
             var token = jwt.sign(
-              { dataid: passdata[0]._id, email: passdata[0].email },
+              { userID: passdata[0]._id, email: passdata[0].email },
               process.env.token_secret,
               { expiresIn: "1d" }
             );
@@ -77,7 +77,6 @@ UserRouter.post("/login", async (req, res) => {
                 pass: "noymjrhbxjwiclin",
               },
             });
-
             const mailOptions = {
               from: "forsmmpanel@gmail.com",
               to: email,
@@ -99,7 +98,11 @@ UserRouter.post("/login", async (req, res) => {
             transporter
               .sendMail(mailOptions)
               .then((info) => {
-                res.send({ msg: "Login Successful",name:passdata[0].name,token:token});
+                res.send({
+                  msg: "Login Successful",
+                  name: passdata[0].name,
+                  token: token,
+                });
               })
               .catch((e) => {
                 res.send(e);
@@ -120,9 +123,9 @@ UserRouter.post("/login", async (req, res) => {
   }
 });
 
-// ------------->>>>> User logout <<<<<----------------
+// ------------->>>>> User logout <<<<<---------------
 UserRouter.post("/logout", async (req, res) => {
-  let token = req.headers.authorization; 
+  let token = req.headers.authorization;
   try {
     let blacklistAcc = JSON.parse(fs.readFileSync("./blacklist.json", "utf-8"));
     blacklistAcc.push(token);
