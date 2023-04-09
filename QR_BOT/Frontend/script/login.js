@@ -29,15 +29,17 @@ async function fetch_login(obj) {
     });
     if (response.ok) {
       let result = await response.json();
-      localStorage.setItem("name", JSON.stringify(result.name));
-      localStorage.setItem("token", JSON.stringify(result.token));
+
+      result.msg=== "Login Successful"?
       swal("", `${result.msg}`, "success").then(function () {
         if (result.name == "Admin") {
           window.location.href = "../HTML/admin.html";
         } else {
+          localStorage.setItem("name", JSON.stringify(result.name));
+          localStorage.setItem("token", JSON.stringify(result.token));
           window.location.href = "../index.html";
         }
-      });
+      }):swal("", `${result.msg}`, "warning")
     }
   } catch (error) {
     swal("", "Error Login", "warning").then(function () {

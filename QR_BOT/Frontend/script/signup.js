@@ -28,12 +28,13 @@ async function fetch_sign(obj) {
       },
       body: JSON.stringify(obj),
     });
-
     if (response.ok) {
       let ans = await response.json();
-      swal("", `${ans.msg}`, "success").then(function () {
-        window.location.href = "./login.html";
-      });
+      ans.msg === "Successfully Signed Up"
+        ? swal("", `${ans.msg}`, "success").then(function () {
+            window.location.href = "./login.html";
+          })
+        : swal("", `${ans.msg}`, "warning");
     } else {
       swal("", "Error", "warning");
     }
