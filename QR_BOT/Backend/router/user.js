@@ -16,12 +16,7 @@ UserRouter.get("/", (req, res) => {
 // --------------->>>>> Signup <<<<<-----------------
 UserRouter.post("/signup", async (req, res) => {
   try {
-    // Find in Blocked Emails
     const { name, email, password } = req.body;
-    let blockuser = await BlacklistuserModel.find({ block_email: email });
-    if (blockuser.length > 0) {
-      return res.send({ msg: "You have been Blocked" });
-    }
     // Find in User Database
     const user = await UserModel.find({ email });
     if (user.length === 0) {
@@ -54,11 +49,6 @@ UserRouter.post("/login", async (req, res) => {
   let seconds = date_ob.getSeconds();
   {
     try {
-      // Find in Blocked Email
-      let blockuser = await BlacklistuserModel.find({ block_email: email });
-      if (blockuser.length > 0) {
-        return res.send({ msg: "You have been Blocked" });
-      }
       let passdata = await UserModel.find({ email });
       if (passdata.length === 1) {
         bcrypt.compare(password, passdata[0].password, function (err, result) {
