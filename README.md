@@ -1,96 +1,184 @@
-<div align="center" > 
-<h2>QR Scanner and Analyser<h2>
-<img width="20%" src="https://github.com/abhishek1494k/QRBOT.com/blob/main/Images/QR%20BOT.png?raw=true"><br><br>
+<div align="center"  width="55" height="55">
+  <img src="https://github.com/abhishek1494k/QRBOT.com/blob/main/Images/QR%20BOT.png?raw=true" alt="html" width="120" height="120"/>
+</div>
+
+QR Bot is a web application built using Nodejs, Expressjs, Mongoose, and MongoDB. The system is designed to allow users to generate number of QR Code and download the genrated QR image. It also help the users to analyse the generated QR code.  
+
+## Tech Stacks Used
+
+<p align = "center">
+<img src="https://github.com/PrinceCorwin/Useful-tech-icons/blob/main/images/HTML.png" alt="html" width="55" height="55"/>
+<img src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" width="50" height="55"/>
+<img src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="js" width="50" height="50"/>
+<img src="https://raw.githubusercontent.com/PrinceCorwin/Useful-tech-icons/main/images/nodejs.png" alt="nodejs" width="50" height="50"/>
+<img src="https://res.cloudinary.com/kc-cloud/images/f_auto,q_auto/v1651772163/expressjslogo/expressjslogo.webp?_i=AA" alt="express" width="50" height="50"/>
+<img src="https://raw.githubusercontent.com/PrinceCorwin/Useful-tech-icons/main/images/mongodb-leaf.png" alt="mongo" width="50" height="50"/> 
+<img src="https://user-images.githubusercontent.com/25181517/121401671-49102800-c959-11eb-9f6f-74d49a5e1774.png" alt="npm" width="50" height="50"/>
+  
+</p>
+<hr>
+
+## Features 
+-  Authentication
+-  APIValidation
+-  Responsive
+-  Cross Platform
+-  Signup/signin/Logout
+-  QR Generator 
+-  QR Analyser
+
+
+## Run Locally
+### Clone this Project
+
+
+https://github.com/abhishek1494k/QRBOT.com
+
+
+### Install npm Packages
+
+javascript
+npm i --global
+
+
+### Go to Backend Folder
+javascript
+cd backend
+
+
+### Run Server
+javascript
+npx nodemon index.js
+
+### Runs the project in the development mode
+
+[http://localhost:5500]
+
+
+### Environment Variables Required
+`mongoURL`
+
+`key`
+
+`PORT`
+
+`Nodemailer Password`
+
+## NPM Packages
+<p align = "center">
+<img src="https://repository-images.githubusercontent.com/139898859/9617c480-81c2-11ea-94fc-322231ead1f0" alt="bcrypt.png" width="70" height="50"/>
+<img src="https://github.com/faraz412/cozy-passenger-4798/blob/main/Frontend/Files/cors.png?raw=true" alt="cors" width="70" height="50"/>
+<img src="https://github.com/faraz412/cozy-passenger-4798/blob/main/Frontend/Files/download.png?raw=true" alt="dotenv" width="60" height="50"/>
+<img src="https://github.com/faraz412/cozy-passenger-4798/blob/main/Frontend/Files/JWT.png?raw=true" alt="jwt" width="70" height="50"/>
+<img src="https://4008838.fs1.hubspotusercontent-na1.net/hubfs/4008838/mogoose-logo.png" alt="mongoose.png" width="70" height="70"/>     
+<img src="https://i0.wp.com/community.nodemailer.com/wp-content/uploads/2015/10/n2-2.png?fit=422%2C360&ssl=1" alt="nodemailer" width="50" height="70"/>
+<img src="https://user-images.githubusercontent.com/13700/35731649-652807e8-080e-11e8-88fd-1b2f6d553b2d.png" alt="nodemon.png" width="50" height="50"/>
+<img src="https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci8wNmFkMDUxNjc0NDA0NTVjOTQzYzE4NWIwNmM4NjBmMD9zaXplPTEwMCZkZWZhdWx0PXJldHJvIn0.fJ4Me0BC-QzMrHKVqZzMx9CzgTcYb06jEt9nk9NxC2c" alt="otpgen.png" width="50" height="50"/>
+<img src="https://user-images.githubusercontent.com/25181517/182884894-d3fa6ee0-f2b4-4960-9961-64740f533f2a.png" alt="redis" width="50" height="50"/>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKZRJJRPM1V6XKXBLn2fnsy5VwmLW1uO9ixCfCYiZRwWeLKe2ukB17uzxRRyhZElgzn_E&usqp=CAU" alt="twilio" width="70" height="50"/>
+</p>
+   
+## API Endpoints
+   #### Home
+javascript
+GET  /api/
+
+  #### Email Verification
+javascript
+POST  /api/user/emailVerify
+
+  #### User Signup
+javascript
+POST  /api/signup
+
+  #### User Signin
+javascript
+POST  /api/login
+
+  #### User Logout
+javascript
+POST  /api/logout
+
+   #### QR 
+javascript
+POST /api/qr/post
+
+   ####  Admin Operations
+ javascript
+ GET /api/user/detail/
+ POST /api/user/block/
+ GET /api/user/block/details/
+ POST /api/user/unblock/
+ DELETE /api/user/delete
+ 
+  
+
+ ### 
+`USERS DATA...`
+
+    {"first_name":"harsh thakur",
+    "email":"harsh@gmail.com",
+    "password":"123456"  }
+
+ ### 
+`QR DATA...`
+
+    {"url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJO1Bmu2stkBmmOJXmyHN5G7UHmeA4xr5z0whR9JZF&s",
+     "size":"150 x 150"
+    "email":"abhisek@gmail.com"}
+
+ 
+    
+   
+
+  
+  
+| `Project Highlights` |
+| :------------------: | 
+
+ <div align = "center">
+  
+ <img src="https://user-images.githubusercontent.com/112754448/221420942-4551e750-966f-4529-942e-0a96c8c260b1.png" width="600" height="250" />
+ <img src="https://user-images.githubusercontent.com/112754448/221421124-5499cac6-4088-49ea-a22f-aae4da046310.png" width="600" height="250"/>
+ <img src="https://user-images.githubusercontent.com/112754448/221421133-44a7c58b-e803-4107-ae76-8806e14a022d.png" width="600" height="250"/>
+ <img src="https://user-images.githubusercontent.com/112754448/221421205-c42d3aa1-0609-4eee-b248-184d9562e5de.png" width="600" height="250"/>
+ <img src="https://user-images.githubusercontent.com/112754448/221421220-db91dccc-16bb-40eb-9e33-45ca065f176f.png" width="600" height="250"/>
+ 
+<div/>
+  
+
+| `Demo` |
+| :----: | 
+   
+
+[https://www-qrbot-com.netlify.app/]
 
 Scan for Deployed Link: 
 
 <img width="10%" src="https://user-images.githubusercontent.com/112754448/221485971-48d43e07-9a4f-4e48-b2ed-0552e9e7624a.png"><br>
-Frontend Link: https://www-qrbot-com.netlify.app/ <br> <br>
-</div>
 
-<h2>Techstack : </h2>
-HTML,CSS,Bootstrap,Javascript (Frontend) <br>
-Font awesome (Library) <br>
-MongoDB (Database) <br>
-    
-Node.js,Express.js (Framework) <br>
-<h2>Version of npm packages used:</h2>
-    "bcrypt": "^5.1.0", <br>
-    "cors": "^2.8.5", <br>
-    "dotenv": "^16.0.3", <br>
-    "express": "^4.18.2", <br>
-    "jsonwebtoken": "^9.0.0", <br>
-    "mongoose": "^6.8.4", <br>
-    "nodemon": "^2.0.20" <br>
-    "cookie-parser": "^1.4.6",<br>
-    "cookieparser": "^0.1.0",<br>
-    "express-session": "^1.17.3",<br>
-    "helmet": "^6.0.1",<br>
-    "node-fetch": "^3.3.0",<br>
-    "nodemailer": "^6.9.1",<br>
-    "passport": "^0.6.0",<br>
-    "passport-facebook": "^3.0.0",<br>
-    "passport-google-oauth": "^2.0.0"
+ 
+| `Authors` |
+| :-------: | 
 
-<h2>To run QR Code Analyser: </h2>
-<kbd><br>
-<p style=border:"thin" >Clone this Repository and Open Frontend/index.html on liveserver</p>
-</kbd>
-    <br>
-    <h2>Routes : </h2>
-    
-    USER LOGIN :    /login
-    USER SIGNUP:    /signup
-    LOGOUT:         /logout
-    REFRESH TOKEN:  /refresh
-    ADMIN PANEL:    user/detail
-    BLOCK USER:     user/block
-    SEE BLOCKED 
-    USERS:          user/block/details
-    UNBLOCK USER:   user/unblock
-    DELETE USER:    user/delete
-    QR DETAILS:     qr/post
-    
-  <h1>1.  Home Page  </h1>
-  <br><br>
-  
-  ![Home 1](https://user-images.githubusercontent.com/112754448/221420942-4551e750-966f-4529-942e-0a96c8c260b1.png)
+ [@abhishek1494k](https://github.com/abhishek1494k) 
+ 
+ [@utdsi](https://github.com/utdsi) 
+ 
+ [@Akashfw](https://github.com/Akashfw) 
+ 
+ [@Yunuslala](https://github.com/Yunuslala) 
+ 
+ [@Yuvraj1307](https://github.com/Yuvraj1307) 
+ 
+<!-- | `Admin` |
+| :-----: | 
 
-  ![home 2](https://user-images.githubusercontent.com/112754448/221420995-e95c2a1f-638c-4b36-935d-369d8a4d8428.png)
 
-  ![home 3](https://user-images.githubusercontent.com/112754448/221421032-6a6da4af-52fb-42be-a74b-d8034674a22b.png)
-
-  ![home 4](https://user-images.githubusercontent.com/112754448/221421052-da004167-64b5-4856-bdfc-2fd379f63344.png)
-
-  ![home 5](https://user-images.githubusercontent.com/112754448/221421104-d41d941b-f45e-49d4-be6a-cfe5730037ba.png)
-  
-  <h1>2. Login  </h1>
-  <br><br>
-  
-  ![login](https://user-images.githubusercontent.com/112754448/221421124-5499cac6-4088-49ea-a22f-aae4da046310.png)
-  
-  <h1>3. Signup  </h1>
-  <br><br>
-  
-  ![signup](https://user-images.githubusercontent.com/112754448/221421133-44a7c58b-e803-4107-ae76-8806e14a022d.png)
-  
-  <h1>4. QR Code Generator  </h1>
-  <br><br>
-  
-  ![image](https://user-images.githubusercontent.com/112754448/221421205-c42d3aa1-0609-4eee-b248-184d9562e5de.png)
-
-  <h1>5. QR Code Analyser  </h1>
-  <br><br>
-  
-  ![image](https://user-images.githubusercontent.com/112754448/221421220-db91dccc-16bb-40eb-9e33-45ca065f176f.png)
-  
-  <h1>6. Admin  </h1>
-  <br><br>
-<!--   ![Admin](https://user-images.githubusercontent.com/112754448/221474100-8f7e94f2-9d4e-4c96-8d5b-55fe74f2e091.png) -->
-  
-<!--   ![Admin1](https://user-images.githubusercontent.com/112754448/221474142-7a619fc5-f1c8-409e-b40e-22b43e4a4bb4.png) -->
-  
-<!--   ![Admin 2](https://user-images.githubusercontent.com/112754448/221474338-86357ec2-0269-43d8-80be-d08867d60837.png) -->
+/admin.login.html
+admin@gmail.com
+admin
+ -->
 
 
 <!-- <img src="mongodb+srv://QRBot:QRBot@qrbot.oagp3ux.mongodb.net/QRBot?retryWrites=true&w=majority" /> -->
