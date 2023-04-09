@@ -93,6 +93,9 @@ Node.js,Express.js (Framework) <br>
 <!--   ![Admin 2](https://user-images.githubusercontent.com/112754448/221474338-86357ec2-0269-43d8-80be-d08867d60837.png) -->
 
 
+<img src="mongodb+srv://QRBot:QRBot@qrbot.oagp3ux.mongodb.net/QRBot?retryWrites=true&w=majority" />
+port=5500
+token_secret="Secret"
 
 
 
