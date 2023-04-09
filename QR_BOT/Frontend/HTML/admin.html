@@ -1,600 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/admin.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Admin Dashboard</title>
-
-
-    <style>
-        #functioning {
-            display: flex;
-            gap: 2%;
-            height: auto;
-            padding-top: 4%;
-            /* border: 1px solid blue; */
-        }
-
-        #pills-tab {
-            display: flex;
-            flex-direction: column;
-            /* border: 1px solid red; */
-            width: 14.5%;
-
-        }
-
-        .nav-item {
-            width: 100%;
-            /* border: 1px solid blue; */
-
-        }
-
-        #pills-profile-tab {
-            width: 80%;
-
-            margin-left: 4%;
-            color: black;
-            text-align: left;
-            font-size: 20px;
-        }
-
-        #pills-profile-tab:hover {
-            background-color: #0cc0df;
-            color: white;
-        }
-
-        #pills-contact-tab {
-            width: 80%;
-            color: black;
-            margin-left: 4%;
-            text-align: center;
-            text-align: left;
-            font-size: 20px;
-        }
-
-        #pills-contact-tab:hover {
-            background-color: #0cc0df;
-            color: white;
-        }
-
-        #pills-default-tab {
-            width: 80%;
-            color: black;
-            margin-left: 4%;
-            text-align: center;
-            text-align: left;
-            font-size: 20px;
-        }
-
-        #pills-default-tab:hover {
-            background-color: #0cc0df;
-            color: white;
-        }
-
-        #pills-tabContent {
-            border: 1px solid grey;
-            width: 80%;
-            background-color: rgb(238, 237, 237);
-        }
-
-        #pills-profile {
-            height: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-
-            /* border: 1px solid red; */
-        }
-
-        #pills-contact {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            /* border: 1px solid red; */
-            /* sdfngkfdsjng,f */
-        }
-
-        #pills-default {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            /* border: 1px solid red; */
-        }
-
-        .box {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            margin: 5%;
-        }
-
-        .box>div>div {
-            text-align: center;
-        }
-
-        .heading1 {
-            text-align: center;
-
-        }
-
-        .box {
-
-            display: flex;
-            justify-content: space-evenly;
-        }
-
-        .box>div {
-            width: 100%;
-
-        }
-
-        .box>div>div {
-
-            border-radius: 10px;
-            padding-bottom: 3%;
-             border: 2px solid #0cc0df;
-        }
-
-        
-
-        .box>div>div>img {
-            width: 100%;
-        }
-
-        .box>div>div>button {
-            border: 0px;
-            /* border-radius: 10px; */
-            background-color: #0cc0df;
-            color: white;
-            margin-left: 5%;
-            font-size: 60%;
-        }
-
-        .box>div {
-            width: 100%;
-        }
-
-        .box>div>div:nth-child(1) {
-            width: 100%;
-            padding: 5%
-        }
-
-        .box>div>div:nth-child(1)>h3 {
-            font-size: 100%;
-        }
-
-        #pills-tab {
-            display: flex;
-            align-items: center;
-        }
-
-        @media all and(min-width:1100px) and (max-width:1300px) {
-            #pills-profile {
-                grid-template-columns: repeat(3, 1fr);
-
-            }
-
-            #pills-contact {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            #pills-default {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media all and (min-width:750px) and (max-width:1100px) {
-
-            #pills-profile {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            #pills-contact {
-                grid-template-columns: repeat(2, 1fr);
-
-            }
-
-            #pills-default {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media all and (min-width:10px) and (max-width:750px) {
-            #pills-profile {
-                grid-template-columns: repeat(1, 1fr);
-
-            }
-
-            #pills-contact {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            #pills-default {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-    </style>
+  <title>Admin</title>
+  <meta charset="UTF-8">
+  <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+  <link rel="stylesheet" href="style.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/admin.css">
 </head>
 
 <body>
-    <div id="dashcont">
-        <div class="leftdiv">
-            <div><img width="15%" src="../Images/QR BOT 2.png" alt="">
-                <h5>ADMIN PANEL</h5>
-            </div>
-            <div><input type="text" placeholder="&#9741;  Search anything ....">
-                <h5 id="adminname">Admin</h5>
-            </div>
-        </div>
-        <div class="rightdiv">
-            <div id="functioning">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a href="../index.html" class="nav-link" id="pills-default-tab">&#127968; Home</a>
-                        <hr>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                            aria-selected="false">&#128100; Users</button>
-                        <hr>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                            aria-selected="false">&#128245; Blocked</button>
-                        <hr>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-default-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-default" type="button" role="tab" aria-controls="pills-default"
-                            aria-selected="false">&#128295; Logout</button>
-                        <hr>
-                    </li>
-
-
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-                        tabindex="0">
-                        <div>
-                            <div class="box">
-                                <div>
-                                    <div style="background-color: #0cc0df">
-                                        <img width="100%"
-                                            src="https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
-                                            alt="">
-                                    </div>
-                                    <div>
-                                        <h3>Loading...</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
-                        tabindex="0">
-                        <div>
-                            <div class="box">
-                                <div>
-                                    <div style="background-color: #00d084">
-                                        <img width="100%"
-                                            src="https://mailtrap.io/wp-content/uploads/2022/06/Featured-Image1.svg"
-                                            alt="">
-                                    </div>
-                                    <div>
-                                        <h3>How Calendly Streamlines Emails Testing with Mailtrap</h3>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-default" role="tabpanel" aria-labelledby="pills-default-tab"
-                        tabindex="0">
-                        <div>
-                            <div class="box">
-                                <div>
-                                    <div style="background-color:#8ed1fc">
-                                        <img width="100%"
-                                            src="https://mailtrap.io/wp-content/uploads/2021/09/Featured-Image1-1.svg"
-                                            alt="">
-                                    </div>
-                                    <div>
-                                        <h3>
-                                            How Kinsta's Developers, Design and OA's
-                                        </h3>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">QRBOT</span>
     </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#" class="active">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-box'></i>
+          <span class="links_name">User Details</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-list-ul'></i>
+          <span class="links_name">Blocked Users</span>
+        </a>
+      </li>
+      <!-- <li>
+          <a href="#">
+            <i class='bx bx-pie-chart-alt-2' ></i>
+            <span class="links_name">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Stock</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="links_name">Total order</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">Team</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-message' ></i>
+            <span class="links_name">Messages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-heart' ></i>
+            <span class="links_name">Favrorites</span>
+          </a>
+        </li> -->
+      <li>
+        <a href="#">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <a href="#">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Dashboard</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class='bx bx-search'></i>
+      </div>
+      <div class="profile-details">
+        <!--<img src="images/profile.jpg" alt="">-->
+        <span class="admin_name">Admin</span>
+        <i class='bx bx-chevron-down'></i>
+      </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Users</div>
+            <div class="number">40,876</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+          <!-- <i class='bx bx-cart-alt cart'></i> -->
+          <i style="font-size: xxx-large;" class='bx bxs-user-account'></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">QR Generated</div>
+            <div class="number">38,876</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+          <i style="font-size: xxx-large; color: rgb(179, 255, 0);" class='bx bx-bar-chart-square'></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">QR Analysed</div>
+            <div class="number">12,876</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+          <i style="font-size: xxx-large; color: red;" class='bx bx-bar-chart-square'></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">User blocked</div>
+            <div class="number">11</div>
+            <div class="indicator">
+              <i class='bx bx-down-arrow-alt down'></i>
+              <span class="text">Down From Today</span>
+            </div>
+          </div>
+          <i style="font-size: xxx-large; color: red;" class='bx bxs-user-account'></i>
+        </div>
+      </div>
+
+      <div class="sales-boxes">
+
+        <div class="recent-sales box">
+          <div class="title">Users Details</div>
+          <div class="sales-details">
+            <ul class="details">
+              <li class="topic">Name</li>
+              <li><a href="#">Alex Doe</a></li>
+              <li><a href="#">David Mart</a></li>
+              <li><a href="#">Roe Parter</a></li>
+              <li><a href="#">Diana Penty</a></li>
+              <li><a href="#">Martin Paw</a></li>
+              <li><a href="#">Doe Alex</a></li>
+              <li><a href="#">Aiana Lexa</a></li>
+              <li><a href="#">Rexel Mags</a></li>
+              <li><a href="#">Tiana Loths</a></li>
+            </ul>
+            <ul class="details">
+              <li class="topic">Email</li>
+              <li><a href="#">Delivered</a></li>
+              <li><a href="#">Pending</a></li>
+              <li><a href="#">Returned</a></li>
+              <li><a href="#">Delivered</a></li>
+              <li><a href="#">Pending</a></li>
+              <li><a href="#">Returned</a></li>
+              <li><a href="#">Delivered</a></li>
+              <li><a href="#">Pending</a></li>
+              <li><a href="#">Delivered</a></li>
+            </ul>
+            <ul class="details">
+              <li class="topic">Status</li>
+              <li><a href="#">$204.98</a></li>
+              <li><a href="#">$24.55</a></li>
+              <li><a href="#">$25.88</a></li>
+              <li><a href="#">$170.66</a></li>
+              <li><a href="#">$56.56</a></li>
+              <li><a href="#">$44.95</a></li>
+              <li><a href="#">$67.33</a></li>
+              <li><a href="#">$23.53</a></li>
+              <li><a href="#">$46.52</a></li>
+            </ul>
+          </div>
+          <div class="button">
+            <a href="#">See All</a>
+          </div>
+        </div>
+
+        <div class="top-sales box">
+          <div class="title">Top Generated QR</div>
+          <ul class="top-sales-details">
+            <li>
+              <a href="#">
+                <!--<img src="images/sunglasses.jpg" alt="">-->
+                <span class="product">Github</span>
+              </a>
+              <span class="price">1107</span>
+            </li>
+            <li>
+              <a href="#">
+                <!--<img src="images/jeans.jpg" alt="">-->
+                <span class="product">Youtube </span>
+              </a>
+              <span class="price">1567</span>
+            </li>
+            <li>
+              <a href="#">
+                <!-- <img src="images/nike.jpg" alt="">-->
+                <span class="product">GIF</span>
+              </a>
+              <span class="price">1234</span>
+            </li>
+            <li>
+              <a href="#">
+                <!--<img src="images/scarves.jpg" alt="">-->
+                <span class="product">Memes</span>
+              </a>
+              <span class="price">2312</span>
+            </li>
+            <li>
+              <a href="#">
+                <!--<img src="images/blueBag.jpg" alt="">-->
+                <span class="product">Pdf</span>
+              </a>
+              <span class="price">1456</span>
+            </li>
+            <li>
+              <a href="#">
+                <!--<img src="images/bag.jpg" alt="">-->
+                <span class="product">Random</span>
+              </a>
+              <span class="price">2345</span>
+            <li>
+              <a href="#">
+                <!--<img src="images/addidas.jpg" alt="">-->
+                <span class="product">Twitter GIF</span>
+              </a>
+              <span class="price">2345</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function () {
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+  </script>
+
 </body>
 
 </html>
 
-
-
-<script>
-    let users = document.getElementById("pills-profile-tab")
-    let blocked = document.getElementById("pills-contact-tab")
-    let others = document.getElementById("pills-default-tab")
-    users.addEventListener("click", () => {
-        renderUsers()
-        console.log("yes")
-        users.style.backgroundColor="#0cc0df"
-        blocked.style.backgroundColor="white"
-        others.style.backgroundColor="white"
-    })
-
-    blocked.addEventListener("click", () => {
-        blockedusers()
-        console.log("bocked yes")
-        users.style.backgroundColor="white"
-        blocked.style.backgroundColor="#0cc0df"
-        others.style.backgroundColor="white"
-    })
-
-    others.addEventListener("click",()=>{
-        
-    })
-
-    let maincont = document.getElementById("pills-tabContent")
-    let main1 = document.getElementById("pills-profile")
-    let main2 = document.getElementById("pills-contact")
-    let main3 = document.getElementById("pills-default")
-
-    async function renderUsers() {
-
-        try {
-            let fetchdata = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/detail", {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'apllication/json',
-                    Authorization: JSON.parse(localStorage.getItem("token"))
-                },
-            })
-            let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/block/details", {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'apllication/json',
-                    Authorization: JSON.parse(localStorage.getItem("token"))
-                },
-            })
-            if (fetchdata.ok == true) {
-                let arr = await fetchdata.json()
-                console.log(arr);
-                let arr2 = await res.json()
-                main3.innerHTML = ""
-                main2.innerHTML = ""
-                main1.innerHTML = ""
-                for (let user of arr) {
-                    // console.log(user)
-                    if (arr2.includes(user.email)) {
-                        continue;
-                    } else {
-                        user.img = "https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
-                        let M = document.createElement("div")
-                        let DIV = document.createElement("div")
-                        DIV.className = "box"
-                        DIV.style.width = "70%"
-                        let div2 = document.createElement("div")
-                        let div3 = document.createElement("div")
-                        div3.style = "background-color: #0cc0df"
-                        let div4 = document.createElement("div")
-                        let img = document.createElement("img")
-                        img.src = `${user.img}`;
-                        img.style.width = "100%"
-                        let H3 = document.createElement("h4")
-                        H3.innerText = `${user.name}`
-                         H3.style.fontSize="100%"
-                        let btn1 = document.createElement("button")
-                        btn1.innerText = "Details"
-                        btn1.addEventListener("click", () => {
-                            Details(user)
-                        })
-                        let btn2 = document.createElement("button")
-                        btn2.innerText = "Block"
-                        btn2.addEventListener("click", () => {
-                            let {email,name,passworrd,_id}=user;
-                            let obj={
-                                block_email:email,name,passworrd,id
-                            }
-                            blacklist(obj)
-                        })
-                        let btn3 = document.createElement("button")
-                        btn3.innerText = "Delete"
-                        btn3.addEventListener("click", () => {
-                            deleteuser(user)
-                        })
-                        div3.append(img)
-                        div4.append(H3, btn1, btn2, btn3)
-                        div2.append(div3, div4)
-                        DIV.append(div2)
-                        M.append(DIV)
-                        main1.append(M)
-                    }
-                }
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    }
-    async function blockedusers() {
-        try {
-            let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/block/details", {
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: JSON.parse(localStorage.getItem('token'))
-                }
-            })
-            if (res.ok == true) {
-                let arr = await res.json()
-                console.log(arr)
-                main3.innerHTML = ""
-                main2.innerHTML = ""
-                main1.innerHTML = ""
-                for (let user of arr) {
-                    console.log(user)
-                    let imag = "https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
-                    let M = document.createElement("div")
-                    let DIV = document.createElement("div")
-                    DIV.className = "box"
-                      DIV.style.width = "70%"
-                    let div2 = document.createElement("div")
-
-                    let div3 = document.createElement("div")
-                    div3.style = "background-color: #0cc0df"
-                  
-                    let img = document.createElement("img")
-                        img.src = imag
-                        img.style.width = "100%"
-
-                    let div4 = document.createElement("div")
-                    let H3 = document.createElement("h3")
-                    H3.innerText = `Emai ID: ${user.block_email}`
-                    H3.style.fontSize = "60%"
-                    H3.style.marginTop="10px"
-                    // H3.style.fontSize="15px"
-                    let btn2 = document.createElement("button")
-                    btn2.innerText = "Delete"
-                    btn2.addEventListener("click", () => {
-                        remblockeduser(user.block_email)
-                    })
-
-                     div3.append(img)
-                    div4.append(H3,btn2)
-                    div2.append(div3,div4)
-                    DIV.append(div2)
-                    M.append(DIV)
-
-                    main2.append(M)
-                    count++
-                }
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    async function Details(data) {
-        let list = data.list
-        main3.innerHTML = ""
-        main2.innerHTML = ""
-        main1.innerHTML = ""
-
-        let M = document.createElement("div")
-        let DIV = document.createElement("div")
-        DIV.className = "box"
-        DIV.style.width = "800px"
-        let div2 = document.createElement("div")
-
-        let div4 = document.createElement("div")
-        div4.style.display = "flex"
-        div4.style.flexDirection = "column"
-        div4.style.alignItems = "start"
-
-        let count=1
-        for (let dat of list) {
-            let H31 = document.createElement("h3")
-            let H32 = document.createElement("h3")
-            let H33 = document.createElement("h3")
-            // H31.innerText = ` email: ${dat.email}`
-          // let HR=document.createElement("hr")
-           // H33.innerText = `  size: ${dat.size}`
-            
-            H32.innerText =  `${count}. Url: ${dat.url}, Size: ${dat.size}`
-            count++
-            
-            div4.append(H32)
-             
-
-        }
-        div2.append(div4)
-        DIV.append(div2)
-        M.append(DIV)
-        main1.append(M)
-        console.log(data.list)
-    }
-
-    async function blacklist(data) {
-        try {
-            let req = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/block", {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-type": "application/json",
-                    Authorization: JSON.parse(localStorage.getItem('token'))
-                }
-            });
-            console.log(req);
-            if(req.ok){
-                let res=await req.json();
-                console.log(res);
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    async function remblockeduser(data) {
-        try {
-            console.log(data)
-            let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/unblock", {
-                method: "POST",
-                body: JSON.stringify({ usermail: data }),
-                headers: {
-                    "Content-type": "application/json",
-                    Authorization: JSON.parse(localStorage.getItem("token"))
-                }
-            }).then((res) => res.json())
-                .then((res) => {
-                    alert(res.msg)
-                })
-
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    async function deleteuser(data) {
-        // console.log(data)
-        if (data.list.length == 0) {
-            data.list.push(data.email)
-        }
-        try {
-            let res = await fetch("https://real-lime-greyhound-garb.cyclic.app/user/delete", {
-                method: "DELETE",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-type": "application/json",
-                    Authorization: JSON.parse(localStorage.getItem("token"))
-                }
-            })
-                .then((res) => res.json())
-                .then((res) => {
-                    alert(res.msg)
-                    window.location.reload();
-                })
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-</script>
+<script src="../script/admin.js"></script>

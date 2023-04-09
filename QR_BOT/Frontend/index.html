@@ -13,9 +13,7 @@
     <script src="https://kit.fontawesome.com/5a8be6b3e6.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
-
 <body>
-
     <div id="navbar">
         <div id="nav-left">
             <div id="logo">
@@ -37,8 +35,6 @@
         <div id="logout" class="log">
             <p id="name"></p>
             <a id="dash" href="">Dashboard</a>
-
-
             <button id="logout_btn">Logout</button>
         </div>
     </div>
@@ -173,7 +169,7 @@
 
     // ------------->>>>> Loggedin Person Name <<<<<----------------
     let name = JSON.parse(localStorage.getItem("name"));
-    
+
     if (name && name !== "Admin") {
         let nav_right = document.getElementById("nav-right");
         let logout = document.getElementById("logout")
@@ -214,9 +210,7 @@
     function checkLogin1() {
         let token = localStorage.getItem("token")
         if (token) {
-            swal("", "Welcome", "success").then(function () {
-                window.location.href = "./qr_gen/qr_gen.html";
-            });
+            window.location.href = "./qr_gen/qr_gen.html";
         } else {
             swal("", "Login First", "warning");
         }
@@ -224,9 +218,7 @@
     function checkLogin2() {
         let token = localStorage.getItem("token")
         if (token) {
-            swal("", "Welcome", "success").then(function () {
-                window.location.href = "./qr_ana/qr_ana.html";
-            });
+            window.location.href = "./qr_ana/qr_ana.html";
         } else {
             swal("", "Login First", "warning");
         }
