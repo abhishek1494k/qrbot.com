@@ -1,7 +1,7 @@
 let motherDiv = document.getElementsByClassName("sales-details");
 let dashboard = document.getElementById("dashboard");
 let details = document.getElementById("details");
-let blocked = document.getElementById("blocked");
+let deleteBtn = document.getElementById("deleteBtn");
 
 let bag = [];
 let qr = 0;
@@ -15,6 +15,11 @@ dashboard.addEventListener("click", async () => {
 details.addEventListener("click", async () => {
   showUsers();
   console.log("users clicked");
+});
+
+deleteBtn.addEventListener("click", async () => {
+  deleteUsers();
+  console.log("delete clicked");
 });
 
 async function showAllUsers() {
@@ -191,6 +196,87 @@ async function activatePdt(id){
         renderData(total, qr, count);
     })
 }
+
+//------------------------------------------------------------------------
+
+async function deleteUsers() {
+  let res = await fetch("http://localhost:5500/admin/allData")
+    .then((res) => res.json())
+    .then((res) => {
+      renderDeleteUser(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+async function renderDeleteUser(bag) {
+  motherDiv.innerHTML = "";
+  let nameDiv = document.getElementById("name");
+  let emailDiv = document.getElementById("email");
+  let statusDiv = document.getElementById("status");
+  nameDiv.innerHTML = `<li class="topic">Name</li>
+      ${bag
+        .map((item) => {
+          let id = item._id;
+          let name = item.name;
+          return renderName(name, id);
+        })
+        .join("")}
+      `;
+  emailDiv.innerHTML = `<li class="topic">Email</li>
+      ${bag
+        .map((item) => {
+          let email = item.email;
+          return renderEmail(email);
+        })
+        .join("")}
+      `;
+  statusDiv.innerHTML = `<li class="topic">Actions</li>
+      ${bag
+        .map((item) => {
+          // let status = item.status;
+          let id = item._id;
+          // console.log(id)
+          return renderDeleteUserStatus(id);
+        })
+        .join("")}
+      `;
+
+  let delete_btns = document.querySelectorAll(".delete-btn");
+  for (delete_btn of delete_btns) {
+    delete_btn.addEventListener("click", function (event) {
+      let id = event.target.dataset.id;
+      // console.log(id)
+      deletePdt(id);
+    });
+  }
+}
+
+function renderDeleteUserStatus(id) {
+  return  `<li><button data-id=${id}  class="delete-btn"  href="#"> DELETE  </button></li>`
+    
+}
+
+async function deletePdt(id){
+    // console.log(id)
+    let res = await fetch(`http://localhost:5500/admin/deleteUser/${id}`,{
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    .then((res)=>res.json())
+    .then((res)=>{
+        console.log(res.msg)
+        showUsers();
+        total--;
+        count--;
+        renderData(total, qr, count);
+    })
+}
+
+
 // //DELETE PDT------------------------------------------------>
 // async function deletePdt(id) {
 //   let res = await fetch(`https://good-rose-goshawk-yoke.cyclic.app/pdt/${id}`, {
