@@ -3,6 +3,7 @@ const UserRouter = express.Router();
 
 const { UserModel } = require("../model/user_model");
 
+require('dotenv').config();
 const fs = require("fs");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -62,12 +63,12 @@ UserRouter.post("/login", async (req, res) => {
             const transporter = nodemailer.createTransport({
               service: "gmail",
               auth: {
-                user: "forsmmpanel@gmail.com",
-                pass: "noymjrhbxjwiclin",
+                user: "email.qrbot@gmail.com",
+                pass: process.env.nodemailer,
               },
             });
             const mailOptions = {
-              from: "forsmmpanel@gmail.com",
+              from: "email.qrbot@gmail.com",
               to: email,
               subject: "QRBot Login",
               text: `You Loggedin into QRBot.com @ ${
@@ -94,7 +95,7 @@ UserRouter.post("/login", async (req, res) => {
                 });
               })
               .catch((e) => {
-                res.send(e);
+                res.send({msg:'Error'});
               });
             // -------------------------------------------------------------------------------------
           } else {
