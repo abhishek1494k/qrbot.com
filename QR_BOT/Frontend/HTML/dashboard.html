@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/5a8be6b3e6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="main">
+    <div id="left">
+        <div id="logo">
+            <img width="20%" src="../Images/QR BOT 2.png" alt="">
+            <h2>QR Bot</h2>
+        </div>
+        <div id="user">
+            <img src="../Images/user.jpg" alt="" srcset="">
+            <p>Hey, <span id="name"></span></p>
+        </div>
+
+        <div id="btn">
+            <button id="btn1">QR generated</button>
+            <br>
+            <br>
+            <button id="btn2">QR analysed</button>
+        </div>
+        
+    </div> 
+    
+    <div id="right">
+        <input type="text" placeholder="Search...."><button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <div id="gen">
+            <div>
+                <table >
+                    <thead>
+                    <tr>
+                      <th>Sr.No</th>
+                      <th>Text/Url</th>
+                      <th>Size</th>
+                      <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="g">
+                    
+                </tbody>
+                  </table>
+            </div>
+            
+        </div>
+        <div id="analysed">
+            <div>
+
+                <table >
+                    <thead>
+                    <tr>
+                      <th>Sr.No</th>
+                      <th>Text/Url</th>
+                      <th>Size</th>
+                      <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="a">
+                    
+                </tbody>
+                  </table>
+
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+
+    
+</body>
+</html>
+<script src="../script/dashboard.js"></script>
