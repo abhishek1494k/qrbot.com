@@ -45,3 +45,4 @@ async function fetch_sign(obj) {
     });
   }
 }
+

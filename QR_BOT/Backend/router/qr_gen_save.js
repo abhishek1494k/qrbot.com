@@ -1,4 +1,3 @@
-
 const { authenticate } = require("../middleware/authenticate");
 const {QRModel}=require("../model/qr.model");
 

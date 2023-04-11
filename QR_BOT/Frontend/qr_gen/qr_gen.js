@@ -80,23 +80,26 @@ hideSpinner();
 form.addEventListener("submit", onGenerateSubmit);
 
 const fetch_QR = async (obj) => {
-  try {
-    let response = await fetch(
-      "http://localhost:5500/qr/post",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "Application/json",
-          Authorization: JSON.parse(localStorage.getItem("token")),
-        },
-        body: JSON.stringify(obj),
-      }
-    );
-    if (response.ok) {
-      let ans = await response.json();
-      console.log(ans);
-    }
-  } catch (error) {
-    console.log(error);
-  }
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramValue = urlParams.get('token');
+  console.log(paramValue);
+  // try {
+  //   let response = await fetch(
+  //     "http://localhost:5500/qr/post",
+  //     {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "Application/json",
+  //         Authorization: JSON.parse(localStorage.getItem("token")),
+  //       },
+  //       body: JSON.stringify(obj),
+  //     }
+  //   );
+  //   if (response.ok) {
+  //     let ans = await response.json();
+  //     console.log(ans);
+  //   }
+  // } catch (error) {
+  //   console.log(error);
+  // }
 };

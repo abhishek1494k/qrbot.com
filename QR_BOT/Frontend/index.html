@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/5a8be6b3e6.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
+
 <body>
     <div id="navbar">
         <div id="nav-left">
@@ -166,7 +167,7 @@
 
 </html>
 <script>
-
+    let logCheck = true;
     // ------------->>>>> Loggedin Person Name <<<<<----------------
     let name = JSON.parse(localStorage.getItem("name"));
 
@@ -191,6 +192,7 @@
                 }
             });
             if (response.ok) {
+                logCheck = false;
                 let ans = await response.json();
                 localStorage.setItem("name", null);
                 localStorage.setItem("token", null);
@@ -223,5 +225,21 @@
             swal("", "Login First", "warning");
         }
     }
+
+    if (logCheck) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramValue = urlParams.get('id');
+        const paramName = urlParams.get('name');
+        console.log(paramValue, paramName);
+        if (paramValue && paramName) {
+            localStorage.setItem("token", JSON.stringify(paramValue));
+            localStorage.setItem("name", JSON.stringify(paramName));
+        }
+    }
+
+
+
+
+
 
 </script>
