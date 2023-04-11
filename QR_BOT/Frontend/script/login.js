@@ -36,6 +36,7 @@ async function fetch_login(obj) {
         } else {
           localStorage.setItem("name", JSON.stringify(result.name));
           localStorage.setItem("token", JSON.stringify(result.token));
+          localStorage.setItem("email", JSON.stringify(result.email));
           window.location.href = "../index.html";
         }
       }):swal("", `${result.msg}`, "warning")

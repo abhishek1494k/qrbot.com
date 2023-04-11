@@ -97,6 +97,7 @@ UserRouter.post("/login", async (req, res) => {
                   msg: "Login Successful",
                   name: passdata[0].name,
                   token: token,
+                  email: passdata[0].email
                 });
               })
               .catch((e) => {

@@ -2,30 +2,30 @@ body{
     font-family: sans-serif;
     margin: 0px;
     padding: 0px;
-    
-
 }
 #main{
     display: flex;
     gap: 20px;
+    /* border: 4px solid rgb(99, 255, 99); */
 }
 
 #left{
     width: 20%;
-    
     padding: 10px;
+    /* border: 4px solid rgb(255, 99, 99); */
 }
 
 #logo{
     display: flex;
-    justify-content:first baseline
+    justify-content:first baseline;
+
 }
 #logo img{
-   
-    margin-right: 10px;
+    /* margin-right: 50px; */
 }
 #name{
     font-weight: 600;
+    color:  #0cc0df;
 }
 
 #user{
@@ -36,7 +36,6 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
     justify-content: center;
-   
     background-color: rgb(222, 215, 215);
     border-radius: 10px;
     margin-bottom: 40px;
@@ -48,6 +47,7 @@ body{
     border-radius: 50%;
     margin-right: 20px;
 }
+
 #btn button{
     width:100%;
     padding-top: 10px;
@@ -55,7 +55,6 @@ body{
     border-radius: 10px;
     font-size: 18px;
     border: 0px;
-    
 }
 
 #btn{
@@ -63,6 +62,7 @@ body{
     margin: auto;
     text-align:end;
 }
+
 #btn button:hover{
     background-color: #0cc0df;
     color: white;
@@ -75,23 +75,25 @@ body{
     width: 70%;
     text-align: center;
     margin-top: 50px;
+    /* border: 4px solid rgb(255, 208, 99); */
     
 }
 #gen{
     display: none;
+    /* border: 4px solid rgb(99, 255, 104); */
 }
 #analysed{
     display: none;
+    /* border: 4px solid rgb(224, 99, 255); */
 }
 #gen div{
-    
-    width: 50%;
+    width: auto;
     margin: auto;
+    /* border: 4px solid rgb(122, 99, 255); */
 }
 
 #analysed div{
-    
-    width: 50%;
+    width: auto;
     margin: auto;
 }
 #right input{
@@ -106,19 +108,15 @@ body{
     padding: 5px 10px;
     background-color: #0cc0df;
     color: white;
-    
 }
 
 #a td{
     padding: 5px 10px;
     background-color:rgb(221, 213, 213) ;
-    
-    
-    
 }
 
 #gen div table{
-    width: 120%;
+    width: 100%;
     
 }
 
@@ -132,14 +130,11 @@ body{
 #g td{
     padding: 5px 10px;
     background-color:rgb(221, 213, 213) ;
-    
-    
-    
 }
 
 #analysed div table{
-    width: 120%;
-    
+    margin: auto;
+    width: 100%;
 }
 
 #right table th, td{
