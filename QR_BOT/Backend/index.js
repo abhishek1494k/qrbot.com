@@ -9,13 +9,17 @@ app.use(cors());
 const {UserRouter}=require("./router/user");
 const { qrRouter } = require("./router/qr_gen_save");
 const {adminRoute}=require("./router/admin.route");
+const { qrAnaRouter } = require("./router/qr_ana_save");
+
 
 app.use('/',UserRouter);
 app.use('/qr',qrRouter);
+app.use('/qrana',qrAnaRouter)
 app.use('/admin',adminRoute)
 
 // ---------->>>>> Connection <<<<<------------//
 const {connection}=require("./configuration/db");
+
 app.listen(process.env.port,async()=>{
     try {
         await connection;

@@ -3,17 +3,20 @@ const fs = require("fs");
 
 const { UserModel } = require("../model/user_model");
 const { QRModel } = require("../model/qr.model");
+const { QRAnaModel } = require("../model/qr_ana.model");
+
 
 // -------------->>>>> All Users <<<<<---------------
 adminRoute.get("/allData", async (req, res) => {
   try {
     let data = await UserModel.find();
     let qr = await QRModel.find();
-    let count=0;
+    let qrAna = await QRAnaModel.find();
+    let Blockcount=0;
     data.forEach((e)=>{
-      e.status===false?count++:count+=0;
+      e.status===false?Blockcount++:Blockcount+=0;
     })
-    res.send({ msg: "All Data", data: data,qr:qr,count:count });
+    res.send({ msg: "All Data", data: data,qr:qr,count:Blockcount,qrAna:qrAna });
   } catch (error) {
     console.log(error);
     res.send({ msg: "Error in Fetching Details" });

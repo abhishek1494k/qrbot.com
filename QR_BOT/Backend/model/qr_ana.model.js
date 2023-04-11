@@ -1,16 +1,15 @@
 const mongoose=require("mongoose");
 
-const qrAnaSchema=mongoose.Schema({
+const qranaSchema=mongoose.Schema({
     url:String,
-    size:Number,
     email:String,
     userID:String
 },{
     versionKey:false
 });
 
-const QRModel=mongoose.model("qr",qrSchema);
+const QRAnaModel=mongoose.model("qrana",qranaSchema);
 
 module.exports={
-    QRModel
+    QRAnaModel
 }

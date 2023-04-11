@@ -19,10 +19,10 @@ function fetchRequest(formData, file) {
         ? "Upload QR Code to Scan"
         : "Couldn't Scan QR Code";
       if (!result) return;
+      addQRResult(result);
       wrapper.querySelector("textarea").innerText = result;
       form.querySelector("img").src = URL.createObjectURL(file);
       wrapper.classList.add("active");
-      addQRResult(result);
     })
     .catch(() => {
       infoText.innerText = "Couldn't Scan QR Code";
@@ -48,19 +48,22 @@ closeBtn.addEventListener("click", () => {
 });
 
 async function addQRResult(data) {
+    let obj = {
+    url: data,
+  };
   try {
-    let res = await fetch("http://localhost:5500/addQRResult", {
+    let res = await fetch("http://localhost:5500/qrana/post", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(obj),
     })
-    .then((res)=>res.json())
-    .then((res)=>{
-      console.log(res.msg)
-    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.msg);
+      });
   } catch (error) {
     console.log(error);
   }

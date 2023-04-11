@@ -29,7 +29,6 @@ async function fetch_login(obj) {
     });
     if (response.ok) {
       let result = await response.json();
-
       result.msg=== "Login Successful"?
       swal("", `${result.msg}`, "success").then(function () {
         if (result.name == "Admin") {
@@ -40,6 +39,7 @@ async function fetch_login(obj) {
           window.location.href = "../index.html";
         }
       }):swal("", `${result.msg}`, "warning")
+      console.log(result.msg)
     }
   } catch (error) {
     swal("", "Error Login", "warning").then(function () {
