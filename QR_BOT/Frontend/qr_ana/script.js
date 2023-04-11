@@ -22,6 +22,7 @@ function fetchRequest(formData, file) {
       wrapper.querySelector("textarea").innerText = result;
       form.querySelector("img").src = URL.createObjectURL(file);
       wrapper.classList.add("active");
+      addQRResult(result);
     })
     .catch(() => {
       infoText.innerText = "Couldn't Scan QR Code";
@@ -45,3 +46,22 @@ closeBtn.addEventListener("click", () => {
   wrapper.classList.remove("active");
   window.location.reload();
 });
+
+async function addQRResult(data) {
+  try {
+    let res = await fetch("http://localhost:5500/addQRResult", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: JSON.parse(localStorage.getItem("token")),
+      },
+      body: JSON.stringify(data),
+    })
+    .then((res)=>res.json())
+    .then((res)=>{
+      console.log(res.msg)
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
