@@ -39,14 +39,12 @@
             <button id="logout_btn">Logout</button>
         </div>
     </div>
-
     <div id="div1">
         <div id="d1l">
             <h1>Free custom QR code generator.</h1>
             <p>Make a QR code for free that you can use in your branding, marketing, and more to easily direct customers
                 to your website.</p>
             <button onclick="checkLogin1()">Create your QR code now</button>
-
         </div>
         <div id="d1r">
             <img src="https://www.adobe.com/express/feature/image/media_13c362c345413a83bd3f502ac755647b7fb48a45f.png?width=2000&format=webply&optimize=medium"
@@ -167,7 +165,7 @@
 
 </html>
 <script>
-    let logCheck = true;
+
     // ------------->>>>> Loggedin Person Name <<<<<----------------
     let name = JSON.parse(localStorage.getItem("name"));
 
@@ -192,7 +190,6 @@
                 }
             });
             if (response.ok) {
-                logCheck = false;
                 let ans = await response.json();
                 localStorage.setItem("name", null);
                 localStorage.setItem("token", null);
@@ -226,20 +223,13 @@
         }
     }
 
-    if (logCheck) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const paramValue = urlParams.get('id');
-        const paramName = urlParams.get('name');
-        console.log(paramValue, paramName);
-        if (paramValue && paramName) {
-            localStorage.setItem("token", JSON.stringify(paramValue));
-            localStorage.setItem("name", JSON.stringify(paramName));
-        }
-    }
-
-
-
-
-
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const paramValue = urlParams.get('id');
+    // const paramName = urlParams.get('name');
+    // console.log(paramValue, paramName);
+    // if (paramValue && paramName) {
+    //     localStorage.setItem("token", JSON.stringify(paramValue));
+    //     localStorage.setItem("name", JSON.stringify(paramName));
+    // }
 
 </script>

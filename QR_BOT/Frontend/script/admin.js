@@ -30,9 +30,10 @@ async function showAllUsers() {
       total = res.data.length;
       qr = res.qr.length;
       count = res.count;
+      qrAna = res.qrAna.length;
       bag = [...res.data];
       render(bag);
-      renderData(total, qr, count);
+      renderData(total, qr, count, qrAna);
     })
     .catch((err) => {
       console.log(err);
@@ -45,6 +46,7 @@ async function render(bag) {
   let nameDiv = document.getElementById("name");
   let emailDiv = document.getElementById("email");
   let statusDiv = document.getElementById("status");
+
   nameDiv.innerHTML = `<li class="topic">Name</li>
     ${bag
       .map((item) => {
@@ -54,6 +56,7 @@ async function render(bag) {
       })
       .join("")}
     `;
+
   emailDiv.innerHTML = `<li class="topic">Email</li>
     ${bag
       .map((item) => {
@@ -62,30 +65,35 @@ async function render(bag) {
       })
       .join("")}
     `;
+
   statusDiv.innerHTML = `<li class="topic">Status</li>
     ${bag
       .map((item) => {
+        let name = item.name;
         let status = item.status;
-        return renderStatus(status);
+        return renderStatus(status, name);
       })
       .join("")}
     `;
 }
 function renderName(name, id) {
-  return `<li><a href="#">${name}</a></li>`;
+  if (name !== "Admin") return `<li><a href="#">${name}</a></li>`;
 }
 function renderEmail(email) {
-  return `<li><a href="#">${email}</a></li>`;
+  if (email !== "admin@gmail.com") return `<li><a href="#">${email}</a></li>`;
 }
-function renderStatus(status) {
-  return status
-    ? `<li><a style="color:blue;" href="#">Active</a></li>`
-    : `<li><a style="color:red;" href="#">Blocked</a></li>`;
+function renderStatus(status, name) {
+  if (name !== "Admin") {
+    return status
+      ? `<li><a style="color:blue;" href="#">Active</a></li>`
+      : `<li><a style="color:red;" href="#">Blocked</a></li>`;
+  }
 }
-function renderData(total, qr, count) {
+function renderData(total, qr, count, qrAna) {
   document.getElementById("total").innerText = total;
   document.getElementById("qr").innerText = qr;
   document.getElementById("count").innerText = count;
+  document.getElementById("qrAna").innerText = qrAna;
 }
 
 //----------------------------------------------------------------------------------------
@@ -156,37 +164,37 @@ function renderUserStatus(status, id) {
     : `<li><button data-id=${id} class="activate-btn" style="color:blue;" href="#"> Activate </button></li>`;
 }
 
-async function blockPdt(id){
-    console.log(id)
-    let res = await fetch(`http://localhost:5500/admin/blockUser/${id}`,{
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-    .then((res)=>res.json())
-    .then((res)=>{
-        console.log(res.msg)
-        showUsers();
-        count++
-        renderData(total, qr, count);
-    })
+async function blockPdt(id) {
+  console.log(id);
+  let res = await fetch(`http://localhost:5500/admin/blockUser/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res.msg);
+      showUsers();
+      count++;
+      renderData(total, qr, count);
+    });
 }
-async function activatePdt(id){
-    console.log(id)
-    let res = await fetch(`http://localhost:5500/admin/unblockUser/${id}`,{
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-    .then((res)=>res.json())
-    .then((res)=>{
-        console.log(res.msg)
-        showUsers();
-        count--
-        renderData(total, qr, count);
-    })
+async function activatePdt(id) {
+  console.log(id);
+  let res = await fetch(`http://localhost:5500/admin/unblockUser/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res.msg);
+      showUsers();
+      count--;
+      renderData(total, qr, count);
+    });
 }
 
 //------------------------------------------------------------------------
@@ -244,23 +252,22 @@ async function renderDeleteUser(bag) {
 }
 
 function renderDeleteUserStatus(id) {
-  return  `<li><button data-id=${id}  class="delete-btn"  href="#"> DELETE  </button></li>`
-    
+  return `<li><button data-id=${id}  class="delete-btn"  href="#"> DELETE  </button></li>`;
 }
 
-async function deletePdt(id){
-    let res = await fetch(`http://localhost:5500/admin/deleteUser/${id}`,{
-        method: 'DELETE',
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-    .then((res)=>res.json())
-    .then((res)=>{
-        console.log(res.msg)
-        showUsers();
-        total--;
-        count--;
-        renderData(total, qr, count);
-    })
+async function deletePdt(id) {
+  let res = await fetch(`http://localhost:5500/admin/deleteUser/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res.msg);
+      showUsers();
+      total--;
+      count--;
+      renderData(total, qr, count);
+    });
 }

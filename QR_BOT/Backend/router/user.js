@@ -3,7 +3,7 @@ const UserRouter = express.Router();
 
 const { UserModel } = require("../model/user_model");
 
-require('dotenv').config();
+require("dotenv").config();
 const fs = require("fs");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -34,13 +34,14 @@ UserRouter.post("/signup", async (req, res) => {
       return res.send({ msg: "You are already Registered" });
     }
   } catch (error) {
-    res.send({ msg: "something went wrong", error: error });
+    res.send({ msg: "Something went wrong", error: error });
   }
 });
 
 // ------------->>>>> User Login <<<<<----------------
 UserRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
+
   let date_ob = new Date();
   let date = ("0" + date_ob.getDate()).slice(-2);
   let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
@@ -48,10 +49,14 @@ UserRouter.post("/login", async (req, res) => {
   let hours = date_ob.getHours();
   let minutes = date_ob.getMinutes();
   let seconds = date_ob.getSeconds();
+
   {
     try {
       let passdata = await UserModel.find({ email });
       if (passdata.length === 1) {
+        if (passdata[0].status === false) {
+          return res.send({ msg: "You are Blocked" });
+        }
         bcrypt.compare(password, passdata[0].password, function (err, result) {
           if (result) {
             var token = jwt.sign(
@@ -95,7 +100,7 @@ UserRouter.post("/login", async (req, res) => {
                 });
               })
               .catch((e) => {
-                res.send({msg:'Error'});
+                res.send({ msg: "Error" });
               });
             // -------------------------------------------------------------------------------------
           } else {
@@ -108,7 +113,7 @@ UserRouter.post("/login", async (req, res) => {
     } catch (error) {
       console.log(error);
       console.log("something went wrong");
-      res.send({ error: error });
+      res.send({ msg: "something went wrong", error: error });
     }
   }
 });
