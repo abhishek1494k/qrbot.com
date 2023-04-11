@@ -1,5 +1,4 @@
-// let baseURL = "https://real-lime-greyhound-garb.cyclic.app/";
-let baseURL = "http://localhost:5500/";
+import baseURL from "./baseURL";
 
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
@@ -21,7 +20,7 @@ form.addEventListener("submit", (e) => {
 
 async function fetch_sign(obj) {
   try {
-    let response = await fetch(`${baseURL}signup`, {
+    let response = await fetch(`http://localhost:5500/signup`, {//!!----------//
       method: "POST",
       headers: {
         "Content-Type": "Application/json",

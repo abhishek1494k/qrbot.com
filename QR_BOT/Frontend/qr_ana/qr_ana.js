@@ -52,7 +52,7 @@ async function addQRResult(data) {
     url: data,
   };
   try {
-    let res = await fetch("http://localhost:5500/qrana/post", {
+    let res = await fetch("http://localhost:5500/qrana/post", { //!!----------//
       method: "POST",
       headers: {
         "Content-Type": "application/json",

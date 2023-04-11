@@ -12,7 +12,7 @@ btn1.addEventListener("click", () => {
 
 async function showAllUsers() {
   let email = JSON.parse(localStorage.getItem("email"));
-  let res = await fetch(`http://localhost:5500/admin/usersQR/${email}`)
+  let res = await fetch(`http://localhost:5500/admin/usersQR/${email}`) //!!----------//
     .then((res) => res.json())
     .then((res) => {
       let arr1 = res.data;
@@ -49,7 +49,7 @@ btn2.addEventListener("click", () => {
 
 async function showAllUsersQRAna() {
   let email = JSON.parse(localStorage.getItem("email"));
-  let res = await fetch(`http://localhost:5500/admin/usersQRAna/${email}`)
+  let res = await fetch(`http://localhost:5500/admin/usersQRAna/${email}`)//!!----------//
     .then((res) => res.json())
     .then((res) => {
       let arr1 = res.data;

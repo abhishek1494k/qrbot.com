@@ -16,6 +16,7 @@ UserRouter.get("/", (req, res) => {
 
 // --------------->>>>> Signup <<<<<-----------------
 UserRouter.post("/signup", async (req, res) => {
+  console.log(req.body)
   try {
     const { name, email, password } = req.body;
     // Find in User Database
@@ -41,7 +42,7 @@ UserRouter.post("/signup", async (req, res) => {
 // ------------->>>>> User Login <<<<<----------------
 UserRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(req.body)
   let date_ob = new Date();
   let date = ("0" + date_ob.getDate()).slice(-2);
   let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
