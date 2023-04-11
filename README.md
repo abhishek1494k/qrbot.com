@@ -1,4 +1,4 @@
-<div align="center"  width="65" height="65">
+<div align="center"  width="65" height="75">
   <img src="https://github.com/abhishek1494k/QRBOT.com/blob/main/Images/QR%20BOT.png?raw=true" alt="html" width="120" height="120"/>
 </div>
 
