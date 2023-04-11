@@ -1,0 +1,151 @@
+body{
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    
+
+}
+#main{
+    display: flex;
+    gap: 20px;
+}
+
+#left{
+    width: 20%;
+    
+    padding: 10px;
+}
+
+#logo{
+    display: flex;
+    justify-content:first baseline
+}
+#logo img{
+   
+    margin-right: 10px;
+}
+#name{
+    font-weight: 600;
+}
+
+#user{
+    width:70%;
+    
+    display: flex;
+    margin-top: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+   
+    background-color: rgb(222, 215, 215);
+    border-radius: 10px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+#user img{
+    width: 15%;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+#btn button{
+    width:100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: 0px;
+    
+}
+
+#btn{
+    width: 100%;
+    margin: auto;
+    text-align:end;
+}
+#btn button:hover{
+    background-color: #0cc0df;
+    color: white;
+    cursor: pointer;
+    border: 0px;
+    transform: scale(0.9);
+}
+
+#right{
+    width: 70%;
+    text-align: center;
+    margin-top: 50px;
+    
+}
+#gen{
+    display: none;
+}
+#analysed{
+    display: none;
+}
+#gen div{
+    
+    width: 50%;
+    margin: auto;
+}
+
+#analysed div{
+    
+    width: 50%;
+    margin: auto;
+}
+#right input{
+    padding: 5px 10px
+}
+
+#right button{
+    padding: 5px 10px;
+}
+
+#analysed thead th{
+    padding: 5px 10px;
+    background-color: #0cc0df;
+    color: white;
+    
+}
+
+#a td{
+    padding: 5px 10px;
+    background-color:rgb(221, 213, 213) ;
+    
+    
+    
+}
+
+#gen div table{
+    width: 120%;
+    
+}
+
+#gen thead th{
+    padding: 5px 10px;
+    background-color: #0cc0df;
+    color: white;
+    
+}
+
+#g td{
+    padding: 5px 10px;
+    background-color:rgb(221, 213, 213) ;
+    
+    
+    
+}
+
+#analysed div table{
+    width: 120%;
+    
+}
+
+#right table th, td{
+    border-style: none;
+}
+
+
+
+
