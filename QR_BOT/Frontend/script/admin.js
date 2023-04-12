@@ -23,7 +23,7 @@ deleteBtn.addEventListener("click", async () => {
 });
 
 async function showAllUsers() {
-  let res = await fetch("http://localhost:5500/admin/allData")//!!----------//
+  let res = await fetch("hhttps://tough-tan-narwhal.cyclic.app/admin/allData")//!!----------//
     .then((res) => res.json())
     .then((res) => {
       console.log(res.data);
@@ -99,7 +99,7 @@ function renderData(total, qr, count, qrAna) {
 //----------------------------------------------------------------------------------------
 
 async function showUsers() {
-  let res = await fetch("http://localhost:5500/admin/allData") //!!----------//
+  let res = await fetch("https://tough-tan-narwhal.cyclic.app/admin/allData") //!!----------//
     .then((res) => res.json())
     .then((res) => {
       renderUser(res.data);
@@ -166,7 +166,7 @@ function renderUserStatus(status, id) {
 
 async function blockPdt(id) {
   console.log(id);
-  let res = await fetch(`http://localhost:5500/admin/blockUser/${id}`, { //!!----------//
+  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/blockUser/${id}`, { //!!----------//
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -182,7 +182,7 @@ async function blockPdt(id) {
 }
 async function activatePdt(id) {
   console.log(id);
-  let res = await fetch(`http://localhost:5500/admin/unblockUser/${id}`, { //!!----------//
+  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/unblockUser/${id}`, { //!!----------//
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -200,7 +200,7 @@ async function activatePdt(id) {
 //------------------------------------------------------------------------
 
 async function deleteUsers() {
-  let res = await fetch("http://localhost:5500/admin/allData") //!!----------//
+  let res = await fetch("hhttps://tough-tan-narwhal.cyclic.app/admin/allData") //!!----------//
     .then((res) => res.json())
     .then((res) => {
       renderDeleteUser(res.data);
@@ -256,7 +256,7 @@ function renderDeleteUserStatus(id) {
 }
 
 async function deletePdt(id) {
-  let res = await fetch(`http://localhost:5500/admin/deleteUser/${id}`, { //!!----------//
+  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/deleteUser/${id}`, { //!!----------//
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
