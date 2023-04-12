@@ -12,7 +12,7 @@ btn1.addEventListener("click", () => {
 
 async function showAllUsers() {
   let email = JSON.parse(localStorage.getItem("email"));
-  let res = await fetch(`http://localhost:5500/admin/usersQR/${email}`) //!!----------//
+  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/usersQR/${email}`) //!!----------//
     .then((res) => res.json())
     .then((res) => {
       let arr1 = res.data;
@@ -34,7 +34,7 @@ function renderData(arr1) {
     td1.innerHTML = index + 1;
     td2.innerHTML = item.url;
     td3.innerHTML = item.size;
-    td4.innerHTML = '12:00:45';
+    td4.innerHTML = "12:00:45";
     tr.append(td1, td2, td3, td4);
     gen.append(tr);
   });
@@ -49,7 +49,7 @@ btn2.addEventListener("click", () => {
 
 async function showAllUsersQRAna() {
   let email = JSON.parse(localStorage.getItem("email"));
-  let res = await fetch(`http://localhost:5500/admin/usersQRAna/${email}`)//!!----------//
+  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/usersQRAna/${email}`) //!!----------//
     .then((res) => res.json())
     .then((res) => {
       let arr1 = res.data;
@@ -69,7 +69,11 @@ function renderDataQRAna(data) {
     let td4 = document.createElement("td");
     td1.innerHTML = index + 1;
     td2.innerHTML = item.url;
-    td4.innerHTML = '12:00:45';
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
+    td4.innerHTML = `${hours}:${minutes}:${seconds}`
     tr.append(td1, td2, td4);
     ana.append(tr);
   });

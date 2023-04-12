@@ -165,7 +165,7 @@
 
 </html>
 <script>
-
+    checkURL();
     // ------------->>>>> Loggedin Person Name <<<<<----------------
     let name = JSON.parse(localStorage.getItem("name"));
 
@@ -182,7 +182,7 @@
     logout_btn.addEventListener("click", async () => {
         try {
             let token = JSON.parse(localStorage.getItem("token"));
-            let response = await fetch("http://localhost:5500/logout", { //!!----------//
+            let response = await fetch("https://tough-tan-narwhal.cyclic.app/logout", { //!!----------//
                 method: "POST",
                 headers: {
                     "Content-Type": "Applicatiion/json",
@@ -223,13 +223,21 @@
         }
     }
 
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const paramValue = urlParams.get('id');
-    // const paramName = urlParams.get('name');
-    // console.log(paramValue, paramName);
-    // if (paramValue && paramName) {
-    //     localStorage.setItem("token", JSON.stringify(paramValue));
-    //     localStorage.setItem("name", JSON.stringify(paramName));
-    // }
+    async function checkURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramEmail = urlParams.get('email');
+        const paramValue = urlParams.get('id');
+        const paramName = urlParams.get('name');
+        // console.log("paramValue, paramName, paramEmail", paramValue, paramName, paramEmail);
+        if (paramValue && paramName && paramEmail) {
+            localStorage.setItem("token", JSON.stringify(paramValue));
+            localStorage.setItem("name", JSON.stringify(paramName));
+            localStorage.setItem("email", JSON.stringify(paramEmail));
+        }
+    }
+
+    window.onbeforeunload = function () {
+        localStorage.clear();
+    };
 
 </script>

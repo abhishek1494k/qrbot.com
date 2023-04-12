@@ -83,7 +83,7 @@ const fetch_QR = async (obj) => {
 
   try {
     let response = await fetch(
-      "http://localhost:5500/qr/post", //!!----------//
+      "https://tough-tan-narwhal.cyclic.app/qr/post", //!!----------//
       {
         method: "POST",
         headers: {

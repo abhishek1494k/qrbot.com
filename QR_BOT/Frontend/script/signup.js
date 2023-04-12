@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
 
 async function fetch_sign(obj) {
   try {
-    let response = await fetch(`http://localhost:5500/signup`, {//!!----------//
+    let response = await fetch(`https://tough-tan-narwhal.cyclic.app/signup`, {//!!----------//
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -28,6 +28,7 @@ async function fetch_sign(obj) {
       body: JSON.stringify(obj),
     });
     if (response.ok) {
+      localStorage.clear();
       let ans = await response.json();
       ans.msg === "Successfully Signed Up"
         ? swal("", `${ans.msg}`, "success").then(function () {
