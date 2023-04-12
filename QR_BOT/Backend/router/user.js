@@ -16,7 +16,7 @@ UserRouter.get("/", (req, res) => {
 
 // --------------->>>>> Signup <<<<<-----------------
 UserRouter.post("/signup", async (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   try {
     const { name, email, password } = req.body;
     // Find in User Database
@@ -42,14 +42,14 @@ UserRouter.post("/signup", async (req, res) => {
 // ------------->>>>> User Login <<<<<----------------
 UserRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body)
-  let date_ob = new Date();
-  let date = ("0" + date_ob.getDate()).slice(-2);
-  let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-  let year = date_ob.getFullYear();
-  let hours = date_ob.getHours();
-  let minutes = date_ob.getMinutes();
-  let seconds = date_ob.getSeconds();
+  // console.log(req.body)
+  // let date_ob = new Date();
+  // let date = ("0" + date_ob.getDate()).slice(-2);
+  // let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+  // let year = date_ob.getFullYear();
+  // let hours = date_ob.getHours();
+  // let minutes = date_ob.getMinutes();
+  // let seconds = date_ob.getSeconds();
 
   {
     try {
@@ -77,19 +77,33 @@ UserRouter.post("/login", async (req, res) => {
               from: "email.qrbot@gmail.com",
               to: email,
               subject: "QRBot Login",
-              text: `You Loggedin into QRBot.com @ ${
-                year +
-                "-" +
-                month +
-                "-" +
-                date +
-                " " +
-                hours +
-                ":" +
-                minutes +
-                ":" +
-                seconds
-              } using Email : ${email}`,
+              html: ` <!DOCTYPE html>
+              <html>
+                <head>
+                  <title>Example Email Template</title>
+                  <meta charset="utf-8" />
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                </head>
+                <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 18px; line-height: 1.5; color: #333; padding: 20px;">
+                  <table style="width: 100%; max-width: 600px; margin: 0 auto; background-color: #fff; border-collapse: collapse;">
+                    <tr>
+                      <td style="background-color: #0077c0; text-align: center; padding: 10px;">
+                        <h1 style="font-size: 28px; color: #fff; margin: 0;">QR BOT</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 20px;">
+                        <h2 style="font-size: 24px; color: #0077c0; margin-top: 0;">Hello, [${passdata[0].name}]</h2>
+                        <h5 style="margin-bottom: 20px;">Thank you for your recent Login with ${passdata[0].email}.</h5>
+                        <p style="margin-bottom: 20px;">If you do have any issues, please don't hesitate to contact our customer service team. We're always happy to help.</p>
+                        <p style="margin-bottom: 20px;">Thank you for choosing QR BOT</p>
+                        <p style="margin-bottom: 0;">Best regards,</p>
+                        <p style="margin-bottom: 20px;">QR BOT</p>
+                      </td>
+                    </tr>
+                  </table>
+                </body>
+              </html>`
             };
             transporter
               .sendMail(mailOptions)
@@ -98,7 +112,7 @@ UserRouter.post("/login", async (req, res) => {
                   msg: "Login Successful",
                   name: passdata[0].name,
                   token: token,
-                  email: passdata[0].email
+                  email: passdata[0].email,
                 });
               })
               .catch((e) => {
