@@ -23,7 +23,7 @@ deleteBtn.addEventListener("click", async () => {
 });
 
 async function showAllUsers() {
-  let res = await fetch("hhttps://tough-tan-narwhal.cyclic.app/admin/allData")//!!----------//
+  let res = await fetch("https://tough-tan-narwhal.cyclic.app/admin/allData")//!!----------//
     .then((res) => res.json())
     .then((res) => {
       console.log(res.data);
@@ -200,7 +200,7 @@ async function activatePdt(id) {
 //------------------------------------------------------------------------
 
 async function deleteUsers() {
-  let res = await fetch("hhttps://tough-tan-narwhal.cyclic.app/admin/allData") //!!----------//
+  let res = await fetch("https://tough-tan-narwhal.cyclic.app/admin/allData") //!!----------//
     .then((res) => res.json())
     .then((res) => {
       renderDeleteUser(res.data);
