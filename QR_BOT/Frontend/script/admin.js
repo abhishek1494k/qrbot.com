@@ -23,7 +23,7 @@ deleteBtn.addEventListener("click", async () => {
 });
 
 async function showAllUsers() {
-  let res = await fetch("hhttps://tough-tan-narwhal.cyclic.app/admin/allData")//!!----------//
+  let res = await fetch("https://tough-tan-narwhal.cyclic.app/admin/allData") //!!----------//
     .then((res) => res.json())
     .then((res) => {
       console.log(res.data);
@@ -136,7 +136,8 @@ async function renderUser(bag) {
         .map((item) => {
           let status = item.status;
           let id = item._id;
-          return renderUserStatus(status, id);
+          let name = item.name;
+          return renderUserStatus(status, id, name);
         })
         .join("")}
       `;
@@ -158,20 +159,26 @@ async function renderUser(bag) {
   }
 }
 
-function renderUserStatus(status, id) {
-  return status
-    ? `<li><button data-id=${id}  class="block-btn" style="color:red;" href="#"> Block❌ </button></li>`
-    : `<li><button data-id=${id} class="activate-btn" style="color:blue;" href="#"> Activate </button></li>`;
+function renderUserStatus(status, id, name) {
+  if (name !== "Admin") {
+    return status
+      ? `<li><button data-id=${id}  class="block-btn" style="color:red;" href="#"> Block❌ </button></li>`
+      : `<li><button data-id=${id} class="activate-btn" style="color:blue;" href="#"> Activate </button></li>`;
+  }
 }
 
 async function blockPdt(id) {
   console.log(id);
-  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/blockUser/${id}`, { //!!----------//
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+  let res = await fetch(
+    `https://tough-tan-narwhal.cyclic.app/admin/blockUser/${id}`,
+    {
+      //!!----------//
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((res) => res.json())
     .then((res) => {
       console.log(res.msg);
@@ -182,12 +189,16 @@ async function blockPdt(id) {
 }
 async function activatePdt(id) {
   console.log(id);
-  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/unblockUser/${id}`, { //!!----------//
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+  let res = await fetch(
+    `https://tough-tan-narwhal.cyclic.app/admin/unblockUser/${id}`,
+    {
+      //!!----------//
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((res) => res.json())
     .then((res) => {
       console.log(res.msg);
@@ -200,7 +211,7 @@ async function activatePdt(id) {
 //------------------------------------------------------------------------
 
 async function deleteUsers() {
-  let res = await fetch("hhttps://tough-tan-narwhal.cyclic.app/admin/allData") //!!----------//
+  let res = await fetch("https://tough-tan-narwhal.cyclic.app/admin/allData") //!!----------//
     .then((res) => res.json())
     .then((res) => {
       renderDeleteUser(res.data);
@@ -235,9 +246,9 @@ async function renderDeleteUser(bag) {
   statusDiv.innerHTML = `<li class="topic">Actions</li>
       ${bag
         .map((item) => {
-          // let status = item.status;
+          let name = item.name;
           let id = item._id;
-          return renderDeleteUserStatus(id);
+          return renderDeleteUserStatus(id, name);
         })
         .join("")}
       `;
@@ -251,17 +262,23 @@ async function renderDeleteUser(bag) {
   }
 }
 
-function renderDeleteUserStatus(id) {
-  return `<li><button data-id=${id}  class="delete-btn"  href="#"> DELETE  </button></li>`;
+function renderDeleteUserStatus(id, name) {
+  if (name !== "Admin") {
+    return `<li><button data-id=${id}  class="delete-btn"  href="#"> DELETE  </button></li>`;
+  }
 }
 
 async function deletePdt(id) {
-  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/deleteUser/${id}`, { //!!----------//
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+  let res = await fetch(
+    `https://tough-tan-narwhal.cyclic.app/admin/deleteUser/${id}`,
+    {
+      //!!----------//
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((res) => res.json())
     .then((res) => {
       console.log(res.msg);
