@@ -156,7 +156,7 @@ POST /api/qr/post
 | :----: | 
    
 
-[https://www-qrbot-com.netlify.app/]
+[https://qrbot.netlify.app/]
 
 Scan for Deployed Link: 
 
@@ -184,8 +184,6 @@ Scan for Deployed Link:
 admin@gmail.com
 admin
  -->
-
-
 <!-- <img src="mongodb+srv://QRBot:QRBot@qrbot.oagp3ux.mongodb.net/QRBot?retryWrites=true&w=majority" /> -->
 <!-- port=5500 -->
 <!-- token_secret="Secret" -->
