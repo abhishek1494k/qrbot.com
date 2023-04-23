@@ -228,7 +228,7 @@
         const paramEmail = urlParams.get('email');
         const paramValue = urlParams.get('id');
         const paramName = urlParams.get('name');
-        // console.log("paramValue, paramName, paramEmail", paramValue, paramName, paramEmail);
+        console.log("paramValue, paramName, paramEmail", paramValue, paramName, paramEmail);
         if (paramValue && paramName && paramEmail) {
             localStorage.setItem("token", JSON.stringify(paramValue));
             localStorage.setItem("name", JSON.stringify(paramName));
