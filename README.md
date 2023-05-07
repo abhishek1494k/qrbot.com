@@ -176,14 +176,13 @@ Scan for Deployed Link:
  
  [@Yuvraj1307](https://github.com/Yuvraj1307) 
  
-<!-- | `Admin` |
+| `Admin` |
 | :-----: | 
 
-
-/admin.login.html
+https://qrbot.netlify.app/html/admin
 admin@gmail.com
 admin
- -->
+
 <!-- <img src="mongodb+srv://QRBot:QRBot@qrbot.oagp3ux.mongodb.net/QRBot?retryWrites=true&w=majority" /> -->
 <!-- port=5500 -->
 <!-- token_secret="Secret" -->
