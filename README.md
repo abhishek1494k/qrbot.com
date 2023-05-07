@@ -161,6 +161,11 @@ POST /api/qr/post
  <img src="https://user-images.githubusercontent.com/112754448/221421205-c42d3aa1-0609-4eee-b248-184d9562e5de.png" width="600" height="250"/>
  <img src="https://user-images.githubusercontent.com/112754448/221421220-db91dccc-16bb-40eb-9e33-45ca065f176f.png" width="600" height="250"/>
  
+ ![image](https://user-images.githubusercontent.com/112754448/236664863-d999408c-2c7d-465f-a18b-dd70191975e8.png)
+
+![image](https://user-images.githubusercontent.com/112754448/236664881-b299e261-42e0-4b5c-ae73-436e27cb2450.png)
+
+ 
 <div/>
   
 
