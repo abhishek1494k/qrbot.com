@@ -1,3 +1,15 @@
+ 
+<!-- | `Admin` |
+| :-----: |  -->
+
+<!-- https://qrbot.netlify.app/html/admin
+admin@gmail.com
+admin -->
+
+<!-- <img src="mongodb+srv://QRBot:QRBot@qrbot.oagp3ux.mongodb.net/QRBot?retryWrites=true&w=majority" /> -->
+<!-- port=5500 -->
+<!-- token_secret="Secret" -->
+
 <div align="center"  width="65" height="75">
   <img src="https://github.com/abhishek1494k/QRBOT.com/blob/main/Images/QR%20BOT.png?raw=true" alt="html" width="120" height="120"/>
 </div>
@@ -175,14 +187,4 @@ Scan for Deployed Link:
  [@Yunuslala](https://github.com/Yunuslala) 
  
  [@Yuvraj1307](https://github.com/Yuvraj1307) 
- 
-| `Admin` |
-| :-----: | 
 
-https://qrbot.netlify.app/html/admin
-admin@gmail.com
-admin
-
-<!-- <img src="mongodb+srv://QRBot:QRBot@qrbot.oagp3ux.mongodb.net/QRBot?retryWrites=true&w=majority" /> -->
-<!-- port=5500 -->
-<!-- token_secret="Secret" -->
