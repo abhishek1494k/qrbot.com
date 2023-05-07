@@ -165,6 +165,8 @@ POST /api/qr/post
 
 ![image](https://user-images.githubusercontent.com/112754448/236664881-b299e261-42e0-4b5c-ae73-436e27cb2450.png)
 
+ ![image](https://user-images.githubusercontent.com/112754448/236664961-8d75f7ce-170a-435e-a0f3-ec420cedc062.png)
+
  
 <div/>
   
