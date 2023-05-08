@@ -2,9 +2,12 @@
 <!-- | `Admin` |
 | :-----: |  -->
 
+
+
 <!-- https://qrbot.netlify.app/html/admin
 admin@gmail.com
-admin -->
+admin
+email.qrbot@gmail.com-->
 
 <!-- <img src="mongodb+srv://QRBot:QRBot@qrbot.oagp3ux.mongodb.net/QRBot?retryWrites=true&w=majority" /> -->
 <!-- port=5500 -->
