@@ -1,3 +1,4 @@
+// import baseURL from "./baseURL";
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -18,7 +19,7 @@ form.addEventListener("submit", (e) => {
 
 async function fetch_sign(obj) {
   try {
-    let response = await fetch(`https://tough-tan-narwhal.cyclic.app/signup`, {//!!----------//
+    let response = await fetch(`https://qrbot-backend.onrender.com/signup`, {//!!----------//
       method: "POST",
       headers: {
         "Content-Type": "Application/json",

@@ -1,3 +1,4 @@
+// import baseURL from "./baseURL";
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
@@ -21,7 +22,7 @@ form.addEventListener("submit", (e) => {
 async function fetch_login(obj) {
   try {
     
-    let response = await fetch(`https://tough-tan-narwhal.cyclic.app/login`, {//!!----------
+    let response = await fetch(`https://qrbot-backend.onrender.com/login`, {//!!----------
       method: "POST",
       headers: {
         "Content-Type": "Application/json",

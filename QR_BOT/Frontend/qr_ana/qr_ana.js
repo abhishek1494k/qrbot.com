@@ -1,3 +1,5 @@
+let baseURL = "https://qrbot-backend.onrender.com/";
+
 const wrapper = document.querySelector(".wrapper"),
   form = wrapper.querySelector("form"),
   fileInp = form.querySelector("input");
@@ -48,11 +50,12 @@ closeBtn.addEventListener("click", () => {
 });
 
 async function addQRResult(data) {
-    let obj = {
+  let obj = {
     url: data,
   };
   try {
-    let res = await fetch("https://tough-tan-narwhal.cyclic.app/qrana/post", { //!!----------//
+    let res = await fetch(baseURL + "qrana/post", {
+      //!!----------//
       method: "POST",
       headers: {
         "Content-Type": "application/json",

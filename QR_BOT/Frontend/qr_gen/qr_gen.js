@@ -1,3 +1,4 @@
+let baseURL = "https://qrbot-backend.onrender.com/";
 const form = document.getElementById("generate-form");
 const qr = document.getElementById("qrcode");
 
@@ -83,7 +84,7 @@ const fetch_QR = async (obj) => {
 
   try {
     let response = await fetch(
-      "https://tough-tan-narwhal.cyclic.app/qr/post", //!!----------//
+      baseURL+"qr/post", //!!----------//
       {
         method: "POST",
         headers: {

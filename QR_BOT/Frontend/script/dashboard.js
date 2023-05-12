@@ -1,3 +1,8 @@
+let baseURL="https://qrbot-backend.onrender.com/"
+
+
+
+
 let btn1 = document.getElementById("btn1");
 let btn2 = document.getElementById("btn2");
 let gen = document.getElementById("gen");
@@ -12,7 +17,7 @@ btn1.addEventListener("click", () => {
 
 async function showAllUsers() {
   let email = JSON.parse(localStorage.getItem("email"));
-  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/usersQR/${email}`) //!!----------//
+  let res = await fetch(baseURL+`admin/usersQR/${email}`) //!!----------//
     .then((res) => res.json())
     .then((res) => {
       let arr1 = res.data;
@@ -49,7 +54,7 @@ btn2.addEventListener("click", () => {
 
 async function showAllUsersQRAna() {
   let email = JSON.parse(localStorage.getItem("email"));
-  let res = await fetch(`https://tough-tan-narwhal.cyclic.app/admin/usersQRAna/${email}`) //!!----------//
+  let res = await fetch(baseURL+`admin/usersQRAna/${email}`) //!!----------//
     .then((res) => res.json())
     .then((res) => {
       let arr1 = res.data;
